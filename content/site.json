@@ -1,0 +1,45 @@
+{
+  "name": "Studio Index",
+  "tagline": "Creative Direction + Visual Production",
+  "introduction": "A study collection of films and stills in fashion, technology and industrial design. The work index lists the production techniques and year for each project.",
+  "disciplines": [
+    "Creative Direction",
+    "Art Direction",
+    "CGI",
+    "AI Generation",
+    "Editing",
+    "VFX"
+  ],
+  "featured": [
+    "Equinox",
+    "Mercedes Benz",
+    "Prada",
+    "TAG Heuer x Porsche",
+    "Air Company",
+    "T1 Energy",
+    "Salomon",
+    "Puma",
+    "Dolly Cohen",
+    "Raura"
+  ],
+  "contact": [
+    {
+      "label": "Email",
+      "href": "mailto:bmeng999920@gmail.com"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/bmen-design/bocheng.meng"
+    }
+  ],
+  "footerNote": "Portfolio interface study",
+  "selectedFilms": [
+    "sisyphe",
+    "mercedes",
+    "salomon",
+    "air-company",
+    "puma",
+    "poclain",
+    "tag-heuer-x-porsche"
+  ]
+}

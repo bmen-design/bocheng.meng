@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <base href="$document_base">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <title>$title</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/site.js"></script>
+</head>
+<body data-template="$view">
+  <div id="loader"></div>
+  <div id="site" class="font-sans-small">
+    <header id="site-header">
+      <a id="site-header-logo" class="cta-inline cta-inline--expanded link-ajax link-ajax--home$home_active" href="./" aria-label="$name, home">
+        <span class="cta-inline-icon">
+          <svg aria-hidden="true" data-icon="logo" viewBox="0 0 128 10">
+            <text x="0" y="9.5" font-family="Arial Black,Helvetica,Arial,sans-serif" font-size="13" font-weight="900" letter-spacing="1.25" textLength="128" lengthAdjust="spacingAndGlyphs">$wordmark</text>
+          </svg>
+        </span>
+      </a>
+      <p id="site-header-tagline">$tagline</p>
+    </header>
+    <ul id="site-menu">$menu</ul>
+    <aside id="study-note">
+      <span>Independent study for educational purposes only. Unaffiliated with the original portfolio or featured brands.</span>
+      $local_picker
+    </aside>
+    <main id="site-main">$main</main>
+    <footer id="site-footer">
+      <ul id="site-footer-menu">$footer_links</ul>
+      <div id="site-footer-colophon">
+        <div id="site-footer-colophon-credits"><p>$name</p></div>
+        <div id="site-footer-colophon-copyright"><p>$footer_note</p></div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
