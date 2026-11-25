@@ -1,47 +1,6 @@
 const desktop = matchMedia('(hover: hover) and (pointer: fine)');
 const quiet = matchMedia('(prefers-reduced-motion: reduce)');
 
-const selectedFiles = new Map();
-const objectURLs = new Map();
-const splitFilms = new Map();
-
-function selectFiles(files) {
-  for (const url of objectURLs.values()) URL.revokeObjectURL(url);
-  objectURLs.clear();
-  selectedFiles.clear();
-  splitFilms.clear();
-  for (const file of files) {
-    const relative = file.webkitRelativePath.split('/');
-    if (relative.length < 2 || file.name.startsWith('.')) continue;
-    const key = '/media/' + relative.slice(1).join('/');
-    selectedFiles.set(key, file);
-    const part = /^(.*\.mp4)\.part(\d{3})$/i.exec(key);
-    if (part) {
-      const group = splitFilms.get(part[1]) ?? new Map();
-      group.set(Number(part[2]), file);
-      splitFilms.set(part[1], group);
-    }
-  }
-}
-
-function objectURL(key) {
-  if (objectURLs.has(key)) return objectURLs.get(key);
-  let file = selectedFiles.get(key);
-  const parts = splitFilms.get(key);
-  if (!file && parts) {
-    const ordered = [];
-    for (let i = 1; i <= parts.size; i++) {
-      if (!parts.has(i)) return null;
-      ordered.push(parts.get(i));
-    }
-    file = new Blob(ordered, { type: 'video/mp4' });
-  }
-  if (!file) return null;
-  const url = URL.createObjectURL(file);
-  objectURLs.set(key, url);
-  return url;
-}
-
 function mount() {
   const listeners = new AbortController();
   const signal = listeners.signal;
@@ -62,27 +21,9 @@ function mount() {
     media.classList.add('lazyloaded');
   }
 
-  function sizeImage(image) {
-    const width = image.clientWidth;
-    if (width) image.sizes = Math.ceil(width) + 'px';
-  }
-
-  const measureImages = new ResizeObserver((entries) => {
-    for (const entry of entries) sizeImage(entry.target);
-  });
-
   for (const image of document.images) {
-    if (image.dataset.localSrc) continue;
-    image.addEventListener('load', () => reveal(image), { once: true });
-    image.decoding = 'async';
-    image.loading = 'lazy';
-    if (image.dataset.srcset) {
-      sizeImage(image);
-      measureImages.observe(image);
-      image.srcset = image.dataset.srcset;
-    }
-    if (image.dataset.src) image.src = image.dataset.src;
     if (image.complete && image.naturalWidth) reveal(image);
+    else image.addEventListener('load', () => reveal(image), { once: true });
   }
 
   function showPreview(row) {
@@ -98,10 +39,7 @@ function mount() {
     if (next) {
       next.hidden = false;
       const image = next.querySelector('img');
-      if (image) {
-        image.loading = 'eager';
-        if (image.dataset.srcset) sizeImage(image);
-      }
+      if (image) image.loading = 'eager';
     }
   }
 
@@ -232,12 +170,7 @@ function mount() {
 
   const inView = new IntersectionObserver((entries) => {
     for (const { target: film, isIntersecting } of entries) {
-      if (
-        isIntersecting &&
-        film.hasAttribute('src') &&
-        !quiet.matches &&
-        !document.hidden
-      ) {
+      if (isIntersecting && !quiet.matches && !document.hidden) {
         film.muted = true;
         startFilm(film);
       } else if (!isIntersecting) {
@@ -282,7 +215,7 @@ function mount() {
     }
     syncAudio(video);
     if (video.readyState >= 2) reveal(video);
-    if (video.hasAttribute('src')) inView.observe(video);
+    inView.observe(video);
   }
 
   document.addEventListener(
@@ -293,7 +226,7 @@ function mount() {
       } else {
         for (const video of films) {
           inView.unobserve(video);
-          if (video.hasAttribute('src')) inView.observe(video);
+          inView.observe(video);
         }
       }
     },
@@ -327,53 +260,9 @@ function mount() {
     );
   }
 
-  function applyFolder() {
-    let found = 0;
-    for (const media of document.querySelectorAll('[data-local-src]')) {
-      const local = objectURL(media.dataset.localSrc);
-      const thumbnail =
-        media.closest('figure, widget-player') ?? media.parentElement;
-      const fallback = thumbnail.querySelector('.media-card');
-      const controls = thumbnail.querySelector('.grid-project-figure-controls');
-      if (fallback) fallback.hidden = !!local;
-      if (controls) controls.hidden = !local;
-      media.hidden = !local;
-      if (local) {
-        found++;
-        media.src = local;
-        if (media.tagName === 'VIDEO') {
-          inView.observe(media);
-        } else {
-          media.onload = () => reveal(media);
-          reveal(media);
-        }
-      } else if (media.hasAttribute('src')) {
-        if (media.tagName === 'VIDEO') {
-          inView.unobserve(media);
-          media.pause();
-        }
-        media.removeAttribute('src');
-        if (media.tagName === 'VIDEO') media.load();
-      }
-    }
-    const feedback = document.querySelector('#media-status');
-    if (feedback && selectedFiles.size) {
-      feedback.textContent = found
-        ? 'Local media connected.'
-        : 'No matching media on this page.';
-    }
-  }
-
-  const picker = document.getElementById('local-media');
-  picker?.addEventListener('change', () => {
-    if (!picker.files.length) return;
-    selectFiles(picker.files);
-    applyFolder();
-  });
   desktop.addEventListener('change', setDevice, { signal });
   setDevice();
   restoreMenu();
-  applyFolder();
   document.getElementById('loader')?.classList.add('completed');
   fade(false);
   return {
@@ -384,7 +273,6 @@ function mount() {
       listeners.abort();
       inView.disconnect();
       measurePanels.disconnect();
-      measureImages.disconnect();
       for (const film of films) {
         film.pause();
         film.removeAttribute('src');

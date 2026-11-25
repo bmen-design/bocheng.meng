@@ -16,26 +16,7 @@ def icon(name):
     return f'<span class="cta-pill-icon">{ICONS[name]}</span>'
 
 
-CARD_TONES = (
-    ("#27332f", "#dce9b1"), ("#5b2c26", "#fff0cd"), ("#cec8bb", "#35312b"),
-    ("#b5d2dd", "#1b3a44"), ("#34313a", "#f3dfff"), ("#d05e3c", "#251d17"),
-    ("#25374a", "#d7eafa"), ("#b3b69c", "#343723"), ("#e2b63c", "#392d0b"),
-    ("#50493e", "#e8dfbb"), ("#714555", "#f7dfe9"), ("#cad8d1", "#35453d"),
-)
-
-
-def media_card(src, label):
-    slug = src.strip("/").split("/")[1]
-    color, ink = CARD_TONES[sum((i + 1) * ord(c) for i, c in enumerate(slug)) % len(CARD_TONES)]
-    return (f'<div class="media-card" style="--card-color:{color};--card-ink:{ink}">'
-            f'<span>{escape(label)}</span></div>')
-
-
 def image(src, alt):
-    file = ROOT / src.lstrip("/")
-    if not file.is_file():
-        return (media_card(src, alt) + f'<img class="thumb" data-local-src="{escape(src)}" '
-                f'alt="{escape(alt)}" hidden>')
     stem = src.lstrip("/").rsplit(".", 1)[0]
     variants = [f"{escape(stem)}-{width}.webp {width}w" for width in WIDTHS
                 if (ROOT / f"{stem}-{width}.webp").is_file()]
@@ -170,18 +151,10 @@ def gallery(project):
         if "controls" in item:
             tag = "widget-player"
             state = ' data-state="idle"'
-            source = item["src"]
-            file = ROOT / source.lstrip("/")
-            available = file.is_file() or file.with_name(file.name + ".part001").is_file()
-            path_attr = (f'src="{escape(source.lstrip("/"))}#t=0.1"' if available
-                         else f'data-local-src="{escape(source)}" hidden')
-            player = (f'<video class="thumb lazy" preload="metadata" playsinline webkit-playsinline '
-                      f'muted loop {path_attr} aria-label="{escape(label)}"></video>')
-            if not available:
-                player = media_card(source, label) + player
+            source = escape(item["src"].lstrip("/"))
+            player = (f'<video class="thumb" preload="metadata" playsinline '
+                      f'muted loop src="{source}#t=0.1" aria-label="{escape(label)}"></video>')
             controls = video_controls(item["controls"])
-            if not available:
-                controls = controls.replace('class="grid-project-figure-controls"', 'class="grid-project-figure-controls" hidden', 1)
         else:
             player = image(item["src"], label)
         figures.append(f'<{tag} class="grid-project-figure" data-size="{escape(item["size"])}">'
@@ -248,13 +221,8 @@ def render(path, document_base="/"):
                 + paragraph("Information", "The page doesn’t exist.") + '</div>')
         title = f'404 — {title}'
     template = Template((ROOT / "templates/page.html").read_text())
-    local_picker = ""
-    if not all((ROOT / p["cover"].lstrip("/")).is_file() for p in projects.values()):
-        local_picker = ('<label class="study-load"><span>Open local media</span>'
-                        '<input type="file" id="local-media" webkitdirectory multiple></label>'
-                        '<span id="media-status" role="status"></span>')
     html = template.substitute(
-        document_base=escape(document_base), local_picker=local_picker,
+        document_base=escape(document_base),
         title=escape(title), view=view, name=escape(site["name"]), wordmark=escape(site["name"].upper()),
         tagline=escape(site["tagline"]), home_active=" active" if view == "home" else "",
         menu=work_menu(catalog["projects"], slug) + about_menu(site, catalog["projects"]), main=main,

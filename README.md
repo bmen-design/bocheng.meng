@@ -12,7 +12,7 @@ Run `python3 serve.py --open` or double-click `Start.command` on macOS. The prev
 
 `content/projects.json` contains the project order, metadata and gallery layouts. The site name, contact links and About panel are in `content/site.json`. The page shell is in `templates/page.html`, with layout and interaction code in `assets/`.
 
-The media paths in the catalogue are relative to the site root. Use **Open local media** to preview a matching media folder in your browser tab. The files stay on your device. Images and videos bundled at build time are served directly.
+The media paths in the catalogue are relative to the site root. Images and films live under `media/<project>/`. The largest film is stored in numbered parts for Git and reassembled into a single MP4 during the build. The local preview also supports seeking within that film.
 
 ## Build
 
