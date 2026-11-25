@@ -60,46 +60,55 @@
         }
       ],
       "links": [],
-      "cover": "/media/home/novoprotein-web.webp",
-      "alt": "The mobile Novoprotein homepage shown on a graphite phone, with the orange and blue protein illustration.",
+      "cover": "/media/cases/novoprotein-web/01-cover.webp",
+      "alt": "The mobile Novoprotein homepage with its wordmark, headline, protein illustration and product search.",
       "gallery": [
         {
           "src": "/media/cases/novoprotein-web/01.png",
-          "size": "large",
           "ratio": 1.72413793,
-          "alt": "Desktop and phone homepages with the headline “Growth Factors and Cytokines” beside a blue and orange protein illustration."
+          "alt": "Desktop and phone homepages with the headline “Growth Factors and Cytokines” beside a blue and orange protein illustration.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/novoprotein-web/02.png",
-          "size": "small",
           "ratio": 0.21379166,
-          "alt": "Full desktop homepage, from the product search and illustrated category cards to company news and the enquiry form."
+          "alt": "Full desktop homepage, from the product search and illustrated category cards to company news and the enquiry form.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/novoprotein-web/03.png",
-          "size": "small",
           "ratio": 0.06243236,
-          "alt": "Full mobile homepage with product categories, research content and contact fields stacked in a single column."
+          "alt": "Full mobile homepage with product categories, research content and contact fields stacked in a single column.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/novoprotein-web/04.png",
-          "size": "large",
           "ratio": 1.41242938,
-          "alt": "Interface foundations board with colour swatches, heading sizes and examples of text hierarchy."
+          "alt": "Interface foundations board with colour swatches, heading sizes and examples of text hierarchy.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/novoprotein-web/05.png",
-          "size": "large",
           "ratio": 1.39146568,
-          "alt": "Black and orange button variants, navigation elements and a quick enquiry form."
+          "alt": "Black and orange button variants, navigation elements and a quick enquiry form.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/novoprotein-web/06.png",
-          "size": "large",
           "ratio": 1.27496813,
-          "alt": "Four illustrated product cards in pastel colours above a news module with a laboratory photograph."
+          "alt": "Four illustrated product cards in pastel colours above a news module with a laboratory photograph.",
+          "matte": "#e5e5e5"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/novoprotein-web/01.png",
+        "rect": [
+          2320,
+          316,
+          640,
+          800
+        ]
+      }
     },
     {
       "slug": "novoprotein-identity",
@@ -172,130 +181,139 @@
         }
       ],
       "links": [],
-      "cover": "/media/home/novoprotein-identity.webp",
-      "alt": "An orange Novoprotein wordmark card over a close-up of labelled laboratory sample tubes.",
+      "cover": "/media/cases/novoprotein-identity/12-cover.webp",
+      "alt": "Blue and cream protein ribbons on the orange field from the Novoprotein identity.",
       "gallery": [
         {
           "src": "/media/cases/novoprotein-identity/01.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "White lowercase Novoprotein wordmark centred on bright orange."
+          "alt": "White lowercase Novoprotein wordmark centred on bright orange.",
+          "matte": "#ff6e1f"
         },
         {
           "src": "/media/cases/novoprotein-identity/02.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Orange Novoprotein wordmark centred on a cream background."
+          "alt": "Orange Novoprotein wordmark centred on a cream background.",
+          "matte": "#f0f1ea"
         },
         {
           "src": "/media/cases/novoprotein-identity/03.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Review of the existing identity, with examples of colour palettes and wordmarks at left and scientific graphics at right."
+          "alt": "Review of the existing identity, with examples of colour palettes and wordmarks at left and scientific graphics at right.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/04.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Two orange panels comparing versions of the white wordmark, with enlargement guides beneath."
+          "alt": "Two orange panels comparing versions of the white wordmark, with enlargement guides beneath.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/05.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Orange Novoprotein lettering over a grid of vertical, horizontal and curved construction lines."
+          "alt": "Orange Novoprotein lettering over a grid of vertical, horizontal and curved construction lines.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/06.png",
-          "size": "large",
           "ratio": 1.88235294,
-          "alt": "Brand palette with a large orange field beside a blue scale and smaller warm and neutral swatches."
+          "alt": "Brand palette with a large orange field beside a blue scale and smaller warm and neutral swatches.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/07.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Typeface specimen showing uppercase letters, numbers, lowercase letters and punctuation in different styles."
+          "alt": "Typeface specimen showing uppercase letters, numbers, lowercase letters and punctuation in different styles.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/08.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Type hierarchy and spacing guide with a large headline, ruled examples and a size table."
+          "alt": "Type hierarchy and spacing guide with a large headline, ruled examples and a size table.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/09.jpg",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Blue and orange ribbons interweave on cream, surrounded by small dots and fine curved lines."
+          "alt": "Blue and orange ribbons interweave on cream, surrounded by small dots and fine curved lines.",
+          "matte": "#f1f2ed"
         },
         {
           "src": "/media/cases/novoprotein-identity/10.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Six scientific illustrations using different ribbon shapes, coils and clusters in blue and orange."
+          "alt": "Six scientific illustrations using different ribbon shapes, coils and clusters in blue and orange.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/11.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Three illustrations shown against cream, orange and charcoal backgrounds."
+          "alt": "Three illustrations shown against cream, orange and charcoal backgrounds.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/novoprotein-identity/12.jpg",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Blue and pale ribbons twisting vertically against a saturated orange background."
+          "alt": "Blue and pale ribbons twisting vertically against a saturated orange background.",
+          "matte": "#ff6e1f"
         },
         {
           "src": "/media/cases/novoprotein-identity/13.jpg",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "A vertical blue and orange ribbon structure on cream with small scattered dots."
+          "alt": "A vertical blue and orange ribbon structure on cream with small scattered dots.",
+          "matte": "#f1f2ed"
         },
         {
           "src": "/media/cases/novoprotein-identity/14.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Presentation cover with an orange title at left and a close-up photograph of labelled sample tubes at right."
+          "alt": "Presentation cover with an orange title at left and a close-up photograph of labelled sample tubes at right.",
+          "matte": "#f0f1ea"
         },
         {
           "src": "/media/cases/novoprotein-identity/15.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Slide pairing a large black statement and supporting text with two vertical laboratory photographs."
+          "alt": "Slide pairing a large black statement and supporting text with two vertical laboratory photographs.",
+          "matte": "#f0f1ea"
         },
         {
           "src": "/media/cases/novoprotein-identity/16.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Four narrow columns of body copy beneath a large left-aligned headline."
+          "alt": "Four narrow columns of body copy beneath a large left-aligned headline.",
+          "matte": "#f0f1ea"
         },
         {
           "src": "/media/cases/novoprotein-identity/17.png",
-          "size": "large",
           "ratio": 1.77777778,
-          "alt": "Eight laboratory photographs arranged in two rows, each with a short caption below."
+          "alt": "Eight laboratory photographs arranged in two rows, each with a short caption below.",
+          "matte": "#f0f1ea"
         },
         {
           "src": "/media/cases/novoprotein-identity/18.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "Orange section slide marked 04 beside a photograph of sample tubes in an orange rack."
+          "alt": "Orange section slide marked 04 beside a photograph of sample tubes in an orange rack.",
+          "matte": "#ff6e1f"
         },
         {
           "src": "/media/cases/novoprotein-identity/19.png",
-          "size": "small",
           "ratio": 1.77777778,
-          "alt": "White serif statement on solid orange, with smaller black annotations at the corners."
+          "alt": "White serif statement on solid orange, with smaller black annotations at the corners.",
+          "matte": "#ff6e1f"
         },
         {
           "src": "/media/cases/novoprotein-identity/20.png",
-          "size": "large",
           "ratio": 1.72413793,
-          "alt": "Overview of sixteen slide layouts using cream, orange and navy backgrounds."
+          "alt": "Overview of sixteen slide layouts using cream, orange and navy backgrounds.",
+          "matte": "#fafbf8"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/novoprotein-identity/12.jpg",
+        "rect": [
+          2200,
+          0,
+          3600,
+          4500
+        ]
+      }
     },
     {
       "slug": "uxtester",
@@ -377,100 +395,109 @@
           "href": "https://www.figma.com/design/LEbHyhFwKLO2Hxs9Pcu4Xb"
         }
       ],
-      "cover": "/media/home/uxtester.webp",
-      "alt": "A desktop monitor showing a recorded research session and observation log in uxtester.",
+      "cover": "/media/cases/uxtester/02-cover.webp",
+      "alt": "A recorded observation session above the timestamped findings table in uxtester.",
       "gallery": [
         {
           "src": "/media/cases/uxtester/01.png",
-          "size": "large",
           "ratio": 1.25322521,
-          "alt": "Zoomed-out design canvas showing groups of usability-testing screens and their connections."
+          "alt": "Zoomed-out design canvas showing groups of usability-testing screens and their connections.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/02.png",
-          "size": "large",
           "ratio": 1.36116152,
-          "alt": "Live observation screen with camera feeds above a timestamped issue table and a note panel on the right."
+          "alt": "Live observation screen with camera feeds above a timestamped issue table and a note panel on the right.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/03.png",
-          "size": "large",
           "ratio": 1.31291028,
-          "alt": "Study setup screens showing the task script, a participant table and a scheduling view."
+          "alt": "Study setup screens showing the task script, a participant table and a scheduling view.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/04.png",
-          "size": "large",
           "ratio": 2.06896552,
-          "alt": "Recording playback with a thumbnail strip and issue list beside a separate table of grouped findings."
+          "alt": "Recording playback with a thumbnail strip and issue list beside a separate table of grouped findings.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/05.png",
-          "size": "large",
           "ratio": 1.53846154,
-          "alt": "Selected video clips arranged in rows, with a second panel for choosing clips to export."
+          "alt": "Selected video clips arranged in rows, with a second panel for choosing clips to export.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/06.png",
-          "size": "large",
           "ratio": 1.48367953,
-          "alt": "Findings dashboard with four multicoloured ring charts and summary values underneath."
+          "alt": "Findings dashboard with four multicoloured ring charts and summary values underneath.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/07.png",
-          "size": "large",
           "ratio": 1.89873418,
-          "alt": "A satisfaction report prototype beside its detailed interface with questions and response tables."
+          "alt": "A satisfaction report prototype beside its detailed interface with questions and response tables.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/08.png",
-          "size": "large",
           "ratio": 1.53313551,
-          "alt": "Zoomed-out analysis report canvas with screen thumbnails, flow lines and annotation blocks."
+          "alt": "Zoomed-out analysis report canvas with screen thumbnails, flow lines and annotation blocks.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/09.png",
-          "size": "small",
           "ratio": 1.69779287,
-          "alt": "Component library pages for colour swatches, type weights, spacing and size scales."
+          "alt": "Component library pages for colour swatches, type weights, spacing and size scales.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/10.png",
-          "size": "small",
           "ratio": 1.73812283,
-          "alt": "uxtester wordmarks and a grid of small product icons on light and dark backgrounds."
+          "alt": "uxtester wordmarks and a grid of small product icons on light and dark backgrounds.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/11.png",
-          "size": "large",
           "ratio": 1.27011008,
-          "alt": "Basic controls including blue buttons, text fields, selection controls and validation states."
+          "alt": "Basic controls including blue buttons, text fields, selection controls and validation states.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/12.png",
-          "size": "small",
           "ratio": 1.81488203,
-          "alt": "Blue workspace illustrations beside sign-in and account verification forms in several states."
+          "alt": "Blue workspace illustrations beside sign-in and account verification forms in several states.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/13.png",
-          "size": "small",
           "ratio": 1.47058824,
-          "alt": "Project management components and workspace screens with filled, empty and action states."
+          "alt": "Project management components and workspace screens with filled, empty and action states.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/14.png",
-          "size": "large",
           "ratio": 1.34408602,
-          "alt": "Audio and video recording controls in several states, with three video thumbnails on a dark strip."
+          "alt": "Audio and video recording controls in several states, with three video thumbnails on a dark strip.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/uxtester/15.png",
-          "size": "large",
           "ratio": 1.60576923,
-          "alt": "Four account email layouts with the uxtester mark, a narrow text column and support footer."
+          "alt": "Four account email layouts with the uxtester mark, a narrow text column and support footer.",
+          "matte": "#e5e5e5"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/uxtester/02.png",
+        "rect": [
+          764,
+          310,
+          1152,
+          1440
+        ]
+      }
     },
     {
       "slug": "bull-user-echo",
@@ -548,70 +575,79 @@
           "href": "https://www.figma.com/design/M7wv53a24IO0lqzDZGY5rI"
         }
       ],
-      "cover": "/media/home/bull-user-echo.webp",
-      "alt": "Layered Bull User Echo dashboard views showing feedback trends and bar charts.",
+      "cover": "/media/cases/bull-user-echo/05-cover.webp",
+      "alt": "A detail of the Bull User Echo dashboard with blue, green and purple bar charts.",
       "gallery": [
         {
           "src": "/media/cases/bull-user-echo/01.png",
-          "size": "large",
           "ratio": 1.40318054,
-          "alt": "Zoomed-out design canvas with groups of dashboard, analysis and alert screens."
+          "alt": "Zoomed-out design canvas with groups of dashboard, analysis and alert screens.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/02.png",
-          "size": "large",
           "ratio": 1.57894737,
-          "alt": "Overview dashboard with three summary metrics, two red bars and a blue and pink area chart."
+          "alt": "Overview dashboard with three summary metrics, two red bars and a blue and pink area chart.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/03.png",
-          "size": "small",
           "ratio": 1.92431046,
-          "alt": "Filtered product list beside a product detail screen with a product image, specifications and comparison table."
+          "alt": "Filtered product list beside a product detail screen with a product image, specifications and comparison table.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/04.png",
-          "size": "small",
           "ratio": 2.06896552,
-          "alt": "Side-by-side views of a product comparison table and a four-quadrant positioning chart."
+          "alt": "Side-by-side views of a product comparison table and a four-quadrant positioning chart.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/05.png",
-          "size": "large",
           "ratio": 1.57248157,
-          "alt": "Three stages of a drill-down, adding rows of blue, teal and purple bars at each level."
+          "alt": "Three stages of a drill-down, adding rows of blue, teal and purple bars at each level.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/06.png",
-          "size": "large",
           "ratio": 2.0,
-          "alt": "Review analysis table beside a dimmed screen with a word-cloud overlay."
+          "alt": "Review analysis table beside a dimmed screen with a word-cloud overlay.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/07.png",
-          "size": "large",
           "ratio": 1.57894737,
-          "alt": "A multicoloured pie chart and a Chinese word cloud shown in adjacent panels."
+          "alt": "A multicoloured pie chart and a Chinese word cloud shown in adjacent panels.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/08.png",
-          "size": "large",
           "ratio": 1.40252454,
-          "alt": "Alert rule form, alert list and a detail view of the products and reviews associated with an alert."
+          "alt": "Alert rule form, alert list and a detail view of the products and reviews associated with an alert.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/09.png",
-          "size": "small",
           "ratio": 1.48367953,
-          "alt": "Component board showing filter controls, table rows, coloured charts and chart labels."
+          "alt": "Component board showing filter controls, table rows, coloured charts and chart labels.",
+          "matte": "#e5e5e5"
         },
         {
           "src": "/media/cases/bull-user-echo/10.png",
-          "size": "small",
           "ratio": 1.45489816,
-          "alt": "Blue bar-chart filter examples above four word-cloud selection states."
+          "alt": "Blue bar-chart filter examples above four word-cloud selection states.",
+          "matte": "#e5e5e5"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/bull-user-echo/05.png",
+        "rect": [
+          1516,
+          270,
+          1200,
+          1500
+        ]
+      }
     },
     {
       "slug": "the-red-pack",
@@ -639,12 +675,11 @@
       ],
       "credits": [],
       "links": [],
-      "cover": "/media/home/the-red-pack.webp",
-      "alt": "A rendering of the ridged travel case suspended above a rust-coloured landscape.",
+      "cover": "/media/cases/the-red-pack/01-cover.webp",
+      "alt": "The open travel case above the rocky terrain, a still from The Red Pack film.",
       "gallery": [
         {
           "src": "/media/cases/the-red-pack/01.mp4",
-          "size": "large",
           "ratio": 2.38888889,
           "controls": [
             "play",
@@ -655,29 +690,36 @@
         },
         {
           "src": "/media/cases/the-red-pack/02.png",
-          "size": "large",
           "ratio": 2.02777778,
           "alt": "Research board with a mission diagram of coloured circles, a journey map and notes about the crew."
         },
         {
           "src": "/media/cases/the-red-pack/03.png",
-          "size": "large",
           "ratio": 2.02777778,
           "alt": "Design strategy board combining reference images, concept sketches and a proposed Mars Community identity."
         },
         {
           "src": "/media/cases/the-red-pack/04.png",
-          "size": "large",
           "ratio": 2.02777778,
           "alt": "Product and experience board with suitcase details, material samples and diagrams of how the modules fit together."
         },
         {
           "src": "/media/cases/the-red-pack/05.png",
-          "size": "large",
           "ratio": 2.02777778,
-          "alt": "Phone screens and close-up device views showing packing interactions and the planting interface."
+          "alt": "Phone screens and close-up device views showing packing interactions and the planting interface.",
+          "matte": "#f8f7f3"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/the-red-pack/01.mp4",
+        "rect": [
+          1160,
+          100,
+          1008,
+          1260
+        ],
+        "seconds": 7.0
+      }
     },
     {
       "slug": "urban-interactions",
@@ -706,18 +748,16 @@
       ],
       "credits": [],
       "links": [],
-      "cover": "/media/home/urban-interactions.webp",
+      "cover": "/media/cases/urban-interactions/10-cover.webp",
       "alt": "Vertical street signage with black lettering against dense green foliage.",
       "gallery": [
         {
           "src": "/media/cases/urban-interactions/01.png",
-          "size": "large",
           "ratio": 1.54567308,
           "alt": "A hand holds a phone displaying a circular sound graphic above library controls."
         },
         {
           "src": "/media/cases/urban-interactions/02.mp4",
-          "size": "large",
           "ratio": 1.77777778,
           "controls": [
             "play",
@@ -728,71 +768,75 @@
         },
         {
           "src": "/media/cases/urban-interactions/03.png",
-          "size": "small",
           "ratio": 1.9857937,
           "alt": "First generative drawing program shown as coloured lines of code on a dark editor."
         },
         {
           "src": "/media/cases/urban-interactions/04.png",
-          "size": "small",
           "ratio": 1.98613623,
-          "alt": "Second drawing program in the same editor, with a different arrangement of code blocks and parameters."
+          "alt": "Second drawing program in the same editor, with a different arrangement of code blocks and parameters.",
+          "matte": "#1c1c1c"
         },
         {
           "src": "/media/cases/urban-interactions/05.png",
-          "size": "large",
           "ratio": 1.54567308,
-          "alt": "Exhibition poster series with one large monochrome layout beside six variations in dots, bars, grids and distorted lettering."
+          "alt": "Exhibition poster series with one large monochrome layout beside six variations in dots, bars, grids and distorted lettering.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/urban-interactions/06.png",
-          "size": "large",
           "ratio": 1.54567308,
           "alt": "An illuminated white poster with a column of black marks on a dark street."
         },
         {
           "src": "/media/cases/urban-interactions/07.png",
-          "size": "small",
           "ratio": 1.54567308,
           "alt": "A printed fabric tote hangs against a black metal mesh fence."
         },
         {
           "src": "/media/cases/urban-interactions/08.png",
-          "size": "small",
           "ratio": 1.54567308,
-          "alt": "Two long white printed strips with black marks and lettering, laid diagonally on black."
+          "alt": "Two long white printed strips with black marks and lettering, laid diagonally on black.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/urban-interactions/09.png",
-          "size": "small",
           "ratio": 1.54567308,
           "alt": "A large bilingual Urban Interactions billboard with rows of rounded black marks and people walking in front."
         },
         {
           "src": "/media/cases/urban-interactions/10.png",
-          "size": "small",
           "ratio": 1.54567308,
           "alt": "A narrow white sign with vertical black lettering and graphics among green foliage."
         },
         {
           "src": "/media/cases/urban-interactions/11.png",
-          "size": "large",
           "ratio": 1.54545455,
-          "alt": "Flowchart of the mobile library, with branching steps connected by horizontal and vertical lines."
+          "alt": "Flowchart of the mobile library, with branching steps connected by horizontal and vertical lines.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/urban-interactions/12.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Four mobile views showing the black splash screen, circular sound graphic, index and detail screen."
+          "alt": "Four mobile views showing the black splash screen, circular sound graphic, index and detail screen.",
+          "matte": "#eae8e7"
         },
         {
           "src": "/media/cases/urban-interactions/13.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Four white mobile screens showing lists, patterned thumbnails and selected sound graphics."
+          "alt": "Four white mobile screens showing lists, patterned thumbnails and selected sound graphics.",
+          "matte": "#eae8e7"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/urban-interactions/10.png",
+        "rect": [
+          325,
+          0,
+          1664,
+          2080
+        ]
+      }
     },
     {
       "slug": "optech-museum",
@@ -820,130 +864,131 @@
       ],
       "credits": [],
       "links": [],
-      "cover": "/media/home/optech-museum.webp",
+      "cover": "/media/cases/optech-museum/13-cover.webp",
       "alt": "Silver tote with cobalt-blue corner graphics on rough black asphalt.",
       "gallery": [
         {
           "src": "/media/cases/optech-museum/01.jpg",
-          "size": "large",
           "ratio": 1.49937526,
           "alt": "The Optech Museum mark on a pale metal facade beneath a clear blue sky."
         },
         {
           "src": "/media/cases/optech-museum/02.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Blue four-corner symbol beside a black Optech Museum wordmark on white."
+          "alt": "Blue four-corner symbol beside a black Optech Museum wordmark on white.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/03.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "White symbol and white Optech Museum wordmark on a blue field."
+          "alt": "White symbol and white Optech Museum wordmark on a blue field.",
+          "matte": "#025ce0"
         },
         {
           "src": "/media/cases/optech-museum/04.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Grey construction drawing of the four-corner museum symbol with faint alignment guides."
+          "alt": "Grey construction drawing of the four-corner museum symbol with faint alignment guides.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/05.png",
-          "size": "small",
           "ratio": 1.54545455,
           "alt": "Blue corner shapes form an open square on a black background."
         },
         {
           "src": "/media/cases/optech-museum/06.png",
-          "size": "large",
           "ratio": 1.54545455,
-          "alt": "Grey museum symbol and wordmark shown together with construction guides."
+          "alt": "Grey museum symbol and wordmark shown together with construction guides.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/07.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Type specimen with uppercase, lowercase, numbers and punctuation arranged in labelled rows."
+          "alt": "Type specimen with uppercase, lowercase, numbers and punctuation arranged in labelled rows.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/08.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Four circular colour swatches in white, light grey, vivid blue and black."
+          "alt": "Four circular colour swatches in white, light grey, vivid blue and black.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/09.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Museum letterhead and matching stationery with a small blue mark and black text."
+          "alt": "Museum letterhead and matching stationery with a small blue mark and black text.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/10.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Flat blue-and-white stationery layouts with the open-square symbol repeated at a larger scale."
+          "alt": "Flat blue-and-white stationery layouts with the open-square symbol repeated at a larger scale.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/11.png",
-          "size": "large",
           "ratio": 1.54545455,
-          "alt": "Two museum business cards showing a blue graphic side and a white contact side."
+          "alt": "Two museum business cards showing a blue graphic side and a white contact side.",
+          "matte": "#ffffff"
         },
         {
           "src": "/media/cases/optech-museum/12.jpg",
-          "size": "large",
           "ratio": 1.54545455,
           "alt": "A small blue-and-white folded object resting on dark textured fabric."
         },
         {
           "src": "/media/cases/optech-museum/13.jpg",
-          "size": "large",
           "ratio": 1.54545455,
           "alt": "A pale fabric tote with a large blue corner motif lying on rough pavement."
         },
         {
           "src": "/media/cases/optech-museum/14.jpg",
-          "size": "large",
           "ratio": 1.54545455,
           "alt": "A blue exhibition guide on the pavement beneath a diagonal yellow rail."
         },
         {
           "src": "/media/cases/optech-museum/15.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Four mobile museum screens on black, showing exhibition imagery and blue text pages."
+          "alt": "Four mobile museum screens on black, showing exhibition imagery and blue text pages.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/optech-museum/16.png",
-          "size": "small",
           "ratio": 1.54545455,
-          "alt": "Desktop exhibition homepage with a navigation bar, a large architectural photograph and blue headline panels."
+          "alt": "Desktop exhibition homepage with a navigation bar, a large architectural photograph and blue headline panels.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/optech-museum/17.jpg",
-          "size": "large",
           "ratio": 1.54545455,
           "alt": "A hand holding a phone with the blue museum homepage on screen."
         },
         {
           "src": "/media/cases/optech-museum/18.jpg",
-          "size": "large",
           "ratio": 1.5,
           "alt": "A small black equipment board held between fingers, marked with white symbols and the museum logo."
         },
         {
           "src": "/media/cases/optech-museum/19.jpg",
-          "size": "large",
           "ratio": 1.54545455,
-          "alt": "A projected exhibition image in a dark room with silhouetted figures in front."
+          "alt": "A projected exhibition image in a dark room with silhouetted figures in front.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/optech-museum/20.jpg",
-          "size": "large",
           "ratio": 1.54545455,
           "alt": "Illuminated entrance and exhibition signs with arrows and white lettering in a dark interior."
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/optech-museum/13.jpg",
+        "rect": [
+          996,
+          1,
+          1900,
+          2375
+        ]
+      }
     },
     {
       "slug": "the-moon-zine",
@@ -980,94 +1025,103 @@
           "href": "https://www.nasa.gov/history/alsj-and-afj/"
         }
       ],
-      "cover": "/media/home/the-moon-zine.webp",
+      "cover": "/media/cases/the-moon-zine/10-cover.webp",
       "alt": "Open ring-bound zine with a lunar image folded across the spread.",
       "gallery": [
         {
           "src": "/media/cases/the-moon-zine/01.png",
-          "size": "large",
           "ratio": 1.50240385,
-          "alt": "Pale square zine cover with a fine circle, a rectangular construction grid and a small central title."
+          "alt": "Pale square zine cover with a fine circle, a rectangular construction grid and a small central title.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/02.png",
-          "size": "large",
           "ratio": 1.5026145,
-          "alt": "Open ring binder with a small outlined box on the left and a largely empty ruled page on the right."
+          "alt": "Open ring binder with a small outlined box on the left and a largely empty ruled page on the right.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/03.png",
-          "size": "large",
           "ratio": 1.5026145,
-          "alt": "A narrow stack of black rectangles on the left page faces a white page with fine border lines."
+          "alt": "A narrow stack of black rectangles on the left page faces a white page with fine border lines.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/04.png",
-          "size": "large",
           "ratio": 1.5026145,
-          "alt": "A black-and-white archival photograph spans both pages beneath overlapping white rectangular panels."
+          "alt": "A black-and-white archival photograph spans both pages beneath overlapping white rectangular panels.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/05.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "Blue horizontal transcript lines extend across both pages, broken by small pieces of text."
+          "alt": "Blue horizontal transcript lines extend across both pages, broken by small pieces of text.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/06.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "A single line of text faces a small colour photograph in the lower-right corner of the spread."
+          "alt": "A single line of text faces a small colour photograph in the lower-right corner of the spread.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/07.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "A fine grid spans both pages, with a short strip of data at lower left and a small blue-toned image at lower right."
+          "alt": "A fine grid spans both pages, with a short strip of data at lower left and a small blue-toned image at lower right.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/08.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "A curved lunar horizon bridges two black rectangles, with a dense block of figures on the right."
+          "alt": "A curved lunar horizon bridges two black rectangles, with a dense block of figures on the right.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/09.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "A column of small text on the left faces a small square mission photograph on the right."
+          "alt": "A column of small text on the left faces a small square mission photograph on the right.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/10.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "A dark transcript panel covers the left half of a large moon image divided by the binder rings."
+          "alt": "A dark transcript panel covers the left half of a large moon image divided by the binder rings.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/11.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "Two inset black star charts filled with small white points and faint coordinate marks."
+          "alt": "Two inset black star charts filled with small white points and faint coordinate marks.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/12.png",
-          "size": "small",
           "ratio": 1.5026145,
-          "alt": "Denser star charts fill both pages, crossed by dotted horizontal and vertical lines."
+          "alt": "Denser star charts fill both pages, crossed by dotted horizontal and vertical lines.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/13.png",
-          "size": "large",
           "ratio": 1.5026145,
-          "alt": "Two nearly full black pages with sparse white points and a small pale disc on the left."
+          "alt": "Two nearly full black pages with sparse white points and a small pale disc on the left.",
+          "matte": "#f6f6f6"
         },
         {
           "src": "/media/cases/the-moon-zine/14.png",
-          "size": "large",
           "ratio": 1.5026145,
-          "alt": "A pale strip of lunar terrain runs along the bottom of two black pages dotted with stars."
+          "alt": "A pale strip of lunar terrain runs along the bottom of two black pages dotted with stars.",
+          "matte": "#f6f6f6"
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/the-moon-zine/10.png",
+        "rect": [
+          6638,
+          1718,
+          6124,
+          7655
+        ]
+      }
     },
     {
       "slug": "ldtx",
@@ -1095,46 +1149,50 @@
       ],
       "credits": [],
       "links": [],
-      "cover": "/media/home/ldtx.webp",
+      "cover": "/media/cases/ldtx/01-cover.webp",
       "alt": "Overlapping black printed posters covered in white traces of movement.",
       "gallery": [
         {
           "src": "/media/cases/ldtx/01.jpg",
-          "size": "large",
           "ratio": 1.56420233,
           "alt": "Close-up of overlapping black-and-white printed sheets with dense traces of white marks."
         },
         {
           "src": "/media/cases/ldtx/02.jpg",
-          "size": "large",
           "ratio": 1.54615385,
           "alt": "Overlapping printed sheets with large white Chinese characters, small type and textured patterns."
         },
         {
           "src": "/media/cases/ldtx/03.jpg",
-          "size": "small",
           "ratio": 1.54567308,
-          "alt": "A black LDTX monogram, its four letters stepping diagonally downward on white."
+          "alt": "A black LDTX monogram, its four letters stepping diagonally downward on white.",
+          "matte": "#f2f2f2"
         },
         {
           "src": "/media/cases/ldtx/04.jpg",
-          "size": "small",
           "ratio": 1.54567308,
           "alt": "A group of dancers extends their arms in different directions on a spotlit stage."
         },
         {
           "src": "/media/cases/ldtx/05.jpg",
-          "size": "large",
           "ratio": 1.54615385,
           "alt": "An overhead dance scene overlaid with angular white lines and fragments of lettering."
         },
         {
           "src": "/media/cases/ldtx/06.jpg",
-          "size": "large",
           "ratio": 1.54615385,
           "alt": "A wide wall display combines a black-and-white dance image with oversized white angular letters."
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/ldtx/01.jpg",
+        "rect": [
+          614,
+          1,
+          1232,
+          1540
+        ]
+      }
     },
     {
       "slug": "john-cage",
@@ -1161,58 +1219,66 @@
       ],
       "credits": [],
       "links": [],
-      "cover": "/media/home/john-cage.webp",
+      "cover": "/media/cases/john-cage/08-cover.webp",
       "alt": "Creased black-and-white poster with twelve graphic variations pinned to a wall.",
       "gallery": [
         {
           "src": "/media/cases/john-cage/01.png",
-          "size": "large",
           "ratio": 1.4968815,
-          "alt": "A small grey booklet against black, with a tiny dark mark near the centre of its cover."
+          "alt": "A small grey booklet against black, with a tiny dark mark near the centre of its cover.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/02.jpg",
-          "size": "large",
           "ratio": 1.49707602,
-          "alt": "An open grey spread with a narrow central fold and a single small black mark on the right."
+          "alt": "An open grey spread with a narrow central fold and a single small black mark on the right.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/03.png",
-          "size": "large",
           "ratio": 1.49700599,
-          "alt": "Two grey pages with small black blocks on the left and a larger black square on the right."
+          "alt": "Two grey pages with small black blocks on the left and a larger black square on the right.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/04.jpg",
-          "size": "large",
           "ratio": 1.49707602,
-          "alt": "Large pale circular letterforms cross the fold, overlapping darker marks and a small textured rectangle."
+          "alt": "Large pale circular letterforms cross the fold, overlapping darker marks and a small textured rectangle.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/05.jpg",
-          "size": "large",
           "ratio": 1.49707602,
-          "alt": "Pale, repeated letter shapes grow and shift across both pages of the booklet."
+          "alt": "Pale, repeated letter shapes grow and shift across both pages of the booklet.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/06.jpg",
-          "size": "large",
           "ratio": 1.49707602,
-          "alt": "Two spreads shown side by side, one with concentric rings and one with outlined squares."
+          "alt": "Two spreads shown side by side, one with concentric rings and one with outlined squares.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/07.jpg",
-          "size": "large",
           "ratio": 1.49707602,
-          "alt": "A large open spread at left with two smaller spreads stacked on the right."
+          "alt": "A large open spread at left with two smaller spreads stacked on the right.",
+          "matte": "#000000"
         },
         {
           "src": "/media/cases/john-cage/08.png",
-          "size": "large",
           "ratio": 0.75,
           "alt": "A pale printed display with a grid of geometric samples, small captions and curled paper along the bottom."
         }
-      ]
+      ],
+      "coverCrop": {
+        "source": "/media/cases/john-cage/08.png",
+        "rect": [
+          120,
+          316,
+          2784,
+          3480
+        ]
+      }
     }
   ]
 }

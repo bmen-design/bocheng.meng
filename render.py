@@ -1,6 +1,7 @@
 """Render the overview, project pages and navigation from the content directory."""
 
 import json
+import re
 from html import escape
 from pathlib import Path
 from string import Template
@@ -47,7 +48,7 @@ def overview(projects):
         link = project_link(project, "grid-projects-figure-link")
         title = escape(project["title"])
         cards.append(f'''
-          <figure class="grid-projects-figure" data-size="small-portrait">
+          <figure class="grid-projects-figure">
             {link}
             <div class="grid-projects-figure-thumbnail">{cover}</div>
             <figcaption class="grid-projects-figure-caption">
@@ -175,7 +176,17 @@ def gallery(project):
         ratio = float(item["ratio"])
         if ratio <= 0:
             raise ValueError(f'Invalid media ratio in {project["slug"]}')
-        frame = f'class="grid-project-figure-thumbnail" style="--ratio: {ratio}"'
+        preview = ""
+        if ratio < 0.4 and "controls" not in item:
+            preview = ' data-preview="top"'
+        elif abs(ratio / 1.5 - 1) <= 0.025:
+            preview = ' data-preview="fill"'
+        style = f"--source-ratio: {ratio}"
+        if "matte" in item:
+            if not re.fullmatch(r"#[0-9a-fA-F]{6}", item["matte"]):
+                raise ValueError(f'Invalid media background in {project["slug"]}')
+            style += f'; --matte: {item["matte"]}'
+        frame = f'class="grid-project-figure-thumbnail"{preview} style="{style}"'
         if "controls" in item:
             media = (f'<widget-player><div {frame} data-state="idle">'
                      f'<video class="thumb" controls preload="metadata" playsinline muted loop '
@@ -186,7 +197,7 @@ def gallery(project):
                      f'aria-haspopup="dialog" aria-label="Enlarge image: {escape(label)}">'
                      f'<div {frame}>{image(item["src"], label)}</div></a>')
         caption = f'<figcaption>{escape(item["caption"])}</figcaption>' if item.get("caption") else ""
-        figures.append(f'<figure class="grid-project-figure" data-size="{escape(item["size"])}">'
+        figures.append('<figure class="grid-project-figure">'
                        f'{media}{caption}</figure>')
     figures.extend(inserts.get(len(project["gallery"]) + 1, []))
     return (f'<div id="site-main-content"><div class="grid-project">'
