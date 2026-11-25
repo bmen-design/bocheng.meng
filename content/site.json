@@ -1,45 +1,24 @@
 {
-  "name": "Studio Index",
-  "tagline": "Creative Direction + Visual Production",
-  "introduction": "A study collection of films and stills in fashion, technology and industrial design. The work index lists the production techniques and year for each project.",
-  "disciplines": [
-    "Creative Direction",
-    "Art Direction",
-    "CGI",
-    "AI Generation",
-    "Editing",
-    "VFX"
+  "name": "Bocheng Meng",
+  "tagline": "User Interface, Brand Identity & Print",
+  "introduction": [
+    "Bocheng Meng is a Beijing-based designer specialising in user interfaces, brand identity and print media.",
+    "His portfolio brings together client work and personal projects."
   ],
-  "featured": [
-    "Equinox",
-    "Mercedes Benz",
-    "Prada",
-    "TAG Heuer x Porsche",
-    "Air Company",
-    "T1 Energy",
-    "Salomon",
-    "Puma",
-    "Dolly Cohen",
-    "Raura"
+  "disciplines": [
+    "User interface design",
+    "Brand identity",
+    "Print media"
   ],
   "contact": [
     {
       "label": "Email",
-      "href": "mailto:bmeng999920@gmail.com"
+      "href": "mailto:bmeng@sva.edu"
     },
     {
-      "label": "GitHub",
-      "href": "https://github.com/bmen-design/bocheng.meng"
+      "label": "Résumé",
+      "href": "https://freight.cargo.site/m/G1926398209451969945394942887809/Bocheng_Meng_Resume.pdf"
     }
   ],
-  "footerNote": "Portfolio interface study",
-  "selectedFilms": [
-    "sisyphe",
-    "mercedes",
-    "salomon",
-    "air-company",
-    "puma",
-    "poclain",
-    "tag-heuer-x-porsche"
-  ]
+  "footerNote": "Selected work, 2020–2026"
 }

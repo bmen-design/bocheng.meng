@@ -1,1216 +1,1217 @@
 {
   "projects": [
     {
-      "slug": "mws-findings",
-      "title": "MWS Findings",
-      "client": "Mouthwash",
-      "categories": [
-        "AI"
-      ],
+      "slug": "novoprotein-web",
+      "title": "Novoprotein, Web",
       "year": 2026,
-      "description": "An architectural study of data centres and the landscapes around them. The images explore how large computing facilities could feel like considered places, with a quieter presence in their surroundings.",
-      "preview": "/media/mws-findings/01.jpg",
-      "gallery": [
+      "categories": [
+        "Visual Design",
+        "Web",
+        "Commercial"
+      ],
+      "description": "Following our brand refresh for Novoprotein, I designed desktop and mobile homepage demonstrations for the client’s team to extend. The scope is a homepage at 1440 px and 390 px, showing how the identity works with product browsing and company information.",
+      "paragraphs": [
+        "在共同完成近岸蛋白的品牌升级后，我设计了桌面与手机端首页示范，供客户团队继续延展。设计范围为 1440 px 与 390 px 两种首页，展示品牌系统如何承接产品浏览与公司信息。"
+      ],
+      "sections": [
         {
-          "src": "/media/mws-findings/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "Product discovery",
+          "paragraphs": [
+            "Search, category navigation and featured product cards offer different starting points. The page continues through research applications, technical support, company information and news before reaching the enquiry form.",
+            "搜索、分类导航与重点产品卡片提供不同的浏览入口。页面随后呈现研究应用、技术支持、公司介绍与新闻，最后连接咨询表单。"
+          ],
+          "beforeFigure": 2
         },
         {
-          "src": "/media/mws-findings/02.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "From identity to interface",
+          "paragraphs": [
+            "Geometric headlines sit alongside readable body text. Orange highlights key actions, while scientific illustrations connect the opening section, product categories and supporting content. Type, colour and component rules connect desktop and mobile.",
+            "几何感标题与易读的正文搭配。橙色强调关键操作，科学插画贯穿首屏、产品分类与辅助内容。字体、色彩和组件规范维持桌面与手机端的一致性。"
+          ],
+          "beforeFigure": 4
         },
         {
-          "src": "/media/mws-findings/03.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.81
-        },
-        {
-          "src": "/media/mws-findings/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mws-findings/05.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/mws-findings/06.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/mws-findings/07.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mws-findings/film-01.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
+          "title": "Web components",
+          "paragraphs": [
+            "Buttons, navigation, product cards, news modules and enquiry fields extend the brand system into repeatable interface elements. Navigation, card grids and forms adapt their arrangement for narrower screens.",
+            "按钮、导航、产品卡片、新闻模块与咨询字段，将品牌系统延伸为可重复使用的界面元素。导航、卡片网格与表单根据较窄的屏幕调整排列。"
+          ],
+          "beforeFigure": 5
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
+      "details": [
+        {
+          "label": "Client",
+          "value": "Novoprotein"
+        },
+        {
+          "label": "Scope",
+          "value": "Desktop and mobile homepage demonstrations (1440 px and 390 px)"
+        }
+      ],
+      "credits": [
+        {
+          "label": "Homepage design",
+          "value": "Bocheng Meng"
+        },
+        {
+          "label": "Studio",
+          "value": "N/A Design"
+        }
+      ],
+      "links": [],
+      "cover": "/media/home/novoprotein-web.webp",
+      "alt": "The mobile Novoprotein homepage shown on a graphite phone, with the orange and blue protein illustration.",
+      "gallery": [
+        {
+          "src": "/media/cases/novoprotein-web/01.png",
+          "size": "large",
+          "ratio": 1.72413793,
+          "alt": "Desktop and phone homepages with the headline “Growth Factors and Cytokines” beside a blue and orange protein illustration."
+        },
+        {
+          "src": "/media/cases/novoprotein-web/02.png",
+          "size": "small",
+          "ratio": 0.21379166,
+          "alt": "Full desktop homepage, from the product search and illustrated category cards to company news and the enquiry form."
+        },
+        {
+          "src": "/media/cases/novoprotein-web/03.png",
+          "size": "small",
+          "ratio": 0.06243236,
+          "alt": "Full mobile homepage with product categories, research content and contact fields stacked in a single column."
+        },
+        {
+          "src": "/media/cases/novoprotein-web/04.png",
+          "size": "large",
+          "ratio": 1.41242938,
+          "alt": "Interface foundations board with colour swatches, heading sizes and examples of text hierarchy."
+        },
+        {
+          "src": "/media/cases/novoprotein-web/05.png",
+          "size": "large",
+          "ratio": 1.39146568,
+          "alt": "Black and orange button variants, navigation elements and a quick enquiry form."
+        },
+        {
+          "src": "/media/cases/novoprotein-web/06.png",
+          "size": "large",
+          "ratio": 1.27496813,
+          "alt": "Four illustrated product cards in pastel colours above a news module with a laboratory photograph."
+        }
       ]
     },
     {
-      "slug": "raura",
-      "title": "Raura",
-      "client": "Raura",
-      "categories": [
-        "CGI",
-        "AI"
-      ],
+      "slug": "novoprotein-identity",
+      "title": "Novoprotein, Visual Identity",
       "year": 2026,
-      "description": "Raura is a wearable device that measures exposure to sunlight and offers personal wellness insights. The films and product stills follow the same visual direction, from the concept through to the finished images.",
-      "preview": "/media/raura/01.jpg",
-      "gallery": [
+      "categories": [
+        "Visual Design",
+        "Commercial"
+      ],
+      "description": "At N/A Design, we refreshed Novoprotein’s visual identity for its expansion into the North American market. The work connects a refined wordmark, typography, colour and scientific illustrations in one system, with guidance and templates for consistent use.",
+      "paragraphs": [
+        "在 N/A Design，我们共同完成近岸蛋白面向北美市场的品牌视觉升级，将调整后的字标、字体、色彩与科学插画整合为统一系统，并通过规范与模板支持后续使用。"
+      ],
+      "sections": [
         {
-          "src": "/media/raura/film-01.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
+          "title": "Starting points",
+          "paragraphs": [
+            "Our review identified three areas to develop: the English wordmark’s standalone readability, a wider supporting palette, and a more consistent illustration style across existing materials. These became the starting points for the refresh.",
+            "前期梳理明确了三个可继续发展的方向：英文标志单独使用时的可读性、更丰富的辅助色，以及不同物料间更一致的插画风格。品牌更新由此展开。"
+          ],
+          "beforeFigure": 3
         },
         {
-          "src": "/media/raura/02.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "Wordmark and colour",
+          "paragraphs": [
+            "Spacing and curve adjustments preserve the wordmark’s recognisable character. Brand Orange remains the main colour, supported by blue, warm secondary colours and neutrals for different levels of information.",
+            "通过字距与曲线调整，保留原字标的识别特征。品牌橙继续作为主色，蓝色、暖色辅助色与中性色支持不同的信息层级。"
+          ],
+          "beforeFigure": 4
         },
         {
-          "src": "/media/raura/03.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "Typography and layout",
+          "paragraphs": [
+            "Orbitron Bold gives headlines and numbers a geometric character. IBM Plex Serif supports subtitles and labels, while Noto Sans handles body text. Type size, leading and spacing define the hierarchy across layouts.",
+            "Orbitron Bold 用于具有几何特征的标题与数字，IBM Plex Serif 承接副标题和标签，Noto Sans 用于正文。字号、行距与间距共同建立不同版式中的信息层级。"
+          ],
+          "beforeFigure": 7
         },
         {
-          "src": "/media/raura/04.jpg",
-          "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78
+          "title": "Scientific illustrations",
+          "paragraphs": [
+            "Ribbon, solid and translucent forms create a shared visual language for biological subjects. A reusable AI prompt defines shape, colour, transparency and depth. Generated images are reviewed and refined for consistency before becoming brand assets.",
+            "飘带、实体与半透明形态为生物主题建立统一的视觉语言。可复用的 AI 提示词规定形态、色彩、透明度与空间层次，生成图像再经过人工审核与调整，成为一致的品牌素材。"
+          ],
+          "beforeFigure": 9
         },
         {
-          "src": "/media/raura/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/raura/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/raura/06.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/raura/film-02.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/raura/07.jpg",
-          "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/raura/08.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/raura/09.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/raura/film-03.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/raura/10.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/raura/11.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
+          "title": "Presentation templates",
+          "paragraphs": [
+            "Presentation templates carry the system into covers, section pages, text, images and data. Reusable layouts define how typography, colour and scientific visuals work together across different kinds of content.",
+            "演示模板将系统延伸至封面、章节页、正文、图片与数据内容。可复用的版式规定字体、色彩与科学图像如何搭配，以承接不同类型的信息。"
+          ],
+          "beforeFigure": 14
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
+      "details": [
+        {
+          "label": "Client",
+          "value": "Novoprotein"
+        },
+        {
+          "label": "Scope",
+          "value": "Visual identity refresh for North America"
+        }
+      ],
+      "credits": [
+        {
+          "label": "Visual identity",
+          "value": "N/A Design team"
+        }
+      ],
+      "links": [],
+      "cover": "/media/home/novoprotein-identity.webp",
+      "alt": "An orange Novoprotein wordmark card over a close-up of labelled laboratory sample tubes.",
+      "gallery": [
+        {
+          "src": "/media/cases/novoprotein-identity/01.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "White lowercase Novoprotein wordmark centred on bright orange."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/02.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Orange Novoprotein wordmark centred on a cream background."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/03.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Three-column review of the existing identity, comparing wordmarks, palettes and illustration examples."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/04.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Two orange panels comparing versions of the white wordmark, with enlargement guides beneath."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/05.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Orange Novoprotein lettering over a grid of vertical, horizontal and curved construction lines."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/06.png",
+          "size": "large",
+          "ratio": 1.88235294,
+          "alt": "Brand palette with a large orange field beside a blue scale and smaller warm and neutral swatches."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/07.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Typeface specimen showing uppercase letters, numbers, lowercase letters and punctuation in different styles."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/08.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Type hierarchy and spacing guide with a large headline, ruled examples and a size table."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/09.jpg",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Blue and orange ribbons interweave on cream, surrounded by small dots and fine curved lines."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/10.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Six scientific illustrations using different ribbon shapes, coils and clusters in blue and orange."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/11.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Three illustrations shown against cream, orange and charcoal backgrounds."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/12.jpg",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Blue and pale ribbons twisting vertically against a saturated orange background."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/13.jpg",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "A vertical blue and orange ribbon structure on cream with small scattered dots."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/14.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Presentation cover with an orange title at left and a close-up photograph of labelled sample tubes at right."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/15.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Slide pairing a large black statement and supporting text with two vertical laboratory photographs."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/16.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Four narrow columns of body copy beneath a large left-aligned headline."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/17.png",
+          "size": "large",
+          "ratio": 1.77777778,
+          "alt": "Six laboratory photographs arranged in two rows, each with a short caption below."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/18.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "Orange section slide marked 04 beside a photograph of sample tubes in an orange rack."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/19.png",
+          "size": "small",
+          "ratio": 1.77777778,
+          "alt": "White serif statement on solid orange, with smaller black annotations at the corners."
+        },
+        {
+          "src": "/media/cases/novoprotein-identity/20.png",
+          "size": "large",
+          "ratio": 1.72413793,
+          "alt": "Overview of sixteen slide layouts using cream, orange and navy backgrounds."
+        }
       ]
     },
     {
-      "slug": "sisyphe",
-      "title": "Sisyphe",
-      "client": "Services Généraux",
-      "categories": [
-        "AI",
-        "VFX"
-      ],
-      "year": 2025,
-      "description": "A short film that draws on the myth of Sisyphus. Animated landscapes give form to its recurring cycles, following the tension between an urge to escape repetition and the possibility of finding meaning within it.",
-      "preview": "/media/sisyphe/01.jpg",
-      "gallery": [
-        {
-          "src": "/media/sisyphe/film-01.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
-        },
-        {
-          "src": "/media/sisyphe/03.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/04.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/05.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/06.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/07.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/08.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/09.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/10.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/11.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/12.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/13.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/sisyphe/14.jpeg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/sisyphe/15.jpeg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        }
-      ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
-      ]
-    },
-    {
-      "slug": "t1-energy",
-      "title": "T1 Energy",
-      "client": "T1 Energy",
-      "categories": [
-        "CGI",
-        "AI",
-        "EDITING"
-      ],
-      "year": 2025,
-      "description": "A visual identity for T1 Energy, a US clean energy manufacturer. Films and stills use the geometry of solar cells, battery modules and production equipment to describe the company’s work.",
-      "preview": "/media/t1-energy/01.jpg",
-      "gallery": [
-        {
-          "src": "/media/t1-energy/02.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/film-01.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/t1-energy/03.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/film-02.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/t1-energy/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/01.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/06.jpg",
-          "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/t1-energy/07.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/08.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/film-03.mp4",
-          "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
-        },
-        {
-          "src": "/media/t1-energy/09.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/10.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/t1-energy/film-04.mp4",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/t1-energy/11.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        }
-      ],
-      "production": [
-        "Creative Direction",
-        "Sound Design",
-        "Visual Production"
-      ]
-    },
-    {
-      "slug": "snap-implants",
-      "title": "Snap Implants",
-      "client": "Snap Implants",
-      "categories": [
-        "CGI",
-        "AI"
-      ],
-      "year": 2025,
-      "description": "A speculative study of skin as a surface for customisation. These forms sit between ornament and functional implant, exploring how a device might become part of the body.",
-      "preview": "/media/snap-implants/01.jpg",
-      "gallery": [
-        {
-          "src": "/media/snap-implants/02.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/01.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/03.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/04.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/05.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/06.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/07.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/08.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/09.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/10.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/11.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/snap-implants/12.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        }
-      ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
-      ]
-    },
-    {
-      "slug": "puma",
-      "title": "Puma",
-      "client": "Puma",
-      "categories": [
-        "CGI",
-        "EDITING",
-        "VFX"
-      ],
-      "year": 2025,
-      "description": "Two campaign films for the return of the Mostro OG silhouette.",
-      "preview": "/media/puma/01.jpg",
-      "gallery": [
-        {
-          "src": "/media/puma/film-01.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
-        },
-        {
-          "src": "/media/puma/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/puma/film-02.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
-        }
-      ],
-      "production": [
-        "Creative Direction",
-        "Sound Design",
-        "Visual Production"
-      ]
-    },
-    {
-      "slug": "equinox",
-      "title": "Equinox",
-      "client": "Equinox",
-      "categories": [
-        "EDITING",
-        "VFX"
-      ],
+      "slug": "uxtester",
+      "title": "uxoffice®: uxtester",
       "year": 2024,
-      "description": "A launch film and a series of stills for Equinox. The images follow the movement and physical effort of athletic performance with close framing and an emphasis on precision.",
-      "preview": "/media/equinox/01.jpg",
-      "gallery": [
+      "categories": [
+        "Product",
+        "Visual Design",
+        "Web",
+        "Commercial"
+      ],
+      "description": "uxtester® is a usability-testing tool within ISAR’s uxoffice® suite. It brings test preparation, live observation, recordings and analysis into one project.",
+      "paragraphs": [
+        "During my internship at ISAR, I was responsible for the version 2 interface. Working from the UX team’s prototypes, I developed the page structure, visual hierarchy and shared components, and worked with developers on implementation.",
+        "uxtester® 是 ISAR uxoffice® 工具集中的可用性测试工具，将测试准备、实时观察、录制与分析放在同一项目中。",
+        "在 ISAR 实习期间，我负责第二版产品的界面设计。基于 UX 团队的原型，我梳理页面分区、视觉层级与通用组件，并与开发团队协作落地。"
+      ],
+      "sections": [
         {
-          "src": "/media/equinox/film-01.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
+          "title": "Prepare, observe and review",
+          "paragraphs": [
+            "Scenarios, tasks and questions form the test script. During a session, researchers follow multiple camera feeds and mark issues with timestamps. Recordings, grouped issues and selected clips support later review.",
+            "通过场景、任务和问题组织测试脚本。测试过程中，研究人员查看多路画面，并用时间标记记录问题；测试后再回看录制、归纳问题与整理精选片段。"
+          ],
+          "beforeFigure": 2
         },
         {
-          "src": "/media/equinox/03.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "From UX handoff to interface",
+          "paragraphs": [
+            "The UX team’s report prototypes connect data tables, page flows and interaction notes. The original canvases show the scope of the screens and states developed from this handoff.",
+            "UX 团队的报告原型将数据表格、页面流程与交互说明联系起来。原稿画布总览呈现由此展开的界面、组件分组与交互状态；截图保留设计文件中的示例内容。"
+          ],
+          "beforeFigure": 7
         },
         {
-          "src": "/media/equinox/02.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "Shared components",
+          "paragraphs": [
+            "The shared library brings together type, colour, icons and controls used across uxoffice®. It covers forms, navigation, recording controls, account emails and illustrations, with states for different tasks.",
+            "组件库集中呈现 uxoffice® 使用的字体、色彩、图标与控件，覆盖表单和导航，也包含录制控件、账号邮件与插画，以及不同任务下的界面状态。"
+          ],
+          "beforeFigure": 9
         },
         {
-          "src": "/media/equinox/film-02.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/equinox/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/equinox/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/equinox/film-03.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/equinox/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/equinox/06.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/equinox/film-04.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/equinox/film-05.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
-        },
-        {
-          "src": "/media/equinox/07.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/equinox/film-06.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/equinox/08.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/equinox/09.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "title": "Account emails",
+          "paragraphs": [
+            "The email layouts cover team invitations, verification codes and password-reset confirmations. A shared logo, reading column and support footer connect these messages to the product.",
+            "邮件版式覆盖团队邀请、验证码与密码重置确认。统一的标志、正文栏与反馈页脚，让这些账号通知与产品保持一致。"
+          ],
+          "beforeFigure": 15
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Production",
-        "Sound Design",
-        "Visual Production"
+      "details": [
+        {
+          "label": "Product",
+          "value": "uxtester®, uxoffice®"
+        },
+        {
+          "label": "Scope",
+          "value": "Version 2 interface and shared components"
+        }
+      ],
+      "credits": [
+        {
+          "label": "Interface and component design",
+          "value": "Bocheng Meng, intern at ISAR"
+        },
+        {
+          "label": "UX prototypes",
+          "value": "ISAR UX team"
+        },
+        {
+          "label": "Implementation",
+          "value": "Collaboration with developers"
+        }
+      ],
+      "links": [
+        {
+          "label": "View in Figma",
+          "href": "https://www.figma.com/design/LEbHyhFwKLO2Hxs9Pcu4Xb"
+        }
+      ],
+      "cover": "/media/home/uxtester.webp",
+      "alt": "A desktop monitor showing a recorded research session and observation log in uxtester.",
+      "gallery": [
+        {
+          "src": "/media/cases/uxtester/01.png",
+          "size": "large",
+          "ratio": 1.25322521,
+          "alt": "Zoomed-out design canvas showing groups of usability-testing screens and their connections."
+        },
+        {
+          "src": "/media/cases/uxtester/02.png",
+          "size": "large",
+          "ratio": 1.36116152,
+          "alt": "Live observation screen with camera feeds above a timestamped issue table and a note panel on the right."
+        },
+        {
+          "src": "/media/cases/uxtester/03.png",
+          "size": "large",
+          "ratio": 1.31291028,
+          "alt": "Study setup screens showing the task script, a participant table and a scheduling view."
+        },
+        {
+          "src": "/media/cases/uxtester/04.png",
+          "size": "large",
+          "ratio": 2.06896552,
+          "alt": "Recording playback with a thumbnail strip and issue list beside a separate table of grouped findings."
+        },
+        {
+          "src": "/media/cases/uxtester/05.png",
+          "size": "large",
+          "ratio": 1.53846154,
+          "alt": "Selected video clips arranged in rows, with a second panel for choosing clips to export."
+        },
+        {
+          "src": "/media/cases/uxtester/06.png",
+          "size": "large",
+          "ratio": 1.48367953,
+          "alt": "Findings dashboard with four multicoloured ring charts and summary values underneath."
+        },
+        {
+          "src": "/media/cases/uxtester/07.png",
+          "size": "large",
+          "ratio": 1.89873418,
+          "alt": "A satisfaction report prototype beside its detailed interface with questions and response tables."
+        },
+        {
+          "src": "/media/cases/uxtester/08.png",
+          "size": "large",
+          "ratio": 1.53313551,
+          "alt": "Zoomed-out analysis report canvas with screen thumbnails, flow lines and annotation blocks."
+        },
+        {
+          "src": "/media/cases/uxtester/09.png",
+          "size": "small",
+          "ratio": 1.69779287,
+          "alt": "Component library pages for colour swatches, type weights, spacing and size scales."
+        },
+        {
+          "src": "/media/cases/uxtester/10.png",
+          "size": "small",
+          "ratio": 1.73812283,
+          "alt": "uxtester wordmarks and a grid of small product icons on light and dark backgrounds."
+        },
+        {
+          "src": "/media/cases/uxtester/11.png",
+          "size": "large",
+          "ratio": 1.27011008,
+          "alt": "Basic controls including blue buttons, text fields, selection controls and validation states."
+        },
+        {
+          "src": "/media/cases/uxtester/12.png",
+          "size": "small",
+          "ratio": 1.81488203,
+          "alt": "Blue workspace illustrations beside sign-in and account verification forms in several states."
+        },
+        {
+          "src": "/media/cases/uxtester/13.png",
+          "size": "small",
+          "ratio": 1.47058824,
+          "alt": "Project management components and workspace screens with filled, empty and action states."
+        },
+        {
+          "src": "/media/cases/uxtester/14.png",
+          "size": "large",
+          "ratio": 1.34408602,
+          "alt": "Audio and video recording controls in several states, with three video thumbnails on a dark strip."
+        },
+        {
+          "src": "/media/cases/uxtester/15.png",
+          "size": "large",
+          "ratio": 1.60576923,
+          "alt": "Four account email layouts with the uxtester mark, a narrow text column and support footer."
+        }
       ]
     },
     {
-      "slug": "mercedes",
-      "title": "Mercedes Benz",
-      "client": "Mercedes Benz",
-      "categories": [
-        "CGI",
-        "EDITING",
-        "VFX"
-      ],
+      "slug": "bull-user-echo",
+      "title": "Bull User Echo",
       "year": 2024,
-      "description": "A crash test unfolds in slow motion in this experimental automotive film.",
-      "preview": "/media/mercedes/01.jpg",
+      "categories": [
+        "Product",
+        "Visual Design",
+        "Web",
+        "Commercial"
+      ],
+      "description": "Bull User Echo is an experience-data platform commissioned by Bull. It organises product reviews into dashboards, categories and alerts, helping teams explore feedback and return to the comments behind a theme.",
+      "paragraphs": [
+        "At ISAR, I independently designed the overall interface and data visualisation, covering overviews, dashboards, analysis, alerts and permissions. I also followed the designs through implementation with developers.",
+        "Bull User Echo 是公牛委托的体验数据分析平台，通过数据看板、评价分类和预警组织产品反馈，方便团队比较不同产品，并从评价主题回到具体评论。",
+        "在 ISAR，我独立负责整体界面与数据可视化设计，覆盖信息概览、数据看板、分析、预警及权限管理，并跟进开发实现。"
+      ],
+      "sections": [
+        {
+          "title": "Overview and comparison",
+          "paragraphs": [
+            "Review volume, sentiment and trends share one overview. Filters narrow the product scope, while comparison tables place selected products and their feedback side by side.",
+            "概览页面汇总评价数量、态度倾向与变化趋势。通过筛选缩小产品范围，再将选中的产品放入对比表，查看产品信息与评价差异。"
+          ],
+          "beforeFigure": 2
+        },
+        {
+          "title": "Drill-down analysis",
+          "paragraphs": [
+            "Selecting a bar opens the next level of subdimensions and related products. Word clouds connect review topics with related comments, keeping each summary linked to its source text.",
+            "点击柱图后逐层展开子维度及相关产品，选中状态保留当前分析路径。词云将评价主题与相关评论对应起来，让汇总信息与原始文字保持联系。"
+          ],
+          "beforeFigure": 5
+        },
+        {
+          "title": "Alerts",
+          "paragraphs": [
+            "The alert centre combines rule settings, recipients and triggered items. Opening an item shows related products and review details, so users can inspect what triggered the alert.",
+            "预警中心包含规则设置、接收人和已触发的预警列表。打开一条预警后，可以查看相关产品与评价详情，了解触发原因。"
+          ],
+          "beforeFigure": 8
+        },
+        {
+          "title": "Chart and interface states",
+          "paragraphs": [
+            "Filters, tables, chart tooltips and word-cloud states follow shared visual rules. The component views show selection, hover and navigation across the analysis pages.",
+            "筛选、表格、图表提示与词云状态沿用统一的视觉规则。组件图展示了选中、悬停和导航在各类分析页面中的对应关系。"
+          ],
+          "beforeFigure": 9
+        }
+      ],
+      "details": [
+        {
+          "label": "Commissioned by",
+          "value": "Bull"
+        },
+        {
+          "label": "Scope",
+          "value": "Interface design and data visualisation"
+        }
+      ],
+      "credits": [
+        {
+          "label": "Interface and data visualisation",
+          "value": "Bocheng Meng, ISAR"
+        },
+        {
+          "label": "Implementation",
+          "value": "Collaboration with developers"
+        }
+      ],
+      "links": [
+        {
+          "label": "View in Figma",
+          "href": "https://www.figma.com/design/M7wv53a24IO0lqzDZGY5rI"
+        }
+      ],
+      "cover": "/media/home/bull-user-echo.webp",
+      "alt": "Layered Bull User Echo dashboard views showing feedback trends and bar charts.",
       "gallery": [
         {
-          "src": "/media/mercedes/film-01.mp4",
+          "src": "/media/cases/bull-user-echo/01.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
+          "ratio": 1.40318054,
+          "alt": "Zoomed-out design canvas with groups of dashboard, analysis and alert screens."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/02.png",
+          "size": "large",
+          "ratio": 1.57894737,
+          "alt": "Overview dashboard with three summary metrics, two red bars and a blue and pink area chart."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/03.png",
+          "size": "small",
+          "ratio": 1.92431046,
+          "alt": "Filtered product list beside a product detail screen with a product image, specifications and comparison table."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/04.png",
+          "size": "small",
+          "ratio": 2.06896552,
+          "alt": "Side-by-side views of a product comparison table and a four-quadrant positioning chart."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/05.png",
+          "size": "large",
+          "ratio": 1.57248157,
+          "alt": "Three stages of a drill-down, adding rows of blue, teal and purple bars at each level."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/06.png",
+          "size": "large",
+          "ratio": 2.0,
+          "alt": "Review analysis table beside a dimmed screen with a word-cloud overlay."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/07.png",
+          "size": "large",
+          "ratio": 1.57894737,
+          "alt": "A multicoloured pie chart and a Chinese word cloud shown in adjacent panels."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/08.png",
+          "size": "large",
+          "ratio": 1.40252454,
+          "alt": "Alert rule form, alert list and a detail view of the products and reviews associated with an alert."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/09.png",
+          "size": "small",
+          "ratio": 1.48367953,
+          "alt": "Component board showing filter controls, table rows, coloured charts and chart labels."
+        },
+        {
+          "src": "/media/cases/bull-user-echo/10.png",
+          "size": "small",
+          "ratio": 1.45489816,
+          "alt": "Blue bar-chart filter examples above four word-cloud selection states."
+        }
+      ]
+    },
+    {
+      "slug": "the-red-pack",
+      "title": "The Red Pack",
+      "year": 2023,
+      "categories": [
+        "Product",
+        "Visual Design",
+        "Experimental"
+      ],
+      "description": "The Red Pack is a fictional Mars suitcase designed to enhance passengers' experience during their 7-month journey to Mars. Beyond its basic storage and transportation functions, it simulates life on Mars and features a planting module to adjust moods. At the journey's end, plants can be transplanted to Mars, symbolizing environmental transformation. This project explores how humans might adapt to extended interstellar travel and new living conditions in uncharted territories.",
+      "paragraphs": [
+        "The Red Pack 是为七个月火星旅程设想的行李箱。除收纳与运输外，它还加入种植模块，模拟火星生活并调节旅途情绪。旅程结束后，植物可以移植到火星。这个概念借此探讨人们如何适应漫长的星际旅行与新的生活环境。"
+      ],
+      "sections": [],
+      "details": [
+        {
+          "label": "Project type",
+          "value": "Speculative product design"
+        },
+        {
+          "label": "Scenario",
+          "value": "Seven-month journey to Mars"
+        }
+      ],
+      "credits": [],
+      "links": [],
+      "cover": "/media/home/the-red-pack.webp",
+      "alt": "A rendering of the ridged travel case suspended above a rust-coloured landscape.",
+      "gallery": [
+        {
+          "src": "/media/cases/the-red-pack/01.mp4",
+          "size": "large",
+          "ratio": 2.38888889,
           "controls": [
             "play",
-            "fullscreen",
-            "sound"
-          ]
+            "sound",
+            "fullscreen"
+          ],
+          "alt": "A compact grey suitcase rotates against a rust-coloured rocky landscape, revealing its front panel and side compartments."
         },
         {
-          "src": "/media/mercedes/02.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mercedes/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mercedes/03.jpg",
+          "src": "/media/cases/the-red-pack/02.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
+          "ratio": 2.02777778,
+          "alt": "Research board with a mission diagram of coloured circles, a journey map and notes about the crew."
         },
         {
-          "src": "/media/mercedes/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mercedes/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mercedes/06.jpg",
+          "src": "/media/cases/the-red-pack/03.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
+          "ratio": 2.02777778,
+          "alt": "Design strategy board combining reference images, concept sketches and a proposed Mars Community identity."
         },
         {
-          "src": "/media/mercedes/film-02.mp4",
+          "src": "/media/cases/the-red-pack/04.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
+          "ratio": 2.02777778,
+          "alt": "Product and experience board with suitcase details, material samples and diagrams of how the modules fit together."
         },
         {
-          "src": "/media/mercedes/07.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mercedes/08.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/mercedes/film-03.mp4",
+          "src": "/media/cases/the-red-pack/05.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
+          "ratio": 2.02777778,
+          "alt": "Phone screens and close-up device views showing packing interactions and the planting interface."
         }
-      ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
       ]
     },
     {
-      "slug": "poclain",
-      "title": "Poclain",
-      "client": "Poclain",
+      "slug": "urban-interactions",
+      "title": "Urban Interactions, UABB",
+      "year": 2022,
       "categories": [
-        "CGI"
+        "Visual Design",
+        "Web",
+        "Experimental"
       ],
-      "year": 2023,
-      "description": "A film exploring the construction and movement of a hydraulic motor.",
-      "preview": "/media/poclain/01.jpg",
+      "description": "Urbanism/Architecture Bi-City Biennale (UABB) is a cultural platform whose main objective is to bring together leading voices in design to discuss issues impacting architecture in modern-day society. UABB is forward-thinking and focuses on the conceptual problems of urbanism and architecture.",
+      "paragraphs": [
+        "This personal project aims to redesign the overall graphic language of the Bi-City Biennale of Urbanism/Architecture Exhibition (UABB) by establishing and using an online visual information library based on the city's sound. Allowing audiences and users to experience sound through graphics, comparing the differences in sound in different cities and regions, forming a sound-based perception of the city.",
+        "深港城市／建筑双城双年展（UABB）是讨论当代城市与建筑议题的文化平台。这个个人项目以城市声音为线索，重新设计展览的视觉语言，并建立线上视觉资料库。观众可以通过图形感受、比较不同城市与区域的声音，以另一种方式理解城市。"
+      ],
+      "sections": [],
+      "details": [
+        {
+          "label": "Project type",
+          "value": "Personal exhibition identity concept"
+        },
+        {
+          "label": "Subject",
+          "value": "Bi-City Biennale of Urbanism/Architecture"
+        }
+      ],
+      "credits": [],
+      "links": [],
+      "cover": "/media/home/urban-interactions.webp",
+      "alt": "Vertical street signage with black lettering against dense green foliage.",
       "gallery": [
         {
-          "src": "/media/poclain/film-01.mp4",
+          "src": "/media/cases/urban-interactions/01.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.8,
+          "ratio": 1.54567308,
+          "alt": "A hand holds a phone displaying a circular sound graphic above library controls."
+        },
+        {
+          "src": "/media/cases/urban-interactions/02.mp4",
+          "size": "large",
+          "ratio": 1.77777778,
           "controls": [
             "play",
-            "fullscreen",
-            "sound"
-          ]
+            "sound",
+            "fullscreen"
+          ],
+          "alt": "Two posters at a glass bus shelter cycle through black-and-white graphic patterns."
         },
         {
-          "src": "/media/poclain/02.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.8
+          "src": "/media/cases/urban-interactions/03.png",
+          "size": "small",
+          "ratio": 1.9857937,
+          "alt": "First generative drawing program shown as coloured lines of code on a dark editor."
         },
         {
-          "src": "/media/poclain/03.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.8
+          "src": "/media/cases/urban-interactions/04.png",
+          "size": "small",
+          "ratio": 1.98613623,
+          "alt": "Second drawing program in the same editor, with a different arrangement of code blocks and parameters."
         },
         {
-          "src": "/media/poclain/04.jpg",
+          "src": "/media/cases/urban-interactions/05.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
+          "ratio": 1.54567308,
+          "alt": "Six black-and-white exhibition posters using dots, bars, grids and distorted lettering."
         },
         {
-          "src": "/media/poclain/05.jpg",
+          "src": "/media/cases/urban-interactions/06.png",
           "size": "large",
-          "crop": "inline",
-          "ratio": 1.8
+          "ratio": 1.54567308,
+          "alt": "An illuminated white poster with a column of black marks on a dark street."
+        },
+        {
+          "src": "/media/cases/urban-interactions/07.png",
+          "size": "small",
+          "ratio": 1.54567308,
+          "alt": "A printed fabric tote hangs against a black metal mesh fence."
+        },
+        {
+          "src": "/media/cases/urban-interactions/08.png",
+          "size": "small",
+          "ratio": 1.54567308,
+          "alt": "Two long white printed strips with black marks and lettering, laid diagonally on black."
+        },
+        {
+          "src": "/media/cases/urban-interactions/09.png",
+          "size": "small",
+          "ratio": 1.54567308,
+          "alt": "A large bilingual Urban Interactions billboard with rows of rounded black marks and people walking in front."
+        },
+        {
+          "src": "/media/cases/urban-interactions/10.png",
+          "size": "small",
+          "ratio": 1.54567308,
+          "alt": "A narrow white sign with vertical black lettering and graphics among green foliage."
+        },
+        {
+          "src": "/media/cases/urban-interactions/11.png",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "Flowchart of the mobile library, with branching steps connected by horizontal and vertical lines."
+        },
+        {
+          "src": "/media/cases/urban-interactions/12.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Four mobile views showing the black splash screen, circular sound graphic, index and detail screen."
+        },
+        {
+          "src": "/media/cases/urban-interactions/13.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Four white mobile screens showing lists, patterned thumbnails and selected sound graphics."
         }
-      ],
-      "production": [
-        "Creative Direction",
-        "Visual Production",
-        "Sound Design"
       ]
     },
     {
-      "slug": "prada",
-      "title": "Prada",
-      "client": "Prada",
+      "slug": "optech-museum",
+      "title": "Optech Museum",
+      "year": 2022,
       "categories": [
-        "CGI"
+        "Visual Design",
+        "Poster",
+        "Web"
       ],
-      "year": 2023,
-      "description": "Product stills from the adidas × Prada football boot collection.",
-      "preview": "/media/prada/01.jpg",
-      "gallery": [
+      "description": "The Optech Museum is an imaginary science museum brand, dedicated to showcasing optical instruments from early centuries to future possibilities. It provides a technical and cultural-historical survey of the development of optical instruments and science. The museum houses a rich collection that traces the history of technological advancement.",
+      "paragraphs": [
+        "Optech Museum 是一个虚构的科学博物馆品牌，以从早期到未来的光学仪器为展示主题。项目从技术与文化史两个角度梳理光学仪器的发展，并通过馆藏呈现科学与技术的演变。"
+      ],
+      "sections": [],
+      "details": [
         {
-          "src": "/media/prada/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "label": "Project type",
+          "value": "Fictional museum identity"
         },
         {
-          "src": "/media/prada/02.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/prada/03.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/prada/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/prada/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "label": "Subject",
+          "value": "Optical instruments and their history"
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
+      "credits": [],
+      "links": [],
+      "cover": "/media/home/optech-museum.webp",
+      "alt": "Silver tote with cobalt-blue corner graphics on rough black asphalt.",
+      "gallery": [
+        {
+          "src": "/media/cases/optech-museum/01.jpg",
+          "size": "large",
+          "ratio": 1.49937526,
+          "alt": "The Optech Museum mark on a pale metal facade beneath a clear blue sky."
+        },
+        {
+          "src": "/media/cases/optech-museum/02.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Blue four-corner symbol beside a black Optech Museum wordmark on white."
+        },
+        {
+          "src": "/media/cases/optech-museum/03.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "White symbol and white Optech Museum wordmark on a blue field."
+        },
+        {
+          "src": "/media/cases/optech-museum/04.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Grey construction drawing of the four-corner museum symbol with faint alignment guides."
+        },
+        {
+          "src": "/media/cases/optech-museum/05.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Blue corner shapes form an open square on a black background."
+        },
+        {
+          "src": "/media/cases/optech-museum/06.png",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "Grey museum symbol and wordmark shown together with construction guides."
+        },
+        {
+          "src": "/media/cases/optech-museum/07.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Type specimen with uppercase, lowercase, numbers and punctuation arranged in labelled rows."
+        },
+        {
+          "src": "/media/cases/optech-museum/08.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Four circular colour swatches in white, light grey, vivid blue and black."
+        },
+        {
+          "src": "/media/cases/optech-museum/09.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Museum letterhead and matching stationery with a small blue mark and black text."
+        },
+        {
+          "src": "/media/cases/optech-museum/10.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Flat blue-and-white stationery layouts with the open-square symbol repeated at a larger scale."
+        },
+        {
+          "src": "/media/cases/optech-museum/11.png",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "Two museum business cards showing a blue graphic side and a white contact side."
+        },
+        {
+          "src": "/media/cases/optech-museum/12.jpg",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "A small blue-and-white folded object resting on dark textured fabric."
+        },
+        {
+          "src": "/media/cases/optech-museum/13.jpg",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "A pale fabric tote with a large blue corner motif lying on rough pavement."
+        },
+        {
+          "src": "/media/cases/optech-museum/14.jpg",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "A blue exhibition guide on the pavement beneath a diagonal yellow rail."
+        },
+        {
+          "src": "/media/cases/optech-museum/15.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Four mobile museum screens on black, showing exhibition imagery and blue text pages."
+        },
+        {
+          "src": "/media/cases/optech-museum/16.png",
+          "size": "small",
+          "ratio": 1.54545455,
+          "alt": "Desktop exhibition homepage with a navigation bar, a large architectural photograph and blue headline panels."
+        },
+        {
+          "src": "/media/cases/optech-museum/17.jpg",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "A hand holding a phone with the blue museum homepage on screen."
+        },
+        {
+          "src": "/media/cases/optech-museum/18.jpg",
+          "size": "large",
+          "ratio": 1.5,
+          "alt": "A small black equipment board held between fingers, marked with white symbols and the museum logo."
+        },
+        {
+          "src": "/media/cases/optech-museum/19.jpg",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "A projected exhibition image in a dark room with silhouetted figures in front."
+        },
+        {
+          "src": "/media/cases/optech-museum/20.jpg",
+          "size": "large",
+          "ratio": 1.54545455,
+          "alt": "Illuminated entrance and exhibition signs with arrows and white lettering in a dark interior."
+        }
       ]
     },
     {
-      "slug": "air-company",
-      "title": "Air Company",
-      "client": "Air Company",
+      "slug": "the-moon-zine",
+      "title": "The Moon Zine",
+      "year": 2021,
       "categories": [
-        "CGI"
+        "Visual Design",
+        "Experimental"
       ],
-      "year": 2023,
-      "description": "A film about AIRMADE™ SAF, Air Company’s jet fuel made using captured carbon dioxide. The project centres on a flight during Climate Week.",
-      "preview": "/media/air-company/01.jpg",
-      "gallery": [
+      "description": "A concept zine design that documents the transcription of the Technical Air-to-Ground Voice Transmission (GOSS NET 1) from the Apollo 11 mission.",
+      "paragraphs": [
+        "这本概念小册收录并呈现了阿波罗 11 号任务的空地通话记录（GOSS NET 1）。"
+      ],
+      "sections": [],
+      "details": [
         {
-          "src": "/media/air-company/film-01.mp4",
-          "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
+          "label": "Project type",
+          "value": "Concept zine"
         },
         {
-          "src": "/media/air-company/02.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/air-company/03.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/air-company/04.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/air-company/film-02.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/air-company/film-03.mp4",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/air-company/05.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/air-company/06.jpg",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/air-company/film-04.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
-        },
-        {
-          "src": "/media/air-company/07.jpg",
-          "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78
+          "label": "Subject",
+          "value": "Apollo 11 air-to-ground transmissions"
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Visual Production"
+      "credits": [
+        {
+          "label": "Text source",
+          "value": "NASA, Apollo Lunar Surface Journal"
+        }
+      ],
+      "links": [
+        {
+          "label": "NASA · Apollo Lunar Surface Journal",
+          "href": "https://www.nasa.gov/history/alsj-and-afj/"
+        }
+      ],
+      "cover": "/media/home/the-moon-zine.webp",
+      "alt": "Open ring-bound zine with a lunar image folded across the spread.",
+      "gallery": [
+        {
+          "src": "/media/cases/the-moon-zine/01.png",
+          "size": "large",
+          "ratio": 1.50240385,
+          "alt": "Pale square zine cover with a fine circle, a rectangular construction grid and a small central title."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/02.png",
+          "size": "large",
+          "ratio": 1.5026145,
+          "alt": "Open ring binder with a small outlined box on the left and a largely empty ruled page on the right."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/03.png",
+          "size": "large",
+          "ratio": 1.5026145,
+          "alt": "A narrow stack of black rectangles on the left page faces a white page with fine border lines."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/04.png",
+          "size": "large",
+          "ratio": 1.5026145,
+          "alt": "A black-and-white archival photograph spans both pages beneath overlapping white rectangular panels."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/05.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "Blue horizontal transcript lines extend across both pages, broken by small pieces of text."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/06.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "A single line of text faces a small colour photograph in the lower-right corner of the spread."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/07.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "A fine grid spans both pages, with a short strip of data at lower left and a small blue-toned image at lower right."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/08.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "A curved lunar horizon bridges two black rectangles, with a dense block of figures on the right."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/09.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "A column of small text on the left faces a small square mission photograph on the right."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/10.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "A dark transcript panel covers the left half of a large moon image divided by the binder rings."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/11.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "Two inset black star charts filled with small white points and faint coordinate marks."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/12.png",
+          "size": "small",
+          "ratio": 1.5026145,
+          "alt": "Denser star charts fill both pages, crossed by dotted horizontal and vertical lines."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/13.png",
+          "size": "large",
+          "ratio": 1.5026145,
+          "alt": "Two nearly full black pages with sparse white points and a small pale disc on the left."
+        },
+        {
+          "src": "/media/cases/the-moon-zine/14.png",
+          "size": "large",
+          "ratio": 1.5026145,
+          "alt": "A pale strip of lunar terrain runs along the bottom of two black pages dotted with stars."
+        }
       ]
     },
     {
-      "slug": "dolly-cohen",
-      "title": "Dolly Cohen",
-      "client": "Dolly Cohen",
+      "slug": "ldtx",
+      "title": "LDTX",
+      "year": 2021,
       "categories": [
-        "CGI"
+        "Visual Design",
+        "Poster",
+        "Experimental"
       ],
-      "year": 2023,
-      "description": "Close-up studies of metal and teeth for a collection of ready-to-wear grills.",
-      "preview": "/media/dolly-cohen/01.jpg",
-      "gallery": [
+      "description": "BeijingDance/LDTX (LDTX) is a privately run professional dance company, co-founded in 2005 by Willy TSAO and LI Hanzhong. The company engages in all aspects of creation, performance, education, and outreach programs, providing a platform where Chinese artists can freely express their latest ideologies and sentiments, thereby advancing the multifaceted development of dance. This project aims to use pure typography to simulate the dancers' gestures and movements, and based on this concept, create the visual language and logo of the dance company.",
+      "paragraphs": [
+        "LDTX 是一家成立于 2005 年的民营专业舞团，开展创作、演出、教育与推广活动。这个项目用字体形态模拟舞者的姿态和动作，并由此设计舞团的视觉语言与标志。"
+      ],
+      "sections": [],
+      "details": [
         {
-          "src": "/media/dolly-cohen/film-01.mp4",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
+          "label": "Project type",
+          "value": "Typographic identity concept"
         },
         {
-          "src": "/media/dolly-cohen/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/dolly-cohen/02.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/dolly-cohen/03.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/dolly-cohen/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/dolly-cohen/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/dolly-cohen/06.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/dolly-cohen/07.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/dolly-cohen/08.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "label": "Subject",
+          "value": "BeijingDance/LDTX"
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Visual Production",
-        "Photography"
+      "credits": [],
+      "links": [],
+      "cover": "/media/home/ldtx.webp",
+      "alt": "Overlapping black printed posters covered in white traces of movement.",
+      "gallery": [
+        {
+          "src": "/media/cases/ldtx/01.jpg",
+          "size": "large",
+          "ratio": 1.56420233,
+          "alt": "Close-up of overlapping black-and-white printed sheets with dense traces of white marks."
+        },
+        {
+          "src": "/media/cases/ldtx/02.jpg",
+          "size": "large",
+          "ratio": 1.54615385,
+          "alt": "Overlapping printed sheets with large white Chinese characters, small type and textured patterns."
+        },
+        {
+          "src": "/media/cases/ldtx/03.jpg",
+          "size": "small",
+          "ratio": 1.54567308,
+          "alt": "A black LDTX monogram, its four letters stepping diagonally downward on white."
+        },
+        {
+          "src": "/media/cases/ldtx/04.jpg",
+          "size": "small",
+          "ratio": 1.54567308,
+          "alt": "A group of dancers extends their arms in different directions on a spotlit stage."
+        },
+        {
+          "src": "/media/cases/ldtx/05.jpg",
+          "size": "large",
+          "ratio": 1.54615385,
+          "alt": "An overhead dance scene overlaid with angular white lines and fragments of lettering."
+        },
+        {
+          "src": "/media/cases/ldtx/06.jpg",
+          "size": "large",
+          "ratio": 1.54615385,
+          "alt": "A wide wall display combines a black-and-white dance image with oversized white angular letters."
+        }
       ]
     },
     {
-      "slug": "salomon",
-      "title": "Salomon",
-      "client": "Salomon",
+      "slug": "john-cage",
+      "title": "John Cage 4′33″",
+      "year": 2020,
       "categories": [
-        "EDITING",
-        "VFX"
+        "Visual Design",
+        "Experimental"
       ],
-      "year": 2023,
-      "description": "The ACS+CSWP sneaker appears in a series of imagined planetary landscapes. A film and accompanying stills place the shoe among unfamiliar terrain and rock formations.",
-      "preview": "/media/salomon/01.jpg",
-      "gallery": [
+      "description": "Music exists in the space between notes. John Cage challenged traditional notation with interpretive approaches. The 4′33″ booklet uses pure typography to capture the essence of his work, inspired by his performance 4′33″.",
+      "paragraphs": [
+        "这本受约翰·凯奇《4′33″》启发的小册以纯字体排版，回应作品对音乐、记谱与聆听的重新思考。"
+      ],
+      "sections": [],
+      "details": [
         {
-          "src": "/media/salomon/film-01.mp4",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
+          "label": "Project type",
+          "value": "Typographic booklet"
         },
         {
-          "src": "/media/salomon/02.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/salomon/03.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/salomon/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/salomon/05.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/salomon/06.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/salomon/07.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
-        },
-        {
-          "src": "/media/salomon/08.jpg",
-          "size": "large",
-          "crop": "inline",
-          "ratio": 1.78
+          "label": "Subject",
+          "value": "John Cage’s 4′33″"
         }
       ],
-      "production": [
-        "Creative Direction",
-        "Sound Design",
-        "Visual Production"
-      ]
-    },
-    {
-      "slug": "tag-heuer-x-porsche",
-      "title": "TAG Heuer x Porsche",
-      "client": "TAG Heuer x Porsche",
-      "categories": [
-        "CGI",
-        "EDITING",
-        "VFX"
-      ],
-      "year": 2023,
-      "description": "Orange accents, fine mechanical details and racing imagery in a launch film for the Carrera × Porsche Orange Racing.",
-      "preview": "/media/tag-heuer-x-porsche/01.jpg",
+      "credits": [],
+      "links": [],
+      "cover": "/media/home/john-cage.webp",
+      "alt": "Creased black-and-white poster with twelve graphic variations pinned to a wall.",
       "gallery": [
         {
-          "src": "/media/tag-heuer-x-porsche/film-01.mp4",
+          "src": "/media/cases/john-cage/01.png",
           "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78,
-          "controls": [
-            "play",
-            "fullscreen",
-            "sound"
-          ]
+          "ratio": 1.4968815,
+          "alt": "A small grey booklet against black, with a tiny dark mark near the centre of its cover."
         },
         {
-          "src": "/media/tag-heuer-x-porsche/03.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/tag-heuer-x-porsche/02.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/tag-heuer-x-porsche/04.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/tag-heuer-x-porsche/05.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
-        },
-        {
-          "src": "/media/tag-heuer-x-porsche/film-02.mp4",
+          "src": "/media/cases/john-cage/02.jpg",
           "size": "large",
-          "crop": "landscape",
-          "ratio": 1.78,
-          "controls": [
-            "play"
-          ]
+          "ratio": 1.49707602,
+          "alt": "An open grey spread with a narrow central fold and a single small black mark on the right."
         },
         {
-          "src": "/media/tag-heuer-x-porsche/film-03.mp4",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
+          "src": "/media/cases/john-cage/03.png",
+          "size": "large",
+          "ratio": 1.49700599,
+          "alt": "Two grey pages with small black blocks on the left and a larger black square on the right."
         },
         {
-          "src": "/media/tag-heuer-x-porsche/film-04.mp4",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
+          "src": "/media/cases/john-cage/04.jpg",
+          "size": "large",
+          "ratio": 1.49707602,
+          "alt": "Large pale circular letterforms cross the fold, overlapping darker marks and a small textured rectangle."
         },
         {
-          "src": "/media/tag-heuer-x-porsche/01.jpg",
-          "size": "small",
-          "crop": "inline",
-          "ratio": 0.8
+          "src": "/media/cases/john-cage/05.jpg",
+          "size": "large",
+          "ratio": 1.49707602,
+          "alt": "Pale, repeated letter shapes grow and shift across both pages of the booklet."
         },
         {
-          "src": "/media/tag-heuer-x-porsche/film-05.mp4",
-          "size": "small",
-          "crop": "portrait",
-          "ratio": 0.8,
-          "controls": [
-            "play"
-          ]
+          "src": "/media/cases/john-cage/06.jpg",
+          "size": "large",
+          "ratio": 1.49707602,
+          "alt": "Two spreads shown side by side, one with concentric rings and one with outlined squares."
+        },
+        {
+          "src": "/media/cases/john-cage/07.jpg",
+          "size": "large",
+          "ratio": 1.49707602,
+          "alt": "A large open spread at left is paired with four smaller page views at right."
+        },
+        {
+          "src": "/media/cases/john-cage/08.png",
+          "size": "large",
+          "ratio": 0.75,
+          "alt": "A pale printed display with a grid of geometric samples, small captions and curled paper along the bottom."
         }
-      ],
-      "production": [
-        "Creative Direction",
-        "Production",
-        "CCTV Footage",
-        "Sound Design",
-        "Visual Production"
       ]
     }
   ]

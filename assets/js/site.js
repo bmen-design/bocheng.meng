@@ -43,6 +43,45 @@ function mount() {
     }
   }
 
+  const viewer = document.getElementById('image-viewer');
+  if (viewer && typeof viewer.showModal === 'function') {
+    const stage = viewer.querySelector('.viewer-image');
+    let opener;
+    document.getElementById('site-main')?.addEventListener('click', (event) => {
+      const still = event.target.closest('.project-still');
+      if (!still || event.button || event.metaKey || event.ctrlKey ||
+          event.altKey || event.shiftKey) return;
+      event.preventDefault();
+      const thumbnail = still.querySelector('img');
+      const preview = new Image();
+      preview.alt = thumbnail.alt;
+      preview.decoding = 'async';
+      if (thumbnail.srcset) {
+        const widths = [...thumbnail.srcset.matchAll(/ (\d+)w\b/g)].map(match => Number(match[1]));
+        const largest = Math.max(...widths);
+        preview.sizes = largest > 0 ? `min(96vw, ${largest}px)` : '96vw';
+        preview.srcset = thumbnail.srcset;
+      }
+      preview.src = thumbnail.currentSrc || thumbnail.src;
+      opener = still;
+      stage.replaceChildren(preview);
+      stage.scrollTop = 0;
+      viewer.querySelector('.viewer-original').href = still.href;
+      viewer.showModal();
+    });
+    viewer.querySelector('button').addEventListener('click', () => viewer.close());
+    viewer.addEventListener('click', (event) => {
+      if (event.target !== viewer) return;
+      const rect = viewer.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right ||
+          event.clientY < rect.top || event.clientY > rect.bottom) viewer.close();
+    });
+    viewer.addEventListener('close', () => {
+      stage.replaceChildren();
+      opener?.focus({preventScroll: true});
+    });
+  }
+
   const rows = document.querySelector('.list-projects-items');
   rows?.addEventListener('pointermove', (event) => {
     if (!desktop.matches || !cursor) return;
@@ -180,6 +219,7 @@ function mount() {
   });
 
   for (const video of films) {
+    video.controls = false;
     const player = video.closest('widget-player');
     const control = (key) =>
       player.querySelector('.grid-project-figure-controls-' + key);
@@ -286,6 +326,10 @@ function routeKey(url) {
   return url.pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '');
 }
 
+history.scrollRestoration = 'manual';
+const scrollPositions = new Map();
+let entry = history.state?.entry ?? crypto.randomUUID();
+history.replaceState({...history.state, entry}, '');
 let page = mount();
 let route = routeKey(location);
 let request;
@@ -310,8 +354,14 @@ async function navigate(url, fromHistory) {
     );
     if (id !== sequence) return;
     if (!next.getElementById('site-main')) throw new Error('Unavailable page');
+    scrollPositions.set(entry, scrollY);
     page.unmount();
-    if (!fromHistory) history.pushState(null, '', response.url || url.href);
+    if (fromHistory) {
+      entry = history.state?.entry;
+    } else {
+      entry = crypto.randomUUID();
+      history.pushState({entry}, '', response.url || url.href);
+    }
     const base = next.querySelector('base[href]');
     if (base) {
       let current = document.querySelector('base');
@@ -324,6 +374,8 @@ async function navigate(url, fromHistory) {
       document.querySelector('base')?.remove();
     }
     document.title = next.title;
+    document.querySelector('meta[name="description"]').content =
+      next.querySelector('meta[name="description"]').content;
     document.body.dataset.template = next.body.dataset.template;
     const nodes = [...next.body.children].filter(
       (node) => node.tagName !== 'SCRIPT'
@@ -331,7 +383,7 @@ async function navigate(url, fromHistory) {
     document.body.replaceChildren(...nodes);
     route = routeKey(location);
     page = mount();
-    scrollTo(0, 0);
+    scrollTo(0, fromHistory ? scrollPositions.get(entry) || 0 : 0);
     const main = document.getElementById('site-main');
     main.tabIndex = -1;
     main.focus({ preventScroll: true });

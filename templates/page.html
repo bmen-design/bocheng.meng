@@ -5,10 +5,12 @@
   <base href="$document_base">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="$description">
   <meta name="robots" content="noindex,nofollow">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <title>$title</title>
   <link rel="stylesheet" href="assets/css/style.css">
+  <noscript><style>noscript { display: contents; } #site-menu, #loader, .grid-project-figure-controls { display: none; }</style></noscript>
   <script type="module" src="assets/js/site.js"></script>
 </head>
 <body data-template="$view">
@@ -25,9 +27,12 @@
       <p id="site-header-tagline">$tagline</p>
     </header>
     <ul id="site-menu">$menu</ul>
-    <aside id="study-note">
-      <span>Independent study for educational purposes only. Unaffiliated with the original portfolio or featured brands.</span>
-    </aside>
+    <noscript>
+      <nav id="simple-menu" aria-label="Portfolio navigation">
+        <details><summary class="cta-pill">Work</summary><ul>$simple_work</ul></details>
+        <details><summary class="cta-pill">About</summary><div>$simple_about</div></details>
+      </nav>
+    </noscript>
     <main id="site-main">$main</main>
     <footer id="site-footer">
       <ul id="site-footer-menu">$footer_links</ul>
@@ -35,7 +40,15 @@
         <div id="site-footer-colophon-credits"><p>$name</p></div>
         <div id="site-footer-colophon-copyright"><p>$footer_note</p></div>
       </div>
+      <p id="study-note">Independent educational interface study. Unaffiliated with the reference site.</p>
     </footer>
   </div>
+  <dialog id="image-viewer" aria-label="Image preview">
+    <div class="viewer-toolbar">
+      <a class="viewer-original" aria-label="Open original image in a new tab" target="_blank" rel="noopener">Original image</a>
+      <button type="button" autofocus>Close</button>
+    </div>
+    <div class="viewer-image"></div>
+  </dialog>
 </body>
 </html>
