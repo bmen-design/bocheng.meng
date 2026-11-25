@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Optech Museum",
+    "href": "https://bmeng.cargo.site/optech-museum",
+    "cover": "/media/home/optech-museum.webp",
+    "alt": "Silver tote with cobalt-blue corner graphics on rough black asphalt.",
+    "categories": [
+      "Visual Design",
+      "Poster",
+      "Web"
+    ],
+    "year": 2022
+  },
+  {
+    "title": "The Moon Zine",
+    "href": "https://bmeng.cargo.site/the-moon-zine",
+    "cover": "/media/home/the-moon-zine.webp",
+    "alt": "Open ring-bound zine with a lunar image folded across the spread.",
+    "categories": [
+      "Visual Design",
+      "Experimental"
+    ],
+    "year": 2021
+  },
+  {
+    "title": "The Red Pack",
+    "href": "https://bmeng.cargo.site/the-red-pack",
+    "cover": "/media/home/the-red-pack.webp",
+    "alt": "A rendering of the ridged travel case suspended above a rust-coloured landscape.",
+    "categories": [
+      "Product",
+      "Visual Design",
+      "Experimental"
+    ],
+    "year": 2023
+  },
+  {
+    "title": "LDTX",
+    "href": "https://bmeng.cargo.site/ldtx",
+    "cover": "/media/home/ldtx.webp",
+    "alt": "Overlapping black printed posters covered in white traces of movement.",
+    "categories": [
+      "Visual Design",
+      "Poster",
+      "Experimental"
+    ],
+    "year": 2021
+  },
+  {
+    "title": "Urban Interactions, UABB",
+    "href": "https://bmeng.cargo.site/urban-interactions,-uabb",
+    "cover": "/media/home/urban-interactions.webp",
+    "alt": "Vertical street signage with black lettering against dense green foliage.",
+    "categories": [
+      "Visual Design",
+      "Web",
+      "Experimental"
+    ],
+    "year": 2022
+  },
+  {
+    "title": "John Cage 4′33″",
+    "href": "https://bmeng.cargo.site/john-cage-4%E2%80%9933%E2%80%99%E2%80%99",
+    "cover": "/media/home/john-cage.webp",
+    "alt": "Creased black-and-white poster with twelve graphic variations pinned to a wall.",
+    "categories": [
+      "Visual Design",
+      "Experimental"
+    ],
+    "year": 2020
+  }
+]

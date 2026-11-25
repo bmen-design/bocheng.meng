@@ -1,20 +1,4 @@
 {
-  "overview": [
-    "t1-energy",
-    "snap-implants",
-    "raura",
-    "tag-heuer-x-porsche",
-    "mws-findings",
-    "air-company",
-    "equinox",
-    "sisyphe",
-    "mercedes",
-    "prada",
-    "salomon",
-    "dolly-cohen",
-    "puma",
-    "poclain"
-  ],
   "projects": [
     {
       "slug": "mws-findings",
@@ -25,8 +9,6 @@
       ],
       "year": 2026,
       "description": "An architectural study of data centres and the landscapes around them. The images explore how large computing facilities could feel like considered places, with a quieter presence in their surroundings.",
-      "cover": "/media/mws-findings/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/mws-findings/01.jpg",
       "gallery": [
         {
@@ -96,8 +78,6 @@
       ],
       "year": 2026,
       "description": "Raura is a wearable device that measures exposure to sunlight and offers personal wellness insights. The films and product stills follow the same visual direction, from the concept through to the finished images.",
-      "cover": "/media/raura/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/raura/01.jpg",
       "gallery": [
         {
@@ -209,8 +189,6 @@
       ],
       "year": 2025,
       "description": "A short film that draws on the myth of Sisyphus. Animated landscapes give form to its recurring cycles, following the tension between an urge to escape repetition and the possibility of finding meaning within it.",
-      "cover": "/media/sisyphe/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/sisyphe/01.jpg",
       "gallery": [
         {
@@ -319,8 +297,6 @@
       ],
       "year": 2025,
       "description": "A visual identity for T1 Energy, a US clean energy manufacturer. Films and stills use the geometry of solar cells, battery modules and production equipment to describe the company’s work.",
-      "cover": "/media/t1-energy/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/t1-energy/01.jpg",
       "gallery": [
         {
@@ -444,8 +420,6 @@
       ],
       "year": 2025,
       "description": "A speculative study of skin as a surface for customisation. These forms sit between ornament and functional implant, exploring how a device might become part of the body.",
-      "cover": "/media/snap-implants/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/snap-implants/01.jpg",
       "gallery": [
         {
@@ -537,8 +511,6 @@
       ],
       "year": 2025,
       "description": "Two campaign films for the return of the Mostro OG silhouette.",
-      "cover": "/media/puma/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/puma/01.jpg",
       "gallery": [
         {
@@ -586,8 +558,6 @@
       ],
       "year": 2024,
       "description": "A launch film and a series of stills for Equinox. The images follow the movement and physical effort of athletic performance with close framing and an emphasis on precision.",
-      "cover": "/media/equinox/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/equinox/01.jpg",
       "gallery": [
         {
@@ -721,8 +691,6 @@
       ],
       "year": 2024,
       "description": "A crash test unfolds in slow motion in this experimental automotive film.",
-      "cover": "/media/mercedes/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/mercedes/01.jpg",
       "gallery": [
         {
@@ -817,8 +785,6 @@
       ],
       "year": 2023,
       "description": "A film exploring the construction and movement of a hydraulic motor.",
-      "cover": "/media/poclain/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/poclain/01.jpg",
       "gallery": [
         {
@@ -872,8 +838,6 @@
       ],
       "year": 2023,
       "description": "Product stills from the adidas × Prada football boot collection.",
-      "cover": "/media/prada/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/prada/01.jpg",
       "gallery": [
         {
@@ -921,8 +885,6 @@
       ],
       "year": 2023,
       "description": "A film about AIRMADE™ SAF, Air Company’s jet fuel made using captured carbon dioxide. The project centres on a flight during Climate Week.",
-      "cover": "/media/air-company/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/air-company/01.jpg",
       "gallery": [
         {
@@ -1014,8 +976,6 @@
       ],
       "year": 2023,
       "description": "Close-up studies of metal and teeth for a collection of ready-to-wear grills.",
-      "cover": "/media/dolly-cohen/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/dolly-cohen/01.jpg",
       "gallery": [
         {
@@ -1092,8 +1052,6 @@
       ],
       "year": 2023,
       "description": "The ACS+CSWP sneaker appears in a series of imagined planetary landscapes. A film and accompanying stills place the shoe among unfamiliar terrain and rock formations.",
-      "cover": "/media/salomon/01.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/salomon/01.jpg",
       "gallery": [
         {
@@ -1167,8 +1125,6 @@
       ],
       "year": 2023,
       "description": "Orange accents, fine mechanical details and racing imagery in a launch film for the Carrera × Porsche Orange Racing.",
-      "cover": "/media/tag-heuer-x-porsche/02.jpg",
-      "coverSize": "small-portrait",
       "preview": "/media/tag-heuer-x-porsche/01.jpg",
       "gallery": [
         {

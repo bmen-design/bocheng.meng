@@ -26,6 +26,9 @@ def image(src, alt):
 
 
 def project_link(project, classes, current=None):
+    if "href" in project:
+        return (f'<a class="{classes}" href="{escape(project["href"])}" '
+                f'aria-label="{escape(project["title"])}"></a>')
     slug = project["slug"]
     active = ' active' if slug == current else ''
     return (f'<a class="{classes} link-ajax{active}" href="work/{escape(slug)}/" '
@@ -35,11 +38,11 @@ def project_link(project, classes, current=None):
 def overview(projects):
     cards = []
     for project in projects:
-        cover = image(project["cover"], project["title"])
+        cover = image(project["cover"], project["alt"])
         link = project_link(project, "grid-projects-figure-link")
         title = escape(project["title"])
         cards.append(f'''
-          <figure class="grid-projects-figure" data-size="{escape(project["coverSize"])}">
+          <figure class="grid-projects-figure" data-size="small-portrait">
             {link}
             <div class="grid-projects-figure-thumbnail">{cover}</div>
             <figcaption class="grid-projects-figure-caption">
@@ -104,7 +107,7 @@ def work_menu(projects, current):
               <span class="list-projects-item-categories">{categories}</span>
               <span class="list-projects-item-year">{project["year"]}</span>
             </li>''')
-        thumbnail = image(project["preview"], project["title"])
+        thumbnail = image(project.get("preview") or project["cover"], project.get("alt", project["title"]))
         previews.append(f'<figure class="widget-cursor-thumbnail" data-index="{index}" hidden>'
                         f'{thumbnail}</figure>')
     content = (f'<div class="list-projects"><header class="list-projects-header font-subtle">'
@@ -207,9 +210,11 @@ def render(path, document_base="/"):
     route = urlsplit(path).path.rstrip("/")
     status, slug = 200, None
     title = site["name"]
+    menu_projects = catalog["projects"]
     if route in ("", "/index.html"):
         view = "home"
-        main = overview([projects[key] for key in catalog["overview"]])
+        menu_projects = json.loads((ROOT / "content/home.json").read_text())
+        main = overview(menu_projects)
     elif route.startswith("/work/") and route[6:] in projects:
         slug = route[6:]
         view = "project"
@@ -225,7 +230,7 @@ def render(path, document_base="/"):
         document_base=escape(document_base),
         title=escape(title), view=view, name=escape(site["name"]), wordmark=escape(site["name"].upper()),
         tagline=escape(site["tagline"]), home_active=" active" if view == "home" else "",
-        menu=work_menu(catalog["projects"], slug) + about_menu(site, catalog["projects"]), main=main,
+        menu=work_menu(menu_projects, slug) + about_menu(site, catalog["projects"]), main=main,
         footer_links=footer(site["contact"]), footer_note=escape(site["footerNote"]),
     )
     return status, html
