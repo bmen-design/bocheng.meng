@@ -215,8 +215,8 @@ def project_page(project):
             info.append(text_section(section["title"], section["paragraphs"], section.get("links", [])))
     if project.get("credits"):
         info.append(details("Credits", [(row["label"], row["value"]) for row in project["credits"]]))
-    return (f'<div id="site-main-header">{page_title(project["title"])}'
-            f'<div id="site-main-info">{"".join(info)}</div>{back_link("Back to Overview")}</div>'
+    return (f'<div class="project-sidebar"><div id="site-main-header">{page_title(project["title"])}'
+            f'<div id="site-main-info">{"".join(info)}</div>{back_link("Back to Overview")}</div></div>'
             + gallery(project))
 
 

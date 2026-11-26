@@ -1,10 +1,13 @@
 const desktop = matchMedia('(hover: hover) and (pointer: fine)');
 const quiet = matchMedia('(prefers-reduced-motion: reduce)');
+const motionEase = getComputedStyle(document.documentElement).getPropertyValue('--motion-ease').trim();
 
 function mount() {
   const listeners = new AbortController();
   const signal = listeners.signal;
   const menu = Array.from(document.querySelectorAll('[data-accordion]'));
+  const panels = menu.map(panelFor);
+  const sidebar = document.querySelector('.project-sidebar');
   const cursor = document.querySelector('widget-cursor');
   const films = Array.from(document.querySelectorAll('widget-player video'));
   const filmControls = new Map();
@@ -47,6 +50,7 @@ function mount() {
   const rows = document.querySelector('.list-projects-items');
   rows?.addEventListener('pointermove', (event) => {
     if (!desktop.matches || !cursor || event.pointerType === 'touch') return;
+    cursor.classList.toggle('tracking', Boolean(activePreview));
     showPreview(event.target.closest('.list-projects-item'));
     if (activePreview)
       cursor.style.transform = `translate(${event.clientX + 15}px, ${event.clientY + 15}px)`;
@@ -67,11 +71,39 @@ function mount() {
       track.dataset.scroll = String(track.scrollHeight > track.clientHeight);
   }
 
+  function positionSidebar() {
+    if (!sidebar) return;
+    const visible = panels.filter((panel) => !panel.hidden);
+    if (!visible.length) {
+      sidebar.style.removeProperty('--menu-offset');
+      return;
+    }
+    // Measure from the sidebar's original position, even while its contents are moving.
+    const slot = sidebar.getBoundingClientRect();
+    const header = sidebar.firstElementChild;
+    const gap = parseFloat(getComputedStyle(header).rowGap);
+    let offset = 0;
+    for (const panel of visible) {
+      const box = panel.getBoundingClientRect();
+      if (box.height && box.left < slot.right && box.right > slot.left &&
+          slot.top + header.offsetHeight > box.top) {
+        offset = Math.max(offset, box.bottom + Math.min(gap, box.height) - slot.top);
+      }
+    }
+    sidebar.style.setProperty('--menu-offset', offset + 'px');
+  }
+
   const measurePanels = new ResizeObserver((entries) => {
-    for (const entry of entries) adjustPanel(entry.target);
+    for (const entry of entries) {
+      if (entry.target.localName === 'panel-track') adjustPanel(entry.target);
+    }
+    positionSidebar();
   });
-  for (const track of document.querySelectorAll('panel-track'))
-    measurePanels.observe(track);
+  for (const panel of panels) {
+    measurePanels.observe(panel.querySelector('panel-track'));
+    if (sidebar) measurePanels.observe(panel);
+  }
+  if (sidebar) window.addEventListener('resize', positionSidebar, { signal });
 
   function pageScrollY() {
     const root = document.documentElement;
@@ -82,6 +114,7 @@ function mount() {
   function displayMenu(selected, animate) {
     menuScrollY = selected ? pageScrollY() : null;
     showPreview(null);
+    const previousHeight = Math.max(0, ...panels.map((panel) => panel.getBoundingClientRect().height));
     for (const button of menu) {
       const panel = panelFor(button);
       const open = button === selected;
@@ -97,10 +130,11 @@ function mount() {
       }
       panel.hidden = false;
       const end = open ? panel.offsetHeight : 0;
+      const start = open ? Math.min(previousHeight, end) : height;
       panel.style.overflow = 'hidden';
       const motion = panel.animate(
-        [{ height: height + 'px' }, { height: end + 'px' }],
-        { duration: 230, easing: 'cubic-bezier(.75,0,.25,1)' }
+        [{ height: start + 'px' }, { height: end + 'px' }],
+        { duration: 230, easing: motionEase }
       );
       motion.onfinish = () => {
         panel.hidden = !open;
@@ -109,6 +143,7 @@ function mount() {
         if (track && open) adjustPanel(track);
       };
     }
+    positionSidebar();
   }
 
   function selectMenu(button, animate = true) {
@@ -137,6 +172,7 @@ function mount() {
 
   window.addEventListener('scroll', () => {
     if (menuScrollY !== null && pageScrollY() !== menuScrollY) selectMenu(null);
+    else if (sidebar?.style.getPropertyValue('--menu-offset')) positionSidebar();
   }, { passive: true, signal });
 
   document.addEventListener('pointerup', (event) => {
@@ -285,7 +321,7 @@ function mount() {
         (element) =>
           element.animate(frames, {
             duration,
-            easing: outgoing ? 'ease-in' : 'ease-out',
+            easing: motionEase,
             fill: outgoing ? 'forwards' : 'none'
           }).finished
       )

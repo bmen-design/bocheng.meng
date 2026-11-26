@@ -110,6 +110,27 @@ def check_project_layout(page, width, gap):
         raise AssertionError('Project page overflows horizontally')
 
 
+def check_project_menu_clearance(page, width, gap):
+    sidebar = page.locator('#site-main-header')
+    gallery = page.locator('#site-main-content')
+    initial_sidebar = sidebar.bounding_box()
+    initial_gallery = gallery.bounding_box()
+    for name in ('Work', 'About'):
+        page.get_by_role('button', name=name).click()
+        panel = page.locator(f'#{name.lower()}-panel')
+        expect(panel).to_be_visible()
+        box = panel.bounding_box()
+        expected_top = max(initial_sidebar['y'], box['y'] + box['height'] + gap)
+        if abs(sidebar.bounding_box()['y'] - expected_top) > .5:
+            raise AssertionError(f'Sidebar should clear {name} and start at {expected_top:.1f}px')
+        if width > 840 and gallery.bounding_box() != initial_gallery:
+            raise AssertionError(f'Desktop gallery moved when {name} opened')
+    page.keyboard.press('Escape')
+    expect(page.locator('#about-panel')).to_be_hidden()
+    if sidebar.bounding_box() != initial_sidebar or gallery.bounding_box() != initial_gallery:
+        raise AssertionError('Sidebar or gallery did not return to its closed-menu position')
+
+
 def home(page, projects, size, radius, touch):
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
@@ -214,6 +235,8 @@ def run(browser, base, projects, width):
                 check_type(page, '#site-main-info .text-body-content > p', size, .02)
             if project:
                 check_project_layout(page, width, size)
+                if project['slug'] == 'uxtester':
+                    check_project_menu_clearance(page, width, size)
                 expect(page.locator('#site-main-header-title')).to_have_text(project['title'])
                 check_type(page, '.list-details-item > :is(dt, dd)', size, .02)
                 lead = page.locator('#site-main-info .text-body-content').first.locator(':scope > p')
