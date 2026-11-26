@@ -9,6 +9,7 @@ function mount() {
   const films = Array.from(document.querySelectorAll('widget-player video'));
   const filmControls = new Map();
   let activePreview = null;
+  let menuScrollY = null;
 
   function setDevice() {
     document.body.classList.toggle('desktop', desktop.matches);
@@ -72,7 +73,14 @@ function mount() {
   for (const track of document.querySelectorAll('panel-track'))
     measurePanels.observe(track);
 
+  function pageScrollY() {
+    const root = document.documentElement;
+    // Ignore Safari's bounce beyond the top and bottom of the page.
+    return Math.max(0, Math.min(scrollY, root.scrollHeight - root.clientHeight));
+  }
+
   function displayMenu(selected, animate) {
+    menuScrollY = selected ? pageScrollY() : null;
     showPreview(null);
     for (const button of menu) {
       const panel = panelFor(button);
@@ -126,6 +134,13 @@ function mount() {
       );
     });
   }
+
+  window.addEventListener('scroll', () => {
+    if (menuScrollY === null) return;
+    const y = pageScrollY();
+    if (y > menuScrollY) selectMenu(null);
+    else menuScrollY = y;
+  }, { passive: true, signal });
 
   document.addEventListener('pointerup', (event) => {
     if (!event.isPrimary || event.button !== 0 ||
@@ -362,8 +377,8 @@ async function navigate(url, fromHistory) {
     );
     document.body.replaceChildren(...nodes);
     route = routeKey(location);
-    page = mount();
     scrollTo(0, fromHistory ? scrollPositions.get(entry) || 0 : 0);
+    page = mount();
     const main = document.getElementById('site-main');
     main.tabIndex = -1;
     main.focus({ preventScroll: true });
