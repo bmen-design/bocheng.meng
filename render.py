@@ -52,9 +52,8 @@ def overview(projects):
         cover = image(project["cover"], project["alt"], project.get("coverBackdrop"))
         link = project_link(project, "grid-projects-figure-link")
         title = escape(project["title"])
-        caption_class = " caption-below-center" if project.get("captionBelowCenter") else ""
         cards.append(f'''
-          <figure class="grid-projects-figure{caption_class}">
+          <figure class="grid-projects-figure">
             {link}
             <div class="grid-projects-figure-thumbnail">{cover}</div>
             <figcaption class="grid-projects-figure-caption">
@@ -133,7 +132,7 @@ def work_menu(projects, current):
                         f'{thumbnail}</figure>')
     content = (f'<div class="list-projects"><header class="list-projects-header font-subtle">'
                f'{headings}</header><ul class="list-projects-items">{"".join(rows)}</ul></div>')
-    return accordion("work", content, "large", f'<widget-cursor>{"".join(previews)}</widget-cursor>')
+    return accordion("work", content, "large", f'<widget-cursor aria-hidden="true">{"".join(previews)}</widget-cursor>')
 
 
 def about_content(site):
@@ -182,17 +181,7 @@ def gallery(project):
         ratio = float(item["ratio"])
         if ratio <= 0:
             raise ValueError(f'Invalid media ratio in {project["slug"]}')
-        preview = ""
-        if ratio < 0.4 and "controls" not in item:
-            preview = ' data-preview="top"'
-        elif abs(ratio / 1.5 - 1) <= 0.025:
-            preview = ' data-preview="fill"'
-        style = f"--source-ratio: {ratio}"
-        if "matte" in item:
-            if not re.fullmatch(r"#[0-9a-fA-F]{6}", item["matte"]):
-                raise ValueError(f'Invalid media background in {project["slug"]}')
-            style += f'; --matte: {item["matte"]}'
-        frame = f'class="grid-project-figure-thumbnail"{preview} style="{style}"'
+        frame = f'class="grid-project-figure-thumbnail" style="--source-ratio: {ratio}"'
         if "controls" in item:
             media = (f'<widget-player><div {frame} data-state="idle">'
                      f'<video class="thumb" controls preload="metadata" playsinline muted loop '
@@ -200,7 +189,7 @@ def gallery(project):
                      + video_controls(item["controls"]) + '</widget-player>')
         else:
             media = (f'<a class="project-still" href="{source}" target="_blank" rel="noopener" '
-                     f'aria-haspopup="dialog" aria-label="Enlarge image: {escape(label)}">'
+                     f'aria-label="Open full-size image: {escape(label)}">'
                      f'<div {frame}>{image(item["src"], label)}</div></a>')
         caption = f'<figcaption>{escape(item["caption"])}</figcaption>' if item.get("caption") else ""
         figures.append('<figure class="grid-project-figure">'

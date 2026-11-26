@@ -16,6 +16,16 @@ Each `coverCrop` records the original asset and crop rectangle in pixels, ordere
 
 The site name, contact links and About text are in `content/site.json`. The page shell is in `templates/page.html`, with layout and interaction code in `assets/`. Media paths resolve from the site root. The build includes only catalogue media and available responsive image variants.
 
+## Visual changes
+
+Change the properties named in the brief. A new cover can use a crop of the original artwork. Adding a border, shadow, background, badge or overlay is a separate design decision. Show the proposed change beside the current version and get the site owner's approval before publishing it.
+
+The interface uses Helvetica, with Arial as the system fallback. The regular desktop size is 10px with a 13px line height, weight 400, body tracking of 0.02em and label tracking of 0.08em. The responsive values live in `assets/css/typography.css`. Changes to type, scale or interaction require an explicit design request. Keep site copy in English and preserve lettering in the original work.
+
+Homepage cards use a 4:5 crop. On project pages, images share a width and corner radius. Each image's original aspect ratio determines its height so the whole work stays visible.
+
+Review changed images at their rendered size on desktop and mobile. Check the subject, device edges, cut-off text and empty bands, with the pointer both over and away from the card. The publishing workflow also checks the computed styles of the built pages in Chrome before deployment.
+
 ## Build
 
 ```sh

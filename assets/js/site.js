@@ -43,53 +43,16 @@ function mount() {
     }
   }
 
-  const viewer = document.getElementById('image-viewer');
-  if (viewer && typeof viewer.showModal === 'function') {
-    const stage = viewer.querySelector('.viewer-image');
-    let opener;
-    document.getElementById('site-main')?.addEventListener('click', (event) => {
-      const still = event.target.closest('.project-still');
-      if (!still || event.button || event.metaKey || event.ctrlKey ||
-          event.altKey || event.shiftKey) return;
-      event.preventDefault();
-      const thumbnail = still.querySelector('img');
-      const preview = new Image();
-      preview.alt = thumbnail.alt;
-      preview.decoding = 'async';
-      if (thumbnail.srcset) {
-        const widths = [...thumbnail.srcset.matchAll(/ (\d+)w\b/g)].map(match => Number(match[1]));
-        const largest = Math.max(...widths);
-        preview.sizes = largest > 0 ? `min(96vw, ${largest}px)` : '96vw';
-        preview.srcset = thumbnail.srcset;
-      }
-      preview.src = thumbnail.currentSrc || thumbnail.src;
-      opener = still;
-      stage.replaceChildren(preview);
-      stage.scrollTop = 0;
-      viewer.querySelector('.viewer-original').href = still.href;
-      viewer.showModal();
-    });
-    viewer.querySelector('button').addEventListener('click', () => viewer.close());
-    viewer.addEventListener('click', (event) => {
-      if (event.target !== viewer) return;
-      const rect = viewer.getBoundingClientRect();
-      if (event.clientX < rect.left || event.clientX > rect.right ||
-          event.clientY < rect.top || event.clientY > rect.bottom) viewer.close();
-    });
-    viewer.addEventListener('close', () => {
-      stage.replaceChildren();
-      opener?.focus({preventScroll: true});
-    });
-  }
-
   const rows = document.querySelector('.list-projects-items');
   rows?.addEventListener('pointermove', (event) => {
-    if (!desktop.matches || !cursor) return;
+    if (!desktop.matches || !cursor || event.pointerType === 'touch') return;
     showPreview(event.target.closest('.list-projects-item'));
     if (activePreview)
       cursor.style.transform = `translate(${event.clientX + 15}px, ${event.clientY + 15}px)`;
   });
   rows?.addEventListener('pointerleave', () => showPreview(null));
+  rows?.addEventListener('keydown', () => showPreview(null));
+  rows?.closest('panel-track')?.addEventListener('scroll', () => showPreview(null));
 
   function panelFor(button) {
     return (
@@ -235,14 +198,24 @@ function mount() {
       if (enable) video.muted = false;
     });
     control('fullscreen')?.addEventListener('click', async () => {
+      for (const other of films) if (other !== video) other.muted = true;
       try {
         if (document.fullscreenElement) await document.exitFullscreen();
-        else if (video.requestFullscreen) await video.requestFullscreen();
-        else video.webkitEnterFullscreen?.();
+        else {
+          // The custom toolbar stays in the page while the film is in fullscreen.
+          video.controls = true;
+          if (video.requestFullscreen) await video.requestFullscreen();
+          else video.webkitEnterFullscreen?.();
+        }
       } catch {
+        // Leave the native toolbar available if the browser declines fullscreen.
         video.controls = true;
       }
     });
+    video.addEventListener('fullscreenchange', () => {
+      video.controls = document.fullscreenElement === video;
+    });
+    video.addEventListener('webkitendfullscreen', () => { video.controls = false; });
     video.addEventListener('volumechange', () => syncAudio(video));
     video.addEventListener('loadeddata', () => reveal(video));
     for (const [event, state] of [
@@ -418,7 +391,10 @@ document.addEventListener('click', (event) => {
   if (request) return;
   page.selectMenu(null, false);
   if (routeKey(url) === route && !url.search) scrollTo(0, 0);
-  else navigate(url, false);
+  else {
+    link.classList.add('active');
+    navigate(url, false);
+  }
 });
 
 window.addEventListener('popstate', () => {

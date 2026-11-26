@@ -1,0 +1,160 @@
+"""Verify the portfolio's approved typography and image treatment in a served static build."""
+import argparse
+import json
+from pathlib import Path
+from urllib.parse import urljoin
+
+from playwright.sync_api import expect, sync_playwright
+
+CATALOG = Path(__file__).resolve().parents[1] / "content/projects.json"
+
+TYPE = """(nodes, {size, tracking, color}) => {
+  for (const node of nodes) {
+    const s = getComputedStyle(node);
+    const pixels = {fontSize: size, lineHeight: size * 1.3, letterSpacing: size * tracking};
+    const values = {fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: '400'};
+    if (color) values.color = color;
+    for (const [key, value] of Object.entries({...pixels, ...values})) {
+      const ok = typeof value === 'number' ? Math.abs(parseFloat(s[key]) - value) < .02 : s[key] === value;
+      if (!ok) throw Error(node.outerHTML.slice(0, 100) + ' ' + key + ': ' + s[key] + ', expected ' + value);
+    }
+  }
+}"""
+
+FRAMES = """(frames, {ratio, radius, excess, cursor}) => {
+  const near = (actual, expected, label) => {
+    if (!Number.isFinite(actual) || Math.abs(actual - expected) > .1)
+      throw Error(label + ': ' + actual + ', expected ' + expected);
+  };
+  frames.forEach((frame, i) => {
+    const image = frame.querySelector('img,video'), style = getComputedStyle(image);
+    const rect = frame.getBoundingClientRect(), art = image.getBoundingClientRect();
+    const label = image.getAttribute('src') + ' ';
+    const gallery = Array.isArray(ratio), aspect = gallery ? ratio[i] : ratio;
+    // Compare the shorter edge so browser subpixel rounding does not compound on tall pages.
+    if (aspect < 1) near(rect.width, rect.height * aspect, label + 'frame width');
+    else near(rect.height, rect.width / aspect, label + 'frame height');
+    if (cursor) near(rect.width, 115, label + 'preview width');
+    const rules = getComputedStyle(frame);
+    for (const corner of ['TopLeft','TopRight','BottomLeft','BottomRight']) {
+      near(parseFloat(rules['border' + corner + 'Radius']), radius, label + corner);
+      near(parseFloat(style['border' + corner + 'Radius']), 0, label + 'inner radius');
+    }
+    if (rules.overflow !== 'hidden' || rules.backgroundColor !== 'rgb(247, 247, 247)' || style.objectFit !== 'cover' ||
+        style.objectPosition !== '50% 50%') throw Error(label + 'image fit, position or frame background');
+    if (gallery) {
+      const grid = frame.closest('.grid-project-figures'), column = grid.getBoundingClientRect();
+      near(rect.width, column.width || document.querySelector('#site-main').getBoundingClientRect().width, label + 'column');
+      if (style.backgroundColor !== 'rgba(0, 0, 0, 0)') throw Error(label + 'image matte');
+    }
+    near(art.width, rect.width + excess, label + 'image width');
+    near(art.height, rect.height + excess, label + 'image height');
+    near(art.left, rect.left - excess / 2, label + 'image left');
+    near(art.top, rect.top - excess / 2, label + 'image top');
+    const figure = frame.closest('figure');
+    const layers = new Set([frame, image, figure, figure.querySelector('.grid-projects-figure-link'), frame.closest('a,widget-player')]);
+    for (const layer of layers) {
+      if (!layer) continue;
+      const s = getComputedStyle(layer);
+      for (const side of ['Top','Right','Bottom','Left']) {
+        for (const prop of ['border' + side + 'Width','padding' + side,'margin' + side])
+          near(parseFloat(s[prop]), 0, label + prop);
+      }
+      if (s.boxShadow !== 'none' || s.outlineStyle !== 'none' || s.backgroundImage !== 'none')
+        throw Error(label + 'added frame decoration');
+      for (const pseudo of ['::before','::after']) {
+        if (!['none','normal'].includes(getComputedStyle(layer, pseudo).content))
+          throw Error(label + 'added ' + pseudo);
+      }
+    }
+  });
+}"""
+
+
+def check_type(page, selector, size, tracking, color=None):
+    nodes = page.locator(selector)
+    expect(nodes.first).to_be_attached()
+    nodes.evaluate_all(TYPE, dict(size=size, tracking=tracking, color=color))
+
+
+def check_frames(frames, count, radius, ratio, excess=0, cursor=False):
+    expect(frames).to_have_count(count)
+    frames.evaluate_all(FRAMES, dict(ratio=ratio, radius=radius, excess=excess, cursor=cursor))
+
+
+def home(page, projects, size, radius, touch):
+    card = page.locator('.grid-projects-figure').first
+    covers = page.locator('.grid-projects-figure-thumbnail')
+    title = card.locator('h3')
+    check_type(page, '.grid-projects-figure-caption-title > span', size, .08)
+    expect(title).to_have_css('opacity', '0')
+    offset = title.evaluate("e => new DOMMatrix(getComputedStyle(e).transform).m42")
+    if abs(offset - size * 1.5) > .02:
+        raise AssertionError(f"Hidden title offset {offset}px")
+    check_frames(covers, len(projects), radius, .8, 2 if touch else 2 * size)
+    if not touch:
+        card.locator('a').hover()
+        expect(title).to_have_css('opacity', '1')
+        check_frames(covers.first, 1, radius, .8, 2)
+        centered = card.evaluate("""e => {const a=e.getBoundingClientRect(), b=e.querySelector('h3').getBoundingClientRect();
+          return Math.abs(a.x+a.width/2-b.x-b.width/2)<.1 && Math.abs(a.y+a.height/2-b.y-b.height/2)<.1;}""")
+        if not centered:
+            raise AssertionError('Hover title is off center')
+    page.get_by_role('button', name='Work').click()
+    page.mouse.move(0, 0)
+    check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)')
+    check_type(page, '.list-projects-item > :is(h3, span)', size, .08, 'rgb(0, 0, 0)')
+    if touch:
+        expect(page.locator('widget-cursor')).to_be_hidden()
+    else:
+        page.locator('.list-projects-item-link').first.hover()
+        check_frames(page.locator('widget-cursor figure:not([hidden])'), 1, 15, 1, cursor=True)
+    page.get_by_role('button', name='About').click()
+    check_type(page, '#about-panel .text-body-content > p', size, .02)
+    if touch:
+        page.get_by_role('button', name='About').click()
+        card.locator('a').tap()
+        expect(page.locator('body')).to_have_attribute('data-template', 'project')
+
+
+def run(browser, base, projects, width):
+    touch = width == 390
+    size = width / 44 if width < 440 else max(10, width / 192)
+    radius = width * 80 / (840 if width <= 840 else 1512)
+    page = browser.new_page(viewport={'width': width, 'height': 900}, has_touch=touch,
+                            is_mobile=touch, reduced_motion='reduce')
+    routes = [('', 'home', None), ('404.html', 'error', None)]
+    routes.extend((f"work/{p['slug']}/", 'project', p) for p in projects)
+    try:
+        for path, view, project in routes:
+            page.goto(urljoin(base, path), wait_until='domcontentloaded')
+            page.mouse.move(0, 0)
+            expect(page.locator('body')).to_have_attribute('data-template', view)
+            check_type(page, '#site-header-tagline, .cta-pill-label, #site-footer-colophon p', size, .08)
+            if view == 'home':
+                home(page, projects, size, radius, touch)
+            else:
+                check_type(page, '#site-main-header-title > span, #site-main-info h2', size, .08)
+                check_type(page, '#site-main-info .text-body-content > p', size, .02)
+            if project:
+                check_type(page, '.list-details-item > :is(dt, dd)', size, .02)
+                art = project['gallery']
+                check_frames(page.locator('.grid-project-figure-thumbnail'), len(art), radius, [a['ratio'] for a in art])
+                if any(s.get('beforeFigure') for s in project.get('sections', [])):
+                    check_type(page, '.grid-project-figures .text-body-content > p', size, .02)
+        print(f'{width}px: {len(routes)} pages passed', flush=True)
+    except Exception as exc:
+        raise AssertionError(f'{width}px {page.url}: {exc}') from exc
+    finally:
+        page.close()
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--base-url', required=True, help='URL of the served export, including its site prefix')
+    base = parser.parse_args().base_url.rstrip('/') + '/'
+    projects = json.loads(CATALOG.read_text(encoding='utf-8'))['projects']
+    with sync_playwright() as playwright:
+        with playwright.chromium.launch(channel='chrome') as browser:
+            for width in (390, 1440, 2560):
+                run(browser, base, projects, width)

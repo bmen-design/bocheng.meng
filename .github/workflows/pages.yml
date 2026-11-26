@@ -23,6 +23,21 @@ jobs:
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: python3 export.py --base-path "${BASE_PATH:-/}"
+      - name: Check visual baseline in Chrome
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          python3 -m venv "$RUNNER_TEMP/visual-check"
+          "$RUNNER_TEMP/visual-check/bin/pip" install --quiet playwright==1.60.0
+          preview="$RUNNER_TEMP/site-preview"
+          mount="$preview/${BASE_PATH#/}"
+          mkdir -p "$(dirname "${mount%/}")"
+          ln -s "$PWD/dist" "${mount%/}"
+          python3 -m http.server 8765 --bind 127.0.0.1 --directory "$preview" > "$RUNNER_TEMP/preview.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          curl --silent --show-error --fail --retry 5 --retry-connrefused "http://127.0.0.1:8765${BASE_PATH%/}/" --output /dev/null
+          "$RUNNER_TEMP/visual-check/bin/python" checks/visual_baseline.py --base-url "http://127.0.0.1:8765${BASE_PATH%/}/"
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist

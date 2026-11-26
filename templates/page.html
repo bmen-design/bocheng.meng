@@ -9,9 +9,10 @@
   <meta name="robots" content="noindex,nofollow">
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <title>$title</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=cards-4">
+  <link rel="stylesheet" href="assets/css/style.css?v=layout-5">
+  <link rel="stylesheet" href="assets/css/typography.css?v=1">
   <noscript><style>noscript { display: contents; } #site-menu, #loader, .grid-project-figure-controls { display: none; }</style></noscript>
-  <script type="module" src="assets/js/site.js"></script>
+  <script type="module" src="assets/js/site.js?v=5"></script>
 </head>
 <body data-template="$view">
   <div id="loader"></div>
@@ -20,7 +21,7 @@
       <a id="site-header-logo" class="cta-inline cta-inline--expanded link-ajax link-ajax--home$home_active" href="./" aria-label="$name, home">
         <span class="cta-inline-icon">
           <svg aria-hidden="true" data-icon="logo" viewBox="0 0 128 10">
-            <text x="0" y="9.5" font-family="Arial Black,Helvetica,Arial,sans-serif" font-size="13" font-weight="900" letter-spacing="1.25" textLength="128" lengthAdjust="spacingAndGlyphs">$wordmark</text>
+            <text x="0" y="9.5" textLength="128" lengthAdjust="spacingAndGlyphs">$wordmark</text>
           </svg>
         </span>
       </a>
@@ -40,15 +41,7 @@
         <div id="site-footer-colophon-credits"><p>$name</p></div>
         <div id="site-footer-colophon-copyright"><p>$footer_note</p></div>
       </div>
-      <p id="study-note">Independent educational interface study. Unaffiliated with the reference site.</p>
     </footer>
   </div>
-  <dialog id="image-viewer" aria-label="Image preview">
-    <div class="viewer-toolbar">
-      <a class="viewer-original" aria-label="Open original image in a new tab" target="_blank" rel="noopener">Original image</a>
-      <button type="button" autofocus>Close</button>
-    </div>
-    <div class="viewer-image"></div>
-  </dialog>
 </body>
 </html>
