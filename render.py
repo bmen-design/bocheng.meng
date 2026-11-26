@@ -138,7 +138,7 @@ def work_menu(projects, current):
 
 def about_content(site):
     contacts = [f'<a class="link-inline" href="{escape(c["href"])}">{escape(c["label"])}</a>'
-                for c in site["contact"]]
+                for c in site["contact"] + site.get("socialLinks", [])]
     lead = site["introduction"]
     paragraphs = [lead] if isinstance(lead, str) else list(lead)
     paragraphs.extend(site.get("paragraphs", []))
