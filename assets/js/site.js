@@ -127,6 +127,13 @@ function mount() {
     });
   }
 
+  document.addEventListener('pointerup', (event) => {
+    if (!event.isPrimary || event.button !== 0 ||
+        event.target.closest('[data-accordion], .site-menu-item-panel-wrapper')) return;
+    if (menu.some((button) => button.getAttribute('aria-expanded') === 'true'))
+      selectMenu(null);
+  }, { signal });
+
   document.addEventListener(
     'keydown',
     (event) => {

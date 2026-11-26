@@ -143,8 +143,16 @@ def home(page, projects, size, radius, touch):
         check_frames(page.locator('widget-cursor figure:not([hidden])'), 1, 15, 1, cursor=True)
     page.get_by_role('button', name='About').click()
     check_type(page, '#about-panel .text-body-content > p', size, .02)
+    about_panel = page.locator('#about-panel')
+    about_panel.locator('h2').first.click()
+    expect(about_panel).to_be_visible()
     if touch:
-        page.get_by_role('button', name='About').click()
+        page.touchscreen.tap(1, 120)
+    else:
+        page.mouse.click(1, 120)
+    expect(about_panel).to_be_hidden()
+    expect(page.get_by_role('button', name='About')).to_have_attribute('aria-expanded', 'false')
+    if touch:
         card.locator('a').tap()
         expect(page.locator('body')).to_have_attribute('data-template', 'project')
 
