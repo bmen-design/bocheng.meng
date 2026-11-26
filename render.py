@@ -52,8 +52,9 @@ def overview(projects):
         cover = image(project["cover"], project["alt"], project.get("coverBackdrop"))
         link = project_link(project, "grid-projects-figure-link")
         title = escape(project["title"])
+        caption_class = " caption-below-center" if project.get("captionBelowCenter") else ""
         cards.append(f'''
-          <figure class="grid-projects-figure">
+          <figure class="grid-projects-figure{caption_class}">
             {link}
             <div class="grid-projects-figure-thumbnail">{cover}</div>
             <figcaption class="grid-projects-figure-caption">

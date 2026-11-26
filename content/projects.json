@@ -318,6 +318,7 @@
     },
     {
       "slug": "uxtester",
+      "captionBelowCenter": true,
       "title": "uxoffice®: uxtester",
       "year": 2024,
       "categories": [
@@ -396,8 +397,8 @@
           "href": "https://www.figma.com/design/LEbHyhFwKLO2Hxs9Pcu4Xb"
         }
       ],
-      "cover": "/media/cases/uxtester/workspace-preview-cover.webp",
-      "alt": "The uxtester workspace on screen, with the product name and the usability-testing entry.",
+      "cover": "/media/cases/uxtester/usability-card-cover.webp",
+      "alt": "The uxtester homepage showing the complete usability-testing card, its Create action and the project count below.",
       "gallery": [
         {
           "src": "/media/cases/uxtester/01.png",
@@ -493,14 +494,14 @@
       "coverCrop": {
         "source": "/media/cases/uxtester/cover-source.png",
         "rect": [
-          560,
-          0,
-          480,
-          600
+          691,
+          41,
+          352,
+          440
         ],
-        "sourceUrl": "https://freight.cargo.site/t/original/i/E1912296197163109263788478875521/Frame-8-2.png"
-      },
-      "coverBackdrop": "#f5f6f1"
+        "sourceUrl": "https://freight.cargo.site/t/original/i/E1912296197163109263788478875521/Frame-8-2.png",
+        "lossless": true
+      }
     },
     {
       "slug": "bull-user-echo",

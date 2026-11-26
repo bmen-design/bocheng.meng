@@ -147,6 +147,7 @@ widget-cursor { position: fixed; top: 0; left: 0; z-index: 20; pointer-events: n
   position: absolute; inset: 0; display: grid; place-items: center;
   opacity: 0; pointer-events: none; transition: opacity .15s ease;
 }
+.caption-below-center .grid-projects-figure-caption { inset: 56% 5px auto; transform: translateY(-50%); }
 .grid-projects-figure-caption-title {
   padding: 0 var(--gutter); height: var(--bar); display: grid; place-items: center;
   border-radius: 999px; letter-spacing: .08em;

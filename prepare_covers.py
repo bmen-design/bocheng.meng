@@ -55,7 +55,7 @@ def build_cover(project, ffmpeg):
     for size in sorted(sizes):
         resized = image.resize((size, size * 5 // 4), Image.Resampling.LANCZOS)
         variant = target.with_name(f"{target.stem}-{size}.webp")
-        resized.save(variant, "WEBP", quality=89, method=6)
+        resized.save(variant, "WEBP", lossless=crop.get("lossless", False), quality=89, method=6)
         if size == fallback_width:
             target.write_bytes(variant.read_bytes())
     prefix = target.stem + "-"
