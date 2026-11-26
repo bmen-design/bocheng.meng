@@ -5,6 +5,7 @@
   --soft: #f7f7f7;
   --mist: rgb(240 240 240 / 50%);
   --card-radius: calc(100vw * 80 / 1512);
+  --panel-radius: calc(1.5 * var(--space));
   --cover-ratio: 4 / 5;
   --start-gap: calc(24 * var(--space));
   --columns: repeat(2, minmax(0, 1fr));
@@ -191,7 +192,7 @@ body[data-template="error"] #site-main-info { grid-area: 2 / 1; position: sticky
 #site-main-info {
   min-width: 0;
   background: var(--soft);
-  border-radius: calc(1.5 * var(--space));
+  border-radius: var(--panel-radius);
   padding: var(--gutter) var(--gutter) calc(4 * var(--space));
 }
 #site-main-info > * + *, .site-menu-item-panel > * + * { margin-top: calc(4 * var(--space)); }
@@ -205,7 +206,10 @@ body[data-template="error"] #site-main-info { grid-area: 2 / 1; position: sticky
 .link-inline { transition: color .15s ease; }
 .link-inline:focus-visible { color: var(--muted-type); }
 @media (hover: hover) { .link-inline:hover { color: var(--muted-type); } }
-.grid-project-figures { grid-template-columns: minmax(0, 1fr); }
+.grid-project-figures {
+  --card-radius: var(--panel-radius);
+  grid-template-columns: minmax(0, 1fr);
+}
 .grid-project-figure { grid-column: 1 / -1; }
 .grid-project-figure-thumbnail {
   aspect-ratio: var(--source-ratio);

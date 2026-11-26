@@ -177,7 +177,7 @@ def check_media_files(request, base, projects):
 def run(browser, base, projects, width):
     touch = width == 390
     size = width / 44 if width < 440 else max(10, width / 192)
-    radius = width * 80 / (840 if width <= 840 else 1512)
+    cover_radius = width * 80 / (840 if width <= 840 else 1512)
     page = browser.new_page(viewport={'width': width, 'height': 900}, has_touch=touch,
                             is_mobile=touch, reduced_motion='reduce')
     routes = [('', 'home', None), ('404.html', 'error', None)]
@@ -191,7 +191,7 @@ def run(browser, base, projects, width):
             expect(page.locator('body')).to_have_attribute('data-template', view)
             check_type(page, '#site-header-tagline, .cta-pill-label, #site-footer-colophon p', size, .08)
             if view == 'home':
-                home(page, projects, size, radius, touch)
+                home(page, projects, size, cover_radius, touch)
             else:
                 check_type(page, '#site-main-header-title > span, #site-main-info h2', size, .08)
                 check_type(page, '#site-main-info .text-body-content > p', size, .02)
@@ -210,7 +210,7 @@ def run(browser, base, projects, width):
                     "groups => groups.map(group => group.getAttribute('data-options'))")
                 if controls != [','.join(a['controls']) for a in art if 'controls' in a]:
                     raise AssertionError('Video controls differ from the project catalogue')
-                check_frames(page.locator('.grid-project-figure-thumbnail'), len(art), radius, [a['ratio'] for a in art])
+                check_frames(page.locator('.grid-project-figure-thumbnail'), len(art), 1.5 * size, [a['ratio'] for a in art])
         print(f'{width}px: {len(routes)} pages passed', flush=True)
     except Exception as exc:
         raise AssertionError(f'{width}px {page.url}: {exc}') from exc
