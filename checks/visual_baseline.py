@@ -86,6 +86,8 @@ def home(page, projects, size, radius, touch):
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
     title = card.locator('h3')
+    check_catalog_links(page.locator('.grid-projects-figure-link'), projects)
+    check_sources(covers.locator('img'), [p['cover'] for p in projects])
     check_type(page, '.grid-projects-figure-caption-title > span', size, .08)
     expect(title).to_have_css('opacity', '0')
     offset = title.evaluate("e => new DOMMatrix(getComputedStyle(e).transform).m42")
@@ -102,6 +104,8 @@ def home(page, projects, size, radius, touch):
             raise AssertionError('Hover title is off center')
     page.get_by_role('button', name='Work').click()
     page.mouse.move(0, 0)
+    check_catalog_links(page.locator('.list-projects-item-link'), projects)
+    check_sources(page.locator('widget-cursor img'), [p.get('preview', p['cover']) for p in projects])
     check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)')
     check_type(page, '.list-projects-item > :is(h3, span)', size, .08, 'rgb(0, 0, 0)')
     if touch:
@@ -117,6 +121,31 @@ def home(page, projects, size, radius, touch):
         expect(page.locator('body')).to_have_attribute('data-template', 'project')
 
 
+def check_catalog_links(nodes, projects):
+    links = nodes.evaluate_all("nodes => nodes.map(n => [n.getAttribute('href'), n.getAttribute('aria-label')])")
+    if links != [[f"work/{p['slug']}/", p['title']] for p in projects]:
+        raise AssertionError(f'Project navigation titles or order changed: {links}')
+
+
+def check_sources(nodes, sources):
+    actual = nodes.evaluate_all("nodes => nodes.map(n => n.getAttribute('src'))")
+    if actual != [src.lstrip('/') for src in sources]:
+        raise AssertionError(f'Media order or source changed: {actual}')
+
+
+def check_media_files(request, base, projects):
+    sources = set()
+    for project in projects:
+        sources.add(project['cover'])
+        sources.add(project.get('preview', project['cover']))
+        sources.update(item['src'] for item in project['gallery'])
+    for src in sorted(sources):
+        response = request.head(urljoin(base, src.lstrip('/')))
+        media_type = response.headers.get('content-type', '')
+        if not response.ok or not media_type.startswith(('image/', 'video/')):
+            raise AssertionError(f'{response.url}: expected media, received {response.status} {media_type}')
+
+
 def run(browser, base, projects, width):
     touch = width == 390
     size = width / 44 if width < 440 else max(10, width / 192)
@@ -126,6 +155,8 @@ def run(browser, base, projects, width):
     routes = [('', 'home', None), ('404.html', 'error', None)]
     routes.extend((f"work/{p['slug']}/", 'project', p) for p in projects)
     try:
+        if width == 1440:
+            check_media_files(page.request, base, projects)
         for path, view, project in routes:
             page.goto(urljoin(base, path), wait_until='domcontentloaded')
             page.mouse.move(0, 0)
@@ -137,11 +168,20 @@ def run(browser, base, projects, width):
                 check_type(page, '#site-main-header-title > span, #site-main-info h2', size, .08)
                 check_type(page, '#site-main-info .text-body-content > p', size, .02)
             if project:
+                expect(page.locator('#site-main-header-title')).to_have_text(project['title'])
                 check_type(page, '.list-details-item > :is(dt, dd)', size, .02)
+                lead = page.locator('#site-main-info .text-body-content').first.locator(':scope > p')
+                expect(lead).to_have_text([project['description'], *project.get('paragraphs', [])])
                 art = project['gallery']
+                gallery = page.locator('#site-main-content')
+                expect(gallery).to_have_text('')
+                expect(gallery.locator('h1,h2,h3,h4,h5,h6,p,figcaption,.grid-project-figures > :not(figure)')).to_have_count(0)
+                check_sources(gallery.locator('img,video'), [a['src'] for a in art])
+                controls = gallery.locator('.grid-project-figure-controls').evaluate_all(
+                    "groups => groups.map(group => group.getAttribute('data-options'))")
+                if controls != [','.join(a['controls']) for a in art if 'controls' in a]:
+                    raise AssertionError('Video controls differ from the project catalogue')
                 check_frames(page.locator('.grid-project-figure-thumbnail'), len(art), radius, [a['ratio'] for a in art])
-                if any(s.get('beforeFigure') for s in project.get('sections', [])):
-                    check_type(page, '.grid-project-figures .text-body-content > p', size, .02)
         print(f'{width}px: {len(routes)} pages passed', flush=True)
     except Exception as exc:
         raise AssertionError(f'{width}px {page.url}: {exc}') from exc

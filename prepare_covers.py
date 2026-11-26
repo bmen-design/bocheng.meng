@@ -70,4 +70,5 @@ if __name__ == "__main__":
     parser.add_argument("--ffmpeg", default="ffmpeg", help="ffmpeg executable for video stills")
     args = parser.parse_args()
     for item in json.loads((ROOT / "content/projects.json").read_text())["projects"]:
-        build_cover(item, args.ffmpeg)
+        if "coverCrop" in item:
+            build_cover(item, args.ffmpeg)

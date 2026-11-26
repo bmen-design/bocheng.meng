@@ -38,6 +38,8 @@ def build(destination, base_path):
     sources = set()
     for project in projects:
         sources.add(project["cover"])
+        if project.get("preview"):
+            sources.add(project["preview"])
         sources.update(item["src"] for item in project["gallery"])
     files = set()
     for src in sources:

@@ -10,29 +10,6 @@
         "Commercial"
       ],
       "description": "Following our brand refresh for Novoprotein, I designed desktop and mobile homepage demonstrations for the client’s team to extend. The scope is a homepage at 1440 px and 390 px, showing how the identity works with product browsing and company information.",
-      "sections": [
-        {
-          "title": "Product discovery",
-          "paragraphs": [
-            "Search, category navigation and featured product cards offer different starting points. The page continues through research applications, technical support, company information and news before reaching the enquiry form."
-          ],
-          "beforeFigure": 2
-        },
-        {
-          "title": "From identity to interface",
-          "paragraphs": [
-            "Geometric headlines sit alongside readable body text. Orange highlights key actions, while scientific illustrations connect the opening section, product categories and supporting content. Type, colour and component rules connect desktop and mobile."
-          ],
-          "beforeFigure": 4
-        },
-        {
-          "title": "Web components",
-          "paragraphs": [
-            "Buttons, navigation, product cards, news modules and enquiry fields extend the brand system into repeatable interface elements. Navigation, card grids and forms adapt their arrangement for narrower screens."
-          ],
-          "beforeFigure": 5
-        }
-      ],
       "details": [
         {
           "label": "Client",
@@ -108,43 +85,6 @@
         "Commercial"
       ],
       "description": "At N/A Design, we refreshed Novoprotein’s visual identity for its expansion into the North American market. The work connects a refined wordmark, typography, colour and scientific illustrations in one system, with guidance and templates for consistent use.",
-      "sections": [
-        {
-          "title": "Starting points",
-          "paragraphs": [
-            "Our review identified three areas to develop: the English wordmark’s standalone readability, a wider supporting palette, and a more consistent illustration style across existing materials. These became the starting points for the refresh."
-          ],
-          "beforeFigure": 3
-        },
-        {
-          "title": "Wordmark and colour",
-          "paragraphs": [
-            "Spacing and curve adjustments preserve the wordmark’s recognisable character. Brand Orange remains the main colour, supported by blue, warm secondary colours and neutrals for different levels of information."
-          ],
-          "beforeFigure": 4
-        },
-        {
-          "title": "Typography and layout",
-          "paragraphs": [
-            "Orbitron Bold gives headlines and numbers a geometric character. IBM Plex Serif supports subtitles and labels, while Noto Sans handles body text. Type size, leading and spacing define the hierarchy across layouts."
-          ],
-          "beforeFigure": 7
-        },
-        {
-          "title": "Scientific illustrations",
-          "paragraphs": [
-            "Ribbon, solid and translucent forms create a shared visual language for biological subjects. A reusable AI prompt defines shape, colour, transparency and depth. Generated images are reviewed and refined for consistency before becoming brand assets."
-          ],
-          "beforeFigure": 9
-        },
-        {
-          "title": "Presentation templates",
-          "paragraphs": [
-            "Presentation templates carry the system into covers, section pages, text, images and data. Reusable layouts define how typography, colour and scientific visuals work together across different kinds of content."
-          ],
-          "beforeFigure": 14
-        }
-      ],
       "details": [
         {
           "label": "Client",
@@ -290,36 +230,6 @@
       "paragraphs": [
         "During my internship at ISAR, I was responsible for the version 2 interface. Working from the UX team’s prototypes, I developed the page structure, visual hierarchy and shared components, and worked with developers on implementation."
       ],
-      "sections": [
-        {
-          "title": "Prepare, observe and review",
-          "paragraphs": [
-            "Scenarios, tasks and questions form the test script. During a session, researchers follow multiple camera feeds and mark issues with timestamps. Recordings, grouped issues and selected clips support later review."
-          ],
-          "beforeFigure": 2
-        },
-        {
-          "title": "From UX handoff to interface",
-          "paragraphs": [
-            "The UX team’s report prototypes connect data tables, page flows and interaction notes. The original canvases show the scope of the screens and states developed from this handoff."
-          ],
-          "beforeFigure": 7
-        },
-        {
-          "title": "Shared components",
-          "paragraphs": [
-            "The shared library brings together type, colour, icons and controls used across uxoffice®. It covers forms, navigation, recording controls, account emails and illustrations, with states for different tasks."
-          ],
-          "beforeFigure": 9
-        },
-        {
-          "title": "Account emails",
-          "paragraphs": [
-            "The email layouts cover team invitations, verification codes and password-reset confirmations. A shared logo, reading column and support footer connect these messages to the product."
-          ],
-          "beforeFigure": 15
-        }
-      ],
       "details": [
         {
           "label": "Product",
@@ -350,96 +260,71 @@
           "href": "https://www.figma.com/design/LEbHyhFwKLO2Hxs9Pcu4Xb"
         }
       ],
-      "cover": "/media/cases/uxtester/workspace-mockup-cover.webp",
-      "alt": "A close-up of the uxtester display mockup, with a black edge and silver bezel beside the usability-testing dashboard.",
+      "cover": "/media/snap-implants/02.jpg",
+      "alt": "Snap Implants visual reference. A frontal portrait with two small translucent devices between the eyebrows.",
       "gallery": [
         {
-          "src": "/media/cases/uxtester/01.png",
-          "ratio": 1.25322521,
-          "alt": "Zoomed-out design canvas showing groups of usability-testing screens and their connections."
+          "src": "/media/snap-implants/02.jpg",
+          "ratio": 0.8001228124040528,
+          "alt": "Snap Implants visual reference. A frontal portrait with two small translucent devices between the eyebrows."
         },
         {
-          "src": "/media/cases/uxtester/02.png",
-          "ratio": 1.36116152,
-          "alt": "Live observation screen with camera feeds above a timestamped issue table and a note panel on the right."
+          "src": "/media/snap-implants/01.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. A round translucent device with a recessed centre."
         },
         {
-          "src": "/media/cases/uxtester/03.png",
-          "ratio": 1.31291028,
-          "alt": "Study setup screens showing the task script, a participant table and a scheduling view."
+          "src": "/media/snap-implants/03.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. A translucent rectangular panel with a display and circular recess."
         },
         {
-          "src": "/media/cases/uxtester/04.png",
-          "ratio": 2.06896552,
-          "alt": "Recording playback with a thumbnail strip and issue list beside a separate table of grouped findings."
+          "src": "/media/snap-implants/04.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. A model standing in dark trousers against a pale backdrop."
         },
         {
-          "src": "/media/cases/uxtester/05.png",
-          "ratio": 1.53846154,
-          "alt": "Selected video clips arranged in rows, with a second panel for choosing clips to export."
+          "src": "/media/snap-implants/05.jpg",
+          "ratio": 0.7998745294855709,
+          "alt": "Snap Implants visual reference. Two translucent devices on a model’s forearm and hand."
         },
         {
-          "src": "/media/cases/uxtester/06.png",
-          "ratio": 1.48367953,
-          "alt": "Findings dashboard with four multicoloured ring charts and summary values underneath."
+          "src": "/media/snap-implants/06.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. A pale droplet-shaped device with a digital display."
         },
         {
-          "src": "/media/cases/uxtester/07.png",
-          "ratio": 1.89873418,
-          "alt": "A satisfaction report prototype beside its detailed interface with questions and response tables."
+          "src": "/media/snap-implants/07.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. Side view of a curved translucent device."
         },
         {
-          "src": "/media/cases/uxtester/08.png",
-          "ratio": 1.53313551,
-          "alt": "Zoomed-out analysis report canvas with screen thumbnails, flow lines and annotation blocks."
+          "src": "/media/snap-implants/08.jpg",
+          "ratio": 0.7999383477188656,
+          "alt": "Snap Implants visual reference. A translucent device follows the curve beneath a model’s eye."
         },
         {
-          "src": "/media/cases/uxtester/09.png",
-          "ratio": 1.69779287,
-          "alt": "Component library pages for colour swatches, type weights, spacing and size scales."
+          "src": "/media/snap-implants/09.jpg",
+          "ratio": 0.8001357312521208,
+          "alt": "Snap Implants visual reference. A model wearing pale devices connected by cords near the collarbones."
         },
         {
-          "src": "/media/cases/uxtester/10.png",
-          "ratio": 1.73812283,
-          "alt": "uxtester wordmarks and a grid of small product icons on light and dark backgrounds."
+          "src": "/media/snap-implants/10.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. Front and side views of a translucent ring-shaped device."
         },
         {
-          "src": "/media/cases/uxtester/11.png",
-          "ratio": 1.27011008,
-          "alt": "Basic controls including blue buttons, text fields, selection controls and validation states."
+          "src": "/media/snap-implants/11.jpg",
+          "ratio": 0.8,
+          "alt": "Snap Implants visual reference. Nine translucent device designs arranged in a grid."
         },
         {
-          "src": "/media/cases/uxtester/12.png",
-          "ratio": 1.81488203,
-          "alt": "Blue workspace illustrations beside sign-in and account verification forms in several states."
-        },
-        {
-          "src": "/media/cases/uxtester/13.png",
-          "ratio": 1.47058824,
-          "alt": "Project management components and workspace screens with filled, empty and action states."
-        },
-        {
-          "src": "/media/cases/uxtester/14.png",
-          "ratio": 1.34408602,
-          "alt": "Audio and video recording controls in several states, with three video thumbnails on a dark strip."
-        },
-        {
-          "src": "/media/cases/uxtester/15.png",
-          "ratio": 1.60576923,
-          "alt": "Four account email layouts with the uxtester mark, a narrow text column and support footer."
+          "src": "/media/snap-implants/12.jpg",
+          "ratio": 0.8001841620626151,
+          "alt": "Snap Implants visual reference. Side profile of a model with small circular devices on the neck."
         }
       ],
-      "coverCrop": {
-        "source": "/media/cases/uxtester/cover-source.png",
-        "rect": [
-          548,
-          0,
-          404,
-          505
-        ],
-        "sourceUrl": "https://freight.cargo.site/t/original/i/E1912296197163109263788478875521/Frame-8-2.png",
-        "lossless": true
-      }
+      "preview": "/media/snap-implants/01.jpg"
     },
     {
       "slug": "bull-user-echo",
@@ -454,36 +339,6 @@
       "description": "Bull User Echo is an experience-data platform commissioned by Bull. It organises product reviews into dashboards, categories and alerts, helping teams explore feedback and return to the comments behind a theme.",
       "paragraphs": [
         "At ISAR, I independently designed the overall interface and data visualisation, covering overviews, dashboards, analysis, alerts and permissions. I also followed the designs through implementation with developers."
-      ],
-      "sections": [
-        {
-          "title": "Overview and comparison",
-          "paragraphs": [
-            "Review volume, sentiment and trends share one overview. Filters narrow the product scope, while comparison tables place selected products and their feedback side by side."
-          ],
-          "beforeFigure": 2
-        },
-        {
-          "title": "Drill-down analysis",
-          "paragraphs": [
-            "Selecting a bar opens the next level of subdimensions and related products. Word clouds connect review topics with related comments, keeping each summary linked to its source text."
-          ],
-          "beforeFigure": 5
-        },
-        {
-          "title": "Alerts",
-          "paragraphs": [
-            "The alert centre combines rule settings, recipients and triggered items. Opening an item shows related products and review details, so users can inspect what triggered the alert."
-          ],
-          "beforeFigure": 8
-        },
-        {
-          "title": "Chart and interface states",
-          "paragraphs": [
-            "Filters, tables, chart tooltips and word-cloud states follow shared visual rules. The component views show selection, hover and navigation across the analysis pages."
-          ],
-          "beforeFigure": 9
-        }
       ],
       "details": [
         {
@@ -511,70 +366,41 @@
           "href": "https://www.figma.com/design/M7wv53a24IO0lqzDZGY5rI"
         }
       ],
-      "cover": "/media/cases/bull-user-echo/three-outlet-strip-cover.webp",
-      "alt": "A white BULL power strip with three outlets, viewed from above.",
+      "cover": "/media/poclain/01.jpg",
+      "alt": "Poclain visual reference. Close view of the cast metal housing and mounting holes.",
       "gallery": [
         {
-          "src": "/media/cases/bull-user-echo/01.png",
-          "ratio": 1.40318054,
-          "alt": "Zoomed-out design canvas with groups of dashboard, analysis and alert screens."
+          "src": "/media/poclain/film-01.mp4",
+          "ratio": 1.8,
+          "controls": [
+            "play",
+            "fullscreen",
+            "sound"
+          ],
+          "alt": "Poclain visual reference. A film showing the construction and movement of a hydraulic motor."
         },
         {
-          "src": "/media/cases/bull-user-echo/02.png",
-          "ratio": 1.57894737,
-          "alt": "Overview dashboard with three summary metrics, two red bars and a blue and pink area chart."
+          "src": "/media/poclain/02.jpg",
+          "ratio": 1.8,
+          "alt": "Poclain visual reference. Close view of the cast metal housing and mounting holes."
         },
         {
-          "src": "/media/cases/bull-user-echo/03.png",
-          "ratio": 1.92431046,
-          "alt": "Filtered product list beside a product detail screen with a product image, specifications and comparison table."
+          "src": "/media/poclain/03.jpg",
+          "ratio": 1.8,
+          "alt": "Poclain visual reference. A section through the hydraulic motor against a dark background."
         },
         {
-          "src": "/media/cases/bull-user-echo/04.png",
-          "ratio": 2.06896552,
-          "alt": "Side-by-side views of a product comparison table and a four-quadrant positioning chart."
+          "src": "/media/poclain/04.jpg",
+          "ratio": 1.7778846153846153,
+          "alt": "Poclain visual reference. Three metal fittings at the base of the motor."
         },
         {
-          "src": "/media/cases/bull-user-echo/05.png",
-          "ratio": 1.57248157,
-          "alt": "Three stages of a drill-down, adding rows of blue, teal and purple bars at each level."
-        },
-        {
-          "src": "/media/cases/bull-user-echo/06.png",
-          "ratio": 2.0,
-          "alt": "Review analysis table beside a dimmed screen with a word-cloud overlay."
-        },
-        {
-          "src": "/media/cases/bull-user-echo/07.png",
-          "ratio": 1.57894737,
-          "alt": "A multicoloured pie chart and a Chinese word cloud shown in adjacent panels."
-        },
-        {
-          "src": "/media/cases/bull-user-echo/08.png",
-          "ratio": 1.40252454,
-          "alt": "Alert rule form, alert list and a detail view of the products and reviews associated with an alert."
-        },
-        {
-          "src": "/media/cases/bull-user-echo/09.png",
-          "ratio": 1.48367953,
-          "alt": "Component board showing filter controls, table rows, coloured charts and chart labels."
-        },
-        {
-          "src": "/media/cases/bull-user-echo/10.png",
-          "ratio": 1.45489816,
-          "alt": "Blue bar-chart filter examples above four word-cloud selection states."
+          "src": "/media/poclain/05.jpg",
+          "ratio": 1.8,
+          "alt": "Poclain visual reference. A blue band and retaining clip on the motor housing."
         }
       ],
-      "coverCrop": {
-        "source": "/media/cases/bull-user-echo/cover-source.png",
-        "rect": [
-          80,
-          0,
-          640,
-          800
-        ]
-      },
-      "coverBackdrop": "#141414"
+      "preview": "/media/poclain/01.jpg"
     },
     {
       "slug": "the-red-pack",
@@ -586,7 +412,6 @@
         "Experimental"
       ],
       "description": "The Red Pack is a fictional Mars suitcase designed to enhance passengers' experience during their 7-month journey to Mars. Beyond its basic storage and transportation functions, it simulates life on Mars and features a planting module to adjust moods. At the journey's end, plants can be transplanted to Mars, symbolizing environmental transformation. This project explores how humans might adapt to extended interstellar travel and new living conditions in uncharted territories.",
-      "sections": [],
       "details": [
         {
           "label": "Project type",
@@ -657,7 +482,6 @@
       "paragraphs": [
         "This personal project aims to redesign the overall graphic language of the Bi-City Biennale of Urbanism/Architecture Exhibition (UABB) by establishing and using an online visual information library based on the city's sound. Allowing audiences and users to experience sound through graphics, comparing the differences in sound in different cities and regions, forming a sound-based perception of the city."
       ],
-      "sections": [],
       "details": [
         {
           "label": "Project type",
@@ -764,7 +588,6 @@
         "Web"
       ],
       "description": "The Optech Museum is an imaginary science museum brand, dedicated to showcasing optical instruments from early centuries to future possibilities. It provides a technical and cultural-historical survey of the development of optical instruments and science. The museum houses a rich collection that traces the history of technological advancement.",
-      "sections": [],
       "details": [
         {
           "label": "Project type",
@@ -900,7 +723,6 @@
         "Experimental"
       ],
       "description": "A concept zine design that documents the transcription of the Technical Air-to-Ground Voice Transmission (GOSS NET 1) from the Apollo 11 mission.",
-      "sections": [],
       "details": [
         {
           "label": "Project type",
@@ -1017,7 +839,6 @@
         "Experimental"
       ],
       "description": "BeijingDance/LDTX (LDTX) is a privately run professional dance company, co-founded in 2005 by Willy TSAO and LI Hanzhong. The company engages in all aspects of creation, performance, education, and outreach programs, providing a platform where Chinese artists can freely express their latest ideologies and sentiments, thereby advancing the multifaceted development of dance. This project aims to use pure typography to simulate the dancers' gestures and movements, and based on this concept, create the visual language and logo of the dance company.",
-      "sections": [],
       "details": [
         {
           "label": "Project type",
@@ -1083,7 +904,6 @@
         "Experimental"
       ],
       "description": "Music exists in the space between notes. John Cage challenged traditional notation with interpretive approaches. The 4′33″ booklet uses pure typography to capture the essence of his work, inspired by his performance 4′33″.",
-      "sections": [],
       "details": [
         {
           "label": "Project type",

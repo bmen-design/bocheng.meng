@@ -127,7 +127,8 @@ def work_menu(projects, current):
               <span class="list-projects-item-categories">{categories}</span>
               <span class="list-projects-item-year">{project["year"]}</span>
             </li>''')
-        thumbnail = image(project["cover"], project["alt"], project.get("coverBackdrop"))
+        preview = project.get("preview", project["cover"])
+        thumbnail = image(preview, "", project.get("coverBackdrop") if preview == project["cover"] else None)
         previews.append(f'<figure class="widget-cursor-thumbnail" data-index="{index}" hidden>'
                         f'{thumbnail}</figure>')
     content = (f'<div class="list-projects"><header class="list-projects-header font-subtle">'
@@ -166,16 +167,7 @@ def video_controls(options):
 
 def gallery(project):
     figures = []
-    inserts = {}
-    for section in project.get("sections", []):
-        if "beforeFigure" in section:
-            index = section["beforeFigure"]
-            if not 1 <= index <= len(project["gallery"]) + 1:
-                raise ValueError(f'Invalid gallery section position in {project["slug"]}')
-            inserts.setdefault(index, []).append(text_section(section["title"], section["paragraphs"], section.get("links", [])))
-
     for i, item in enumerate(project["gallery"], 1):
-        figures.extend(inserts.get(i, []))
         source = escape(item["src"].lstrip("/"))
         label = item.get("alt") or item.get("caption") or f'{project["title"]}, figure {i}'
         ratio = float(item["ratio"])
@@ -191,10 +183,7 @@ def gallery(project):
             media = (f'<a class="project-still" href="{source}" target="_blank" rel="noopener" '
                      f'aria-label="Open full-size image: {escape(label)}">'
                      f'<div {frame}>{image(item["src"], label)}</div></a>')
-        caption = f'<figcaption>{escape(item["caption"])}</figcaption>' if item.get("caption") else ""
-        figures.append('<figure class="grid-project-figure">'
-                       f'{media}{caption}</figure>')
-    figures.extend(inserts.get(len(project["gallery"]) + 1, []))
+        figures.append(f'<figure class="grid-project-figure">{media}</figure>')
     return (f'<div id="site-main-content"><div class="grid-project">'
             f'<div class="grid-project-figures">{"".join(figures)}</div></div></div>')
 
