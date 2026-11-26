@@ -137,8 +137,15 @@ def work_menu(projects, current):
 
 
 def about_content(site):
-    contacts = [f'<a class="link-inline" href="{escape(c["href"])}">{escape(c["label"])}</a>'
-                for c in site["contact"] + site.get("socialLinks", [])]
+    contacts = []
+    for contact in site["contact"] + site.get("socialLinks", []):
+        label = escape(contact["label"])
+        if contact.get("href"):
+            label = f'<a class="link-inline" href="{escape(contact["href"])}">{label}</a>'
+        else:
+            # Give taps their own target so phones do not redirect them to a nearby link.
+            label = f'<span tabindex="-1">{label}</span>'
+        contacts.append(label)
     lead = site["introduction"]
     paragraphs = [lead] if isinstance(lead, str) else list(lead)
     paragraphs.extend(site.get("paragraphs", []))
