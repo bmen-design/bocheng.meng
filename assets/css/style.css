@@ -2,8 +2,9 @@
   --space: var(--type-size);
   --gutter: calc(2 * var(--space));
   --bar: calc(3 * var(--space));
-  --soft: #f7f7f7;
-  --mist: rgb(240 240 240 / 50%);
+  --soft: #ececec;
+  --soft-active: #e5e5e5;
+  --mist: rgb(217 217 217 / 50%);
   --card-radius: calc(100vw * 80 / 1512);
   --panel-radius: calc(1.5 * var(--space));
   --cover-ratio: 4 / 5;
@@ -62,11 +63,11 @@ a { color: inherit; text-decoration: none; }
   backdrop-filter: blur(calc(5 * var(--space)));
 }
 .cta-pill { transition: background-color .15s var(--motion-ease); }
-.cta-pill:not(.cta-pill--round):is(:focus-visible, .active) { background-color: #f0f0f0; }
+.cta-pill:not(.cta-pill--round):is(:focus-visible, .active) { background-color: var(--soft-active); }
 .cta-pill-icon { display: inline-flex; color: #dcdcdc; transition: color .15s var(--motion-ease); }
 .cta-pill:not(.cta-pill--round):is(:focus-visible, .active) .cta-pill-icon { color: #111; }
 @media (hover: hover) {
-  .cta-pill:not(.cta-pill--round):hover { background-color: #f0f0f0; }
+  .cta-pill:not(.cta-pill--round):hover { background-color: var(--soft-active); }
   .cta-pill:not(.cta-pill--round):hover .cta-pill-icon { color: #111; }
 }
 .cta-pill-icon svg { display: block; height: var(--space); width: var(--space); fill: currentColor; }
@@ -138,7 +139,7 @@ widget-cursor.tracking { transition: transform .08s var(--motion-ease); }
   overflow: hidden;
   isolation: isolate;
   border-radius: var(--card-radius);
-  background: var(--soft);
+  background: #f7f7f7;
 }
 .grid-projects-figure-thumbnail { aspect-ratio: var(--cover-ratio); }
 .widget-cursor-thumbnail { width: 115px; aspect-ratio: 1; border-radius: 15px; }
