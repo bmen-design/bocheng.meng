@@ -26,9 +26,9 @@ def image_variants(src):
         yield path.relative_to(ROOT).as_posix(), width
 
 
-def image(src, alt, background=None):
+def image(src, alt, background=None, sizes="auto, 50vw"):
     variants = [f"{escape(path)} {width}w" for path, width in image_variants(src)]
-    responsive = f'srcset="{", ".join(variants)}" sizes="auto, 50vw"' if variants else ""
+    responsive = f'srcset="{", ".join(variants)}" sizes="{escape(sizes)}"' if variants else ""
     style = ""
     if background is not None:
         if not re.fullmatch(r"#[0-9a-fA-F]{6}", background):
@@ -180,18 +180,22 @@ def gallery(project):
                      f'src="{source}" aria-label="{escape(label)}"></video></div>'
                      + video_controls(item["controls"]) + '</widget-player>')
         else:
+            still = image(item["src"], label, sizes="auto, (max-width: 840px) 100vw, 75vw")
             media = (f'<a class="project-still" href="{source}" target="_blank" rel="noopener" '
                      f'aria-label="Open full-size image: {escape(label)}">'
-                     f'<div {frame}>{image(item["src"], label)}</div></a>')
+                     f'<div {frame}>{still}</div></a>')
         figures.append(f'<figure class="grid-project-figure">{media}</figure>')
     return (f'<div id="site-main-content"><div class="grid-project">'
             f'<div class="grid-project-figures">{"".join(figures)}</div></div></div>')
 
 
-def page_heading(title, back_label):
-    return (f'<header id="site-main-header"><h1 id="site-main-header-title"><span>{escape(title)}</span></h1>'
-            f'<a class="{ROUND_PILL} link-ajax link-ajax--home" href="./">'
-            f'<span class="cta-pill-label">{back_label}</span>{icon("triangle-west")}</a></header>')
+def page_title(title):
+    return f'<h1 id="site-main-header-title"><span>{escape(title)}</span></h1>'
+
+
+def back_link(label):
+    return (f'<a class="{ROUND_PILL} link-ajax link-ajax--home" href="./">'
+            f'<span class="cta-pill-label">{escape(label)}</span>{icon("triangle-west")}</a>')
 
 
 def project_page(project):
@@ -204,8 +208,9 @@ def project_page(project):
             info.append(text_section(section["title"], section["paragraphs"], section.get("links", [])))
     if project.get("credits"):
         info.append(details("Credits", [(row["label"], row["value"]) for row in project["credits"]]))
-    return (page_heading(project["title"], "Back to Overview")
-            + f'<div id="site-main-info">{"".join(info)}</div>' + gallery(project))
+    return (f'<div id="site-main-header">{page_title(project["title"])}'
+            f'<div id="site-main-info">{"".join(info)}</div>{back_link("Back to Overview")}</div>'
+            + gallery(project))
 
 
 def footer(contacts):
@@ -243,7 +248,8 @@ def render(path, document_base="/"):
         title = f'{projects[slug]["title"]} — {title}'
     else:
         status, view = 404, "error"
-        main = (page_heading("404", "Back to Homepage") + '<div id="site-main-info">'
+        main = (f'<header id="site-main-header">{page_title("404")}{back_link("Back to Homepage")}</header>'
+                '<div id="site-main-info">'
                 + text_section("Information", "The page doesn’t exist.") + '</div>')
         title = f'404 — {title}'
     about = about_content(site)

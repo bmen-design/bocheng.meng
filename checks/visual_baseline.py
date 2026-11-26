@@ -82,6 +82,34 @@ def check_frames(frames, count, radius, ratio, excess=0, cursor=False):
     frames.evaluate_all(FRAMES, dict(ratio=ratio, radius=radius, excess=excess, cursor=cursor))
 
 
+def check_project_layout(page, width, gap):
+    boxes = page.locator('#site-main').evaluate("""main => {
+      const nodes = {main, title: main.querySelector('#site-main-header-title'),
+        info: main.querySelector('#site-main-info'), back: main.querySelector('a.link-ajax--home'),
+        gallery: main.querySelector('#site-main-content')};
+      return Object.fromEntries(Object.entries(nodes).map(([key, node]) => [key, node.getBoundingClientRect().toJSON()]));
+    }""")
+    main, title, info, back, gallery = (boxes[k] for k in ('main', 'title', 'info', 'back', 'gallery'))
+
+    def near(label, actual, expected):
+        if abs(actual - expected) > .25:
+            raise AssertionError(f'{label}: {actual:.2f}px, expected {expected:.2f}px')
+
+    narrow = width <= 840
+    column = main['width'] if narrow else (main['width'] - 3 * gap) / 4
+    for name, box in [('title', title), ('info', info), ('back', back)]:
+        near(f'{name} left', box['left'], main['right'] - column)
+        near(f'{name} width', box['width'], column)
+    near('title top', title['top'], main['top'])
+    near('title to info gap', info['top'] - title['bottom'], gap)
+    near('info to back gap', back['top'] - info['bottom'], gap)
+    near('gallery left', gallery['left'], main['left'])
+    near('gallery width', gallery['width'], main['width'] if narrow else 3 * column + 2 * gap)
+    near('gallery top', gallery['top'], back['bottom'] + gap if narrow else title['top'])
+    if page.evaluate('document.documentElement.scrollWidth > document.documentElement.clientWidth'):
+        raise AssertionError('Project page overflows horizontally')
+
+
 def home(page, projects, size, radius, touch):
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
@@ -168,6 +196,7 @@ def run(browser, base, projects, width):
                 check_type(page, '#site-main-header-title > span, #site-main-info h2', size, .08)
                 check_type(page, '#site-main-info .text-body-content > p', size, .02)
             if project:
+                check_project_layout(page, width, size)
                 expect(page.locator('#site-main-header-title')).to_have_text(project['title'])
                 check_type(page, '.list-details-item > :is(dt, dd)', size, .02)
                 lead = page.locator('#site-main-info .text-body-content').first.locator(':scope > p')
@@ -196,5 +225,5 @@ if __name__ == '__main__':
     projects = json.loads(CATALOG.read_text(encoding='utf-8'))['projects']
     with sync_playwright() as playwright:
         with playwright.chromium.launch(channel='chrome') as browser:
-            for width in (390, 1440, 2560):
+            for width in (390, 840, 841, 1440, 2560):
                 run(browser, base, projects, width)
