@@ -9,7 +9,6 @@ from textwrap import shorten
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
-WIDTHS = (320, 480, 640, 960, 1280, 1600, 1920)
 ICONS = {p.stem: p.read_text() for p in (ROOT / "templates/icons").glob("*.svg")}
 ROUND_PILL = "cta-pill cta-pill--blur cta-pill--filled cta-pill--rounded"
 
@@ -19,17 +18,23 @@ def icon(name):
 
 
 def image_variants(src):
-    stem = src.lstrip("/").rsplit(".", 1)[0]
-    for width in WIDTHS:
-        path = f"{stem}-{width}.webp"
-        if (ROOT / path).is_file():
-            yield path, width
+    original = ROOT / src.lstrip("/")
+    prefix = original.stem + "-"
+    files = original.parent.glob(f"{prefix}[0-9]*.webp")
+    variants = [(int(f.stem[len(prefix):]), f) for f in files if f.stem[len(prefix):].isdecimal()]
+    for width, path in sorted(variants):
+        yield path.relative_to(ROOT).as_posix(), width
 
 
-def image(src, alt):
+def image(src, alt, background=None):
     variants = [f"{escape(path)} {width}w" for path, width in image_variants(src)]
     responsive = f'srcset="{", ".join(variants)}" sizes="auto, 50vw"' if variants else ""
-    return (f'<img class="thumb" loading="lazy" decoding="async" src="{escape(src.lstrip("/"))}" '
+    style = ""
+    if background is not None:
+        if not re.fullmatch(r"#[0-9a-fA-F]{6}", background):
+            raise ValueError(f"Invalid background for {src}")
+        style = f' style="background-color: {background}"'
+    return (f'<img class="thumb"{style} loading="lazy" decoding="async" src="{escape(src.lstrip("/"))}" '
             f'{responsive} alt="{escape(alt)}">')
 
 
@@ -44,7 +49,7 @@ def project_link(project, classes, current=None):
 def overview(projects):
     cards = []
     for project in projects:
-        cover = image(project["cover"], project["alt"])
+        cover = image(project["cover"], project["alt"], project.get("coverBackdrop"))
         link = project_link(project, "grid-projects-figure-link")
         title = escape(project["title"])
         cards.append(f'''
@@ -122,7 +127,7 @@ def work_menu(projects, current):
               <span class="list-projects-item-categories">{categories}</span>
               <span class="list-projects-item-year">{project["year"]}</span>
             </li>''')
-        thumbnail = image(project["cover"], project["alt"])
+        thumbnail = image(project["cover"], project["alt"], project.get("coverBackdrop"))
         previews.append(f'<figure class="widget-cursor-thumbnail" data-index="{index}" hidden>'
                         f'{thumbnail}</figure>')
     content = (f'<div class="list-projects"><header class="list-projects-header font-subtle">'

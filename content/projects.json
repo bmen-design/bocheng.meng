@@ -60,8 +60,8 @@
         }
       ],
       "links": [],
-      "cover": "/media/cases/novoprotein-web/01-cover.webp",
-      "alt": "The mobile Novoprotein homepage with its wordmark, headline, protein illustration and product search.",
+      "cover": "/media/cases/novoprotein-web/lab-photo-cover.webp",
+      "alt": "A gloved researcher holds a pipette over a sample in the Novoprotein services photograph.",
       "gallery": [
         {
           "src": "/media/cases/novoprotein-web/01.png",
@@ -101,13 +101,14 @@
         }
       ],
       "coverCrop": {
-        "source": "/media/cases/novoprotein-web/01.png",
+        "source": "/media/cases/novoprotein-web/cover-source.png",
         "rect": [
-          2320,
-          316,
-          640,
-          800
-        ]
+          670,
+          12,
+          460,
+          575
+        ],
+        "sourceUrl": "https://freight.cargo.site/t/original/i/R3164852515092976068146439178113/Novoprotein_Web_Home_Hover_Services.png"
       }
     },
     {
@@ -181,8 +182,8 @@
         }
       ],
       "links": [],
-      "cover": "/media/cases/novoprotein-identity/12-cover.webp",
-      "alt": "Blue and cream protein ribbons on the orange field from the Novoprotein identity.",
+      "cover": "/media/cases/novoprotein-identity/protein-illustration-cover.webp",
+      "alt": "Blue and orange protein ribbons, thin loops and pink dots on a warm off-white background.",
       "gallery": [
         {
           "src": "/media/cases/novoprotein-identity/01.png",
@@ -306,9 +307,9 @@
         }
       ],
       "coverCrop": {
-        "source": "/media/cases/novoprotein-identity/12.jpg",
+        "source": "/media/cases/novoprotein-identity/09.jpg",
         "rect": [
-          2200,
+          1708,
           0,
           3600,
           4500
@@ -395,8 +396,8 @@
           "href": "https://www.figma.com/design/LEbHyhFwKLO2Hxs9Pcu4Xb"
         }
       ],
-      "cover": "/media/cases/uxtester/02-cover.webp",
-      "alt": "A recorded observation session above the timestamped findings table in uxtester.",
+      "cover": "/media/cases/uxtester/workspace-preview-cover.webp",
+      "alt": "The uxtester workspace on screen, with the product name and the usability-testing entry.",
       "gallery": [
         {
           "src": "/media/cases/uxtester/01.png",
@@ -490,14 +491,16 @@
         }
       ],
       "coverCrop": {
-        "source": "/media/cases/uxtester/02.png",
+        "source": "/media/cases/uxtester/cover-source.png",
         "rect": [
-          764,
-          310,
-          1152,
-          1440
-        ]
-      }
+          560,
+          0,
+          480,
+          600
+        ],
+        "sourceUrl": "https://freight.cargo.site/t/original/i/E1912296197163109263788478875521/Frame-8-2.png"
+      },
+      "coverBackdrop": "#f5f6f1"
     },
     {
       "slug": "bull-user-echo",
@@ -575,8 +578,8 @@
           "href": "https://www.figma.com/design/M7wv53a24IO0lqzDZGY5rI"
         }
       ],
-      "cover": "/media/cases/bull-user-echo/05-cover.webp",
-      "alt": "A detail of the Bull User Echo dashboard with blue, green and purple bar charts.",
+      "cover": "/media/cases/bull-user-echo/three-outlet-strip-cover.webp",
+      "alt": "A white BULL power strip with three outlets, viewed from above.",
       "gallery": [
         {
           "src": "/media/cases/bull-user-echo/01.png",
@@ -640,14 +643,15 @@
         }
       ],
       "coverCrop": {
-        "source": "/media/cases/bull-user-echo/05.png",
+        "source": "/media/cases/bull-user-echo/cover-source.png",
         "rect": [
-          1516,
-          270,
-          1200,
-          1500
+          80,
+          0,
+          640,
+          800
         ]
-      }
+      },
+      "coverBackdrop": "#141414"
     },
     {
       "slug": "the-red-pack",
@@ -1219,8 +1223,8 @@
       ],
       "credits": [],
       "links": [],
-      "cover": "/media/cases/john-cage/08-cover.webp",
-      "alt": "Creased black-and-white poster with twelve graphic variations pinned to a wall.",
+      "cover": "/media/cases/john-cage/finished-book-cover.webp",
+      "alt": "The finished John Cage booklet on black, with a small printed title, a translucent cover and visible page edges.",
       "gallery": [
         {
           "src": "/media/cases/john-cage/01.png",
@@ -1271,12 +1275,12 @@
         }
       ],
       "coverCrop": {
-        "source": "/media/cases/john-cage/08.png",
+        "source": "/media/cases/john-cage/01.png",
         "rect": [
-          120,
-          316,
-          2784,
-          3480
+          980,
+          182,
+          1600,
+          2000
         ]
       }
     }

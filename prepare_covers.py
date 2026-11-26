@@ -1,4 +1,4 @@
-"""Rebuild the homepage crops from the originals in each project's gallery."""
+"""Rebuild the homepage crops from each project's original media."""
 
 import argparse
 import json
@@ -26,8 +26,10 @@ def open_source(path, crop, ffmpeg):
 
 def build_cover(project, ffmpeg):
     crop = project["coverCrop"]
-    if crop["source"] not in {figure["src"] for figure in project["gallery"]}:
-        raise ValueError(f"Cover source missing from gallery: {project['slug']}")
+    allowed = {figure["src"] for figure in project["gallery"]}
+    allowed.add(f'/media/cases/{project["slug"]}/cover-source.png')
+    if crop["source"] not in allowed:
+        raise ValueError(f"Unexpected cover source for {project['slug']}")
     source = ROOT / crop["source"].lstrip("/")
     target = ROOT / project["cover"].lstrip("/")
     left, top, width, height = crop["rect"]
@@ -38,6 +40,7 @@ def build_cover(project, ffmpeg):
         ):
             raise ValueError(f"Invalid 4:5 crop for {source.name}: {crop['rect']}")
         image = original.crop((left, top, left + width, top + height))
+        alpha = image.getchannel("A") if "A" in image.getbands() else None
         profile = original.info.get("icc_profile")
         if profile:
             image = ImageCms.profileToProfile(
@@ -45,16 +48,21 @@ def build_cover(project, ffmpeg):
                 ImageCms.createProfile("sRGB"), outputMode="RGB",
             )
     image = image.convert("RGB")
+    if alpha is not None and alpha.getextrema()[0] < 255:
+        image.putalpha(alpha)
     fallback_width = min(640, width)
-    for size in sorted({w for w in WIDTHS if w <= width} | {fallback_width}):
+    sizes = {w for w in WIDTHS if w <= width} | {fallback_width}
+    for size in sorted(sizes):
         resized = image.resize((size, size * 5 // 4), Image.Resampling.LANCZOS)
         variant = target.with_name(f"{target.stem}-{size}.webp")
         resized.save(variant, "WEBP", quality=89, method=6)
         if size == fallback_width:
             target.write_bytes(variant.read_bytes())
-    for size in WIDTHS:
-        if size > width:
-            target.with_name(f"{target.stem}-{size}.webp").unlink(missing_ok=True)
+    prefix = target.stem + "-"
+    for previous in target.parent.glob(f"{prefix}[0-9]*.webp"):
+        suffix = previous.stem[len(prefix):]
+        if suffix.isdecimal() and int(suffix) not in sizes:
+            previous.unlink()
 
 
 if __name__ == "__main__":
