@@ -136,10 +136,7 @@ function mount() {
   }
 
   window.addEventListener('scroll', () => {
-    if (menuScrollY === null) return;
-    const y = pageScrollY();
-    if (y > menuScrollY) selectMenu(null);
-    else menuScrollY = y;
+    if (menuScrollY !== null && pageScrollY() !== menuScrollY) selectMenu(null);
   }, { passive: true, signal });
 
   document.addEventListener('pointerup', (event) => {
