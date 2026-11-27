@@ -36,18 +36,25 @@ body {
   color: #000;
 }
 
-#site-header-logo { flex-shrink: 0; }
-#site-header-logo svg { height: .72em; width: 9.32em; }
-#site-header-logo text {
-  font: 700 13px var(--type-family);
-  letter-spacing: .08em;
+#site-header-logo {
+  flex-shrink: 0;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
-.cta-pill-label, #site-header-tagline, #site-main-header-title > span {
+.cta-pill-label, #site-header-tagline {
   min-width: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+#site-main-header-title {
+  min-height: var(--bar);
+  height: auto;
+}
+#site-main-header-title > span {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .cta-pill-label, #site-header-tagline, #site-main-header-title > span,
 .grid-projects-figure-caption-title > span, #site-footer-colophon p {

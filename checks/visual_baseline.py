@@ -154,6 +154,17 @@ def check_project_layout(page, width, size, spacing):
         near(f'{name} left', box['left'], main['right'] - column)
         near(f'{name} width', box['width'], column)
     near('title top', title['top'], main['top'])
+    title_fits = page.locator('#site-main-header-title > span').evaluate('''span => {
+      const range = document.createRange();
+      range.selectNodeContents(span);
+      const pill = span.parentElement.getBoundingClientRect();
+      const label = span.getBoundingClientRect();
+      return [...range.getClientRects()].every(line =>
+        line.left >= label.left - .5 && line.right <= label.right + .5 &&
+        line.top >= pill.top - .5 && line.bottom <= pill.bottom + .5);
+    }''')
+    if not title_fits:
+        raise AssertionError('Project title does not fit inside its label')
     near('title to info gap', info['top'] - title['bottom'], gap)
     rows = page.locator('#site-main-info .list-details-item').evaluate_all('''items => items.map(item => {
         const label = item.querySelector('dt').getBoundingClientRect();
@@ -208,6 +219,13 @@ def check_project_menu_clearance(page, width, spacing):
 
 
 def home(page, projects, size, radius, touch, spacing):
+    logo = page.locator('#site-header-logo')
+    rendered = logo.screenshot(animations='disabled')
+    unclipped = logo.screenshot(animations='disabled', style='''
+        #site-header-logo, #site-header-logo * { overflow: visible !important; clip-path: none !important; }
+    ''')
+    if rendered != unclipped:
+        raise AssertionError('The name in the site header has clipped lettering')
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
     title = card.locator('h3')

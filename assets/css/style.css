@@ -55,7 +55,6 @@ a { color: inherit; text-decoration: none; }
 }
 #site-header { grid-column: 1; }
 #site-header-logo { display: flex; align-items: center; height: 100%; }
-#site-header-logo svg { display: block; width: auto; height: calc(.72 * var(--type-size)); fill: currentColor; }
 #site-header-tagline { text-align: right; }
 :is(#site-menu, #simple-menu) { grid-column: 2; }
 #site-menu, #simple-menu, #site-footer-menu, #site-main-header {
