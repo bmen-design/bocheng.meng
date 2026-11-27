@@ -441,11 +441,12 @@ document.addEventListener('click', (event) => {
   )
     return;
   const url = new URL(link.href);
-  if (url.origin !== location.origin || url.hash) return;
+  const currentRoute = routeKey(url) === route && !url.search;
+  if (url.origin !== location.origin || (url.hash && !(currentRoute && url.hash === '#top'))) return;
   event.preventDefault();
   if (request) return;
   page.selectMenu(null, false);
-  if (routeKey(url) === route && !url.search) scrollTo(0, 0);
+  if (currentRoute) scrollTo(0, 0);
   else {
     link.classList.add('active');
     navigate(url, false);

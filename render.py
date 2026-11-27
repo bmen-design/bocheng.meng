@@ -196,8 +196,12 @@ def gallery(project):
             f'<div class="grid-project-figures">{"".join(figures)}</div></div></div>')
 
 
-def page_title(title):
-    return f'<h1 id="site-main-header-title"><span>{escape(title)}</span></h1>'
+def page_title(title, slug=None):
+    label = f'<span>{escape(title)}</span>'
+    if slug is None:
+        return f'<h1 id="site-main-header-title">{label}</h1>'
+    return (f'<h1><a id="site-main-header-title" class="link-ajax" href="work/{escape(slug)}/#top" '
+            f'title="Back to top">{label}</a></h1>')
 
 
 def back_link(label):
@@ -215,7 +219,7 @@ def project_page(project):
             info.append(text_section(section["title"], section["paragraphs"], section.get("links", [])))
     if project.get("credits"):
         info.append(details("Credits", [(row["label"], row["value"]) for row in project["credits"]]))
-    return (f'<div class="project-sidebar"><div id="site-main-header">{page_title(project["title"])}'
+    return (f'<div class="project-sidebar"><div id="site-main-header">{page_title(project["title"], project["slug"])}'
             f'<div id="site-main-info">{"".join(info)}</div>{back_link("Back to Overview")}</div></div>'
             + gallery(project))
 

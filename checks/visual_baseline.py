@@ -251,6 +251,18 @@ def run(browser, base, projects, width):
                 if project['slug'] == 'uxtester':
                     check_project_menu_clearance(page, width, size)
                 expect(page.locator('#site-main-header-title')).to_have_text(project['title'])
+                if project['slug'] == 'bull-user-echo':
+                    title_link = page.get_by_role('heading', level=1).get_by_role('link', name=project['title'])
+                    page.evaluate('window.scrollTo(0, 120)')
+                    page.wait_for_function('scrollY > 0')
+                    initial_url = page.url
+                    edge = {'x': title_link.bounding_box()['width'] - 12, 'y': 12}
+                    if touch:
+                        title_link.tap(position=edge)
+                    else:
+                        title_link.click(position=edge)
+                    page.wait_for_function('scrollY === 0')
+                    expect(page).to_have_url(initial_url)
                 check_type(page, '.list-details-item > :is(dt, dd)', size, .02)
                 lead = page.locator('#site-main-info .text-body-content').first.locator(':scope > p')
                 expect(lead).to_have_text([project['description'], *project.get('paragraphs', [])])
