@@ -9,7 +9,7 @@
 :root {
   --type-family: Helvetica, Arial, sans-serif;
   --layout-unit: 10px;
-  --type-size: calc(var(--layout-unit) + 2px);
+  --type-size: calc(var(--layout-unit) + 1px);
   --label-tracking: .08em;
   --text-tracking: .02em;
   --type-trim: -.27em -.31em;

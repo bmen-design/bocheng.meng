@@ -164,7 +164,7 @@ def home(page, projects, size, radius, touch):
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
     title = card.locator('h3')
-    unit = size - 2
+    unit = size - 1
     compact = page.viewport_size['width'] <= 600
     for selector, units in (('#site-main', 18 if compact else 24), ('#site-footer', 24 if compact else 36)):
         margin = page.locator(selector).evaluate('e => parseFloat(getComputedStyle(e).marginTop)')
@@ -204,7 +204,7 @@ def home(page, projects, size, radius, touch):
         check_frames(page.locator('widget-cursor figure:not([hidden])'), 1, 15, 1, cursor=True)
     page.get_by_role('button', name='About').click()
     check_section_headings(page, '#about-panel h2', size)
-    faces = page.evaluate('''async () => (await document.fonts.load('400 12px "IBM Plex Mono"')).length''')
+    faces = page.evaluate('''async () => (await document.fonts.load('400 11px "IBM Plex Mono"')).length''')
     assert faces == 1, 'Section heading font failed to load'
     check_type(page, '#about-panel .text-body-content > p', size, .02)
     about_panel = page.locator('#about-panel')
@@ -262,7 +262,7 @@ def check_media_files(request, base, projects):
 
 def run(browser, base, projects, width):
     touch = width == 390
-    size = 2 + (width / 44 if width < 440 else max(10, width / 192))
+    size = 1 + (width / 44 if width < 440 else max(10, width / 192))
     cover_radius = width * 80 / (840 if width <= 840 else 1512)
     page = browser.new_page(viewport={'width': width, 'height': 900}, has_touch=touch,
                             is_mobile=touch, reduced_motion='reduce')
