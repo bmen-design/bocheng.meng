@@ -118,10 +118,19 @@ def check_project_layout(page, width, gap):
         near(f'{name} width', box['width'], column)
     near('title top', title['top'], main['top'])
     near('title to info gap', info['top'] - title['bottom'], gap)
-    value_starts = page.locator('#site-main-info dd').evaluate_all(
-        'values => values.map(value => value.getBoundingClientRect().left)')
-    for left in value_starts:
-        near('detail value at card midpoint', left, info['left'] + info['width'] / 2)
+    rows = page.locator('#site-main-info .list-details-item').evaluate_all('''items => items.map(item => {
+        const label = item.querySelector('dt').getBoundingClientRect();
+        const value = item.querySelector('dd').getBoundingClientRect();
+        return {left: value.left, valueTop: value.top, labelBottom: label.bottom};
+    })''')
+    stacked = info['width'] - 4 * gap <= 17 * gap
+    for row in rows:
+        if stacked:
+            near('detail value at left inset', row['left'], info['left'] + 2 * gap)
+            if row['valueTop'] < row['labelBottom'] - .1:
+                raise AssertionError('Detail value overlaps its label in a narrow card')
+        else:
+            near('detail value at card midpoint', row['left'], info['left'] + info['width'] / 2)
     near('info to back gap', back['top'] - info['bottom'], gap)
     near('gallery left', gallery['left'], main['left'])
     near('gallery width', gallery['width'], main['width'] if narrow else 3 * column + 2 * gap)
@@ -155,6 +164,12 @@ def home(page, projects, size, radius, touch):
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
     title = card.locator('h3')
+    unit = size - 2
+    compact = page.viewport_size['width'] <= 600
+    for selector, units in (('#site-main', 18 if compact else 24), ('#site-footer', 24 if compact else 36)):
+        margin = page.locator(selector).evaluate('e => parseFloat(getComputedStyle(e).marginTop)')
+        if abs(margin - units * unit) > .05:
+            raise AssertionError(f'{selector} outer spacing: {margin}px')
     check_catalog_links(page.locator('.grid-projects-figure-link'), projects)
     check_sources(covers.locator('img'), [p['cover'] for p in projects])
     check_type(page, '.grid-projects-figure-caption-title > span', size, .08)
@@ -175,6 +190,10 @@ def home(page, projects, size, radius, touch):
     page.mouse.move(0, 0)
     check_catalog_links(page.locator('.list-projects-item-link'), projects)
     check_sources(page.locator('widget-cursor img'), [p.get('preview', p['cover']) for p in projects])
+    for row in ('.list-projects-header', '.list-projects-item'):
+        gap = page.locator(row).first.evaluate('e => parseFloat(getComputedStyle(e).columnGap)')
+        if abs(gap - 5 * unit) > .05:
+            raise AssertionError(f'{row} column gap: {gap}px')
     check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)', '"IBM Plex Mono", monospace')
     expect(page.locator('.list-projects-header')).to_have_css('text-transform', 'uppercase')
     check_type(page, '.list-projects-item > :is(h3, span)', size, .08, 'rgb(0, 0, 0)')

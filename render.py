@@ -86,9 +86,10 @@ def text_section(title, paragraphs, links=()):
 def details(title, items):
     rows = []
     for label, value in items:
+        value_html = escape(str(value)).replace("/", "/<wbr>")
         rows.append(f'<div class="list-details-item"><dt class="list-details-item-title">'
                     f'{escape(label)}:</dt><dd class="list-details-item-content">'
-                    f'<p>{escape(str(value))}</p></dd></div>')
+                    f'<p>{value_html}</p></dd></div>')
     return (f'<div class="list-details font-sans-small">{section_header("list-details", title)}'
             f'<dl class="list-details-items">{"".join(rows)}</dl></div>')
 
