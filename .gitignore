@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 dist/
+assets/fonts/section-heading.otf

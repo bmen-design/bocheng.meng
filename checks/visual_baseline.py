@@ -8,11 +8,11 @@ from playwright.sync_api import expect, sync_playwright
 
 CATALOG = Path(__file__).resolve().parents[1] / "content/projects.json"
 
-TYPE = """(nodes, {size, tracking, color}) => {
+TYPE = """(nodes, {size, tracking, color, family}) => {
   for (const node of nodes) {
     const s = getComputedStyle(node);
     const pixels = {fontSize: size, lineHeight: size * 1.3, letterSpacing: size * tracking};
-    const values = {fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: '400'};
+    const values = {fontFamily: family, fontWeight: '400'};
     if (color) values.color = color;
     for (const [key, value] of Object.entries({...pixels, ...values})) {
       const ok = typeof value === 'number' ? Math.abs(parseFloat(s[key]) - value) < .02 : s[key] === value;
@@ -71,10 +71,23 @@ FRAMES = """(frames, {ratio, radius, excess, cursor}) => {
 }"""
 
 
-def check_type(page, selector, size, tracking, color=None):
+def check_type(page, selector, size, tracking, color=None, family='Helvetica, Arial, sans-serif'):
     nodes = page.locator(selector)
     expect(nodes.first).to_be_attached()
-    nodes.evaluate_all(TYPE, dict(size=size, tracking=tracking, color=color))
+    nodes.evaluate_all(TYPE, dict(size=size, tracking=tracking, color=color, family=family))
+
+
+def check_section_headings(page, selector, size):
+    check_type(page, selector, size, .08, family='"ABC Marist Book", Georgia, serif')
+    page.locator(selector).evaluate_all("""headings => {
+      for (const heading of headings) {
+        const square = getComputedStyle(heading, '::before');
+        if (getComputedStyle(heading).textTransform !== 'uppercase' ||
+            square.backgroundColor !== 'rgb(130, 255, 159)' ||
+            square.width !== square.height || parseFloat(square.width) <= 0)
+          throw Error(heading.textContent + ': expected uppercase heading with a green square');
+      }
+    }""")
 
 
 def check_frames(frames, count, radius, ratio, excess=0, cursor=False):
@@ -167,6 +180,9 @@ def home(page, projects, size, radius, touch):
         page.locator('.list-projects-item-link').first.hover()
         check_frames(page.locator('widget-cursor figure:not([hidden])'), 1, 15, 1, cursor=True)
     page.get_by_role('button', name='About').click()
+    check_section_headings(page, '#about-panel h2', size)
+    faces = page.evaluate('''async () => (await document.fonts.load('400 10px "ABC Marist Book"')).length''')
+    assert faces == 1, 'Section heading font failed to load'
     check_type(page, '#about-panel .text-body-content > p', size, .02)
     about_panel = page.locator('#about-panel')
     about_panel.locator('h2').first.click()
@@ -244,7 +260,8 @@ def run(browser, base, projects, width):
                     expect(page.locator('#site-header')).to_have_css(prop, value)
                 home(page, projects, size, cover_radius, touch)
             else:
-                check_type(page, '#site-main-header-title > span, #site-main-info h2', size, .08)
+                check_type(page, '#site-main-header-title > span', size, .08)
+                check_section_headings(page, '#site-main-info h2', size)
                 check_type(page, '#site-main-info .text-body-content > p', size, .02)
             if project:
                 check_project_layout(page, width, size)
