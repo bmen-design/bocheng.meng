@@ -249,6 +249,16 @@ def home(page, projects, size, radius, touch, spacing):
     check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)', '"IBM Plex Mono", monospace')
     expect(page.locator('.list-projects-header')).to_have_css('text-transform', 'uppercase')
     expect(page.locator('.list-projects-header')).to_have_css('font-size-adjust', 'cap-height 0.7173')
+    cells = page.locator('.list-projects-header > span')
+    expect(cells).to_have_text(['Project number', 'TITLE', 'CATEGORIES', 'YEAR'])
+    expect(cells.first.locator('.visually-hidden')).to_have_text('Project number')
+    cells.evaluate_all("""cells => cells.forEach((cell, index) => {
+      const square = getComputedStyle(cell, '::before');
+      if (square.content !== '""' || square.width !== '4px' || square.height !== '4px' ||
+          square.backgroundColor !== 'rgb(130, 255, 159)' ||
+          square.marginInlineEnd !== (index === 0 ? '0px' : '8px'))
+        throw Error(cell.textContent + ': incorrect Work header marker');
+    })""")
     check_type(page, '.list-projects-item > :is(h3, span)', size, .08, 'rgb(0, 0, 0)')
     if touch:
         expect(page.locator('widget-cursor')).to_be_hidden()

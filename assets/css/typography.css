@@ -77,6 +77,8 @@ body {
   line-height: inherit;
 }
 .list-projects-header, .section-heading {
+  --marker-size: 4px;
+  --marker-gap: calc(2 * var(--marker-size));
   --type-trim: -.22em -.36em;
   font-family: "IBM Plex Mono", monospace;
   /* Match the cap height of the Helvetica body at the same CSS size. */
@@ -85,20 +87,28 @@ body {
   color: var(--muted-type);
 }
 .section-heading {
-  --marker-size: 4px;
   display: inline-flex;
   align-items: baseline;
-  gap: calc(2 * var(--marker-size));
+  gap: var(--marker-gap);
   margin-block: var(--type-trim);
   letter-spacing: var(--label-tracking);
 }
-.section-heading::before {
+.section-heading::before, .list-projects-header > span::before {
   content: "";
-  flex: none;
   width: var(--marker-size);
   height: var(--marker-size);
-  transform: translateY(calc((var(--marker-size) - 1cap) / 2));
   background-color: #82ff9f;
+}
+.section-heading::before {
+  flex: none;
+  transform: translateY(calc((var(--marker-size) - 1cap) / 2));
+}
+.list-projects-header > span::before {
+  display: inline-block;
+  vertical-align: calc((1cap - var(--marker-size)) / 2);
+}
+.list-projects-header > span:not(.list-projects-header-index)::before {
+  margin-inline-end: var(--marker-gap);
 }
 .list-rows-items, #site-main-info .list-details-items {
   display: grid;

@@ -114,7 +114,8 @@ def accordion(key, content, size, after=""):
 
 
 def work_menu(projects, current):
-    labels = [("index", "#"), ("title", "TITLE"), ("categories", "CATEGORIES"), ("year", "YEAR")]
+    labels = [("index", '<span class="visually-hidden">Project number</span>'),
+              ("title", "TITLE"), ("categories", "CATEGORIES"), ("year", "YEAR")]
     headings = "".join(f'<span class="list-projects-header-{key}">{val}</span>' for key, val in labels)
     rows, previews = [], []
     for index, project in enumerate(projects, 1):
