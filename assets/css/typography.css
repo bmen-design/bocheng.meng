@@ -1,7 +1,7 @@
 @font-face {
   font-family: "ABC Marist Book";
-  src: url("../fonts/section-heading.otf") format("opentype");
-  font-style: normal;
+  src: url("../fonts/section-heading-italic.otf") format("opentype");
+  font-style: italic;
   font-weight: 400;
   font-display: swap;
 }
@@ -80,18 +80,20 @@ body {
   color: var(--muted-type);
 }
 .section-heading {
+  --marker-size: .385em;
   display: inline-flex;
   align-items: center;
-  gap: .31em;
+  gap: calc(2 * var(--marker-size));
   margin-block: var(--type-trim);
   font-family: "ABC Marist Book", Georgia, serif;
+  font-style: italic;
   letter-spacing: var(--label-tracking);
 }
 .section-heading::before {
   content: "";
   flex: none;
-  width: .385em;
-  height: .385em;
+  width: var(--marker-size);
+  height: var(--marker-size);
   background-color: #82ff9f;
 }
 .list-rows-items, #site-main-info .list-details-items {

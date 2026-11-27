@@ -65,8 +65,8 @@ def overview(projects):
 
 
 def section_header(kind, title):
-    return (f'<header class="{kind}-header"><h2 class="{kind}-header-title section-heading font-subtle '
-            f'font-uppercase">{escape(title)}</h2></header>')
+    return (f'<header class="{kind}-header"><h2 class="{kind}-header-title section-heading">'
+            f'{escape(title)}</h2></header>')
 
 
 def text_section(title, paragraphs, links=()):

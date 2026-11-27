@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 dist/
 assets/fonts/section-heading.otf
+assets/fonts/section-heading-italic.otf

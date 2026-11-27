@@ -78,14 +78,18 @@ def check_type(page, selector, size, tracking, color=None, family='Helvetica, Ar
 
 
 def check_section_headings(page, selector, size):
-    check_type(page, selector, size, .08, family='"ABC Marist Book", Georgia, serif')
+    body_color = page.locator('body').evaluate('body => getComputedStyle(body).color')
+    check_type(page, selector, size, .08, color=body_color, family='"ABC Marist Book", Georgia, serif')
     page.locator(selector).evaluate_all("""headings => {
       for (const heading of headings) {
         const square = getComputedStyle(heading, '::before');
-        if (getComputedStyle(heading).textTransform !== 'uppercase' ||
+        const style = getComputedStyle(heading);
+        if (style.fontStyle !== 'italic' || style.textTransform !== 'none' ||
+            !/^[A-Z][a-z]/.test(heading.textContent.trim()) ||
             square.backgroundColor !== 'rgb(130, 255, 159)' ||
-            square.width !== square.height || parseFloat(square.width) <= 0)
-          throw Error(heading.textContent + ': expected uppercase heading with a green square');
+            square.width !== square.height || parseFloat(square.width) <= 0 ||
+            Math.abs(parseFloat(style.columnGap) - 2 * parseFloat(square.width)) > .04)
+          throw Error(heading.textContent + ': expected an initial capital, italic type and two square widths of space');
       }
     }""")
 
@@ -181,7 +185,7 @@ def home(page, projects, size, radius, touch):
         check_frames(page.locator('widget-cursor figure:not([hidden])'), 1, 15, 1, cursor=True)
     page.get_by_role('button', name='About').click()
     check_section_headings(page, '#about-panel h2', size)
-    faces = page.evaluate('''async () => (await document.fonts.load('400 10px "ABC Marist Book"')).length''')
+    faces = page.evaluate('''async () => (await document.fonts.load('italic 400 10px "ABC Marist Book"')).length''')
     assert faces == 1, 'Section heading font failed to load'
     check_type(page, '#about-panel .text-body-content > p', size, .02)
     about_panel = page.locator('#about-panel')
