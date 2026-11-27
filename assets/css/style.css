@@ -60,7 +60,7 @@ a { color: inherit; text-decoration: none; }
   gap: var(--space);
 }
 .cta-pill { width: 100%; }
-.cta-pill--blur, #site-main-header-title, .site-menu-item-panel-wrapper, .grid-projects-figure-caption-title {
+#site-header, .cta-pill--blur, #site-main-header-title, .site-menu-item-panel-wrapper, .grid-projects-figure-caption-title {
   background: var(--mist);
   -webkit-backdrop-filter: blur(calc(5 * var(--space)));
   backdrop-filter: blur(calc(5 * var(--space)));

@@ -238,6 +238,10 @@ def run(browser, base, projects, width):
             expect(page.locator('body')).to_have_attribute('data-template', view)
             check_type(page, '#site-header-tagline, .cta-pill-label, #site-footer-colophon p', size, .08)
             if view == 'home':
+                work = page.get_by_role('button', name='Work', exact=True)
+                for prop in ('background-color', 'backdrop-filter'):
+                    value = work.evaluate('(button, prop) => getComputedStyle(button).getPropertyValue(prop)', prop)
+                    expect(page.locator('#site-header')).to_have_css(prop, value)
                 home(page, projects, size, cover_radius, touch)
             else:
                 check_type(page, '#site-main-header-title > span, #site-main-info h2', size, .08)
