@@ -78,18 +78,17 @@ def check_type(page, selector, size, tracking, color=None, family='Helvetica, Ar
 
 
 def check_section_headings(page, selector, size):
-    body_color = page.locator('body').evaluate('body => getComputedStyle(body).color')
-    check_type(page, selector, size, .08, color=body_color, family='"ABC Marist Book", Georgia, serif')
+    check_type(page, selector, size, .08, color='rgba(0, 0, 0, 0.3)', family='"IBM Plex Mono", monospace')
     page.locator(selector).evaluate_all("""headings => {
       for (const heading of headings) {
         const square = getComputedStyle(heading, '::before');
         const style = getComputedStyle(heading);
-        if (style.fontStyle !== 'italic' || style.textTransform !== 'none' ||
-            !/^[A-Z][a-z]/.test(heading.textContent.trim()) ||
+        if (style.fontStyle !== 'normal' || style.textTransform !== 'uppercase' ||
+            heading.innerText !== heading.textContent.toUpperCase() ||
             square.backgroundColor !== 'rgb(130, 255, 159)' ||
             square.width !== square.height || parseFloat(square.width) <= 0 ||
             Math.abs(parseFloat(style.columnGap) - 2 * parseFloat(square.width)) > .04)
-          throw Error(heading.textContent + ': expected an initial capital, italic type and two square widths of space');
+          throw Error(heading.textContent + ': expected uppercase upright type and two square widths of space');
       }
     }""")
 
@@ -176,7 +175,8 @@ def home(page, projects, size, radius, touch):
     page.mouse.move(0, 0)
     check_catalog_links(page.locator('.list-projects-item-link'), projects)
     check_sources(page.locator('widget-cursor img'), [p.get('preview', p['cover']) for p in projects])
-    check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)')
+    check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)', '"IBM Plex Mono", monospace')
+    expect(page.locator('.list-projects-header')).to_have_css('text-transform', 'uppercase')
     check_type(page, '.list-projects-item > :is(h3, span)', size, .08, 'rgb(0, 0, 0)')
     if touch:
         expect(page.locator('widget-cursor')).to_be_hidden()
@@ -185,7 +185,7 @@ def home(page, projects, size, radius, touch):
         check_frames(page.locator('widget-cursor figure:not([hidden])'), 1, 15, 1, cursor=True)
     page.get_by_role('button', name='About').click()
     check_section_headings(page, '#about-panel h2', size)
-    faces = page.evaluate('''async () => (await document.fonts.load('italic 400 10px "ABC Marist Book"')).length''')
+    faces = page.evaluate('''async () => (await document.fonts.load('400 12px "IBM Plex Mono"')).length''')
     assert faces == 1, 'Section heading font failed to load'
     check_type(page, '#about-panel .text-body-content > p', size, .02)
     about_panel = page.locator('#about-panel')
@@ -243,7 +243,7 @@ def check_media_files(request, base, projects):
 
 def run(browser, base, projects, width):
     touch = width == 390
-    size = width / 44 if width < 440 else max(10, width / 192)
+    size = 2 + (width / 44 if width < 440 else max(10, width / 192))
     cover_radius = width * 80 / (840 if width <= 840 else 1512)
     page = browser.new_page(viewport={'width': width, 'height': 900}, has_touch=touch,
                             is_mobile=touch, reduced_motion='reduce')

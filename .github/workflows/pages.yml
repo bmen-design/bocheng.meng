@@ -19,13 +19,6 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Prepare the section heading font
-        env:
-          FONT_PART_1: ${{ secrets.SECTION_TYPEFACE_ITALIC_1 }}
-          FONT_PART_2: ${{ secrets.SECTION_TYPEFACE_ITALIC_2 }}
-        run: |
-          mkdir -p assets/fonts
-          printf '%s%s' "$FONT_PART_1" "$FONT_PART_2" | base64 --decode | xz --decompress > assets/fonts/section-heading-italic.otf
       - name: Build site
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}

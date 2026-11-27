@@ -131,7 +131,7 @@ def work_menu(projects, current):
         thumbnail = image(preview, "", project.get("coverBackdrop") if preview == project["cover"] else None)
         previews.append(f'<figure class="widget-cursor-thumbnail" data-index="{index}" hidden>'
                         f'{thumbnail}</figure>')
-    content = (f'<div class="list-projects"><header class="list-projects-header font-subtle">'
+    content = (f'<div class="list-projects"><header class="list-projects-header">'
                f'{headings}</header><ul class="list-projects-items">{"".join(rows)}</ul></div>')
     return accordion("work", content, "large", f'<widget-cursor aria-hidden="true">{"".join(previews)}</widget-cursor>')
 

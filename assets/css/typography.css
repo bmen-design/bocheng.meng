@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "ABC Marist Book";
-  src: url("../fonts/section-heading-italic.otf") format("opentype");
-  font-style: italic;
+  font-family: "IBM Plex Mono";
+  src: url("../fonts/ibm-plex-mono/regular-latin.woff2") format("woff2");
+  font-style: normal;
   font-weight: 400;
   font-display: swap;
 }
 
 :root {
   --type-family: Helvetica, Arial, sans-serif;
-  --type-size: 10px;
+  --type-size: 12px;
   --label-tracking: .08em;
   --text-tracking: .02em;
   --type-trim: -.27em -.31em;
@@ -16,10 +16,10 @@
 }
 
 @media (max-width: 440px) {
-  :root { --type-size: calc(100vw / 44); }
+  :root { --type-size: calc(100vw / 44 + 2px); }
 }
 @media (min-width: 1921px) {
-  :root { --type-size: calc(100vw / 192); }
+  :root { --type-size: calc(100vw / 192 + 2px); }
 }
 
 html {
@@ -75,8 +75,9 @@ body {
   display: flex;
   line-height: inherit;
 }
-.font-subtle {
-  font: inherit;
+.list-projects-header, .section-heading {
+  font-family: "IBM Plex Mono", monospace;
+  text-transform: uppercase;
   color: var(--muted-type);
 }
 .section-heading {
@@ -85,8 +86,6 @@ body {
   align-items: center;
   gap: calc(2 * var(--marker-size));
   margin-block: var(--type-trim);
-  font-family: "ABC Marist Book", Georgia, serif;
-  font-style: italic;
   letter-spacing: var(--label-tracking);
 }
 .section-heading::before {
