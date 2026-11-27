@@ -77,14 +77,17 @@ body {
   line-height: inherit;
 }
 .list-projects-header, .section-heading {
+  --type-trim: -.22em -.36em;
   font-family: "IBM Plex Mono", monospace;
+  /* Match the cap height of the Helvetica body at the same CSS size. */
+  font-size-adjust: cap-height .7173;
   text-transform: uppercase;
   color: var(--muted-type);
 }
 .section-heading {
   --marker-size: .385em;
   display: inline-flex;
-  align-items: center;
+  align-items: baseline;
   gap: calc(2 * var(--marker-size));
   margin-block: var(--type-trim);
   letter-spacing: var(--label-tracking);
@@ -94,6 +97,7 @@ body {
   flex: none;
   width: var(--marker-size);
   height: var(--marker-size);
+  transform: translateY(calc((var(--marker-size) - 1cap) / 2));
   background-color: #82ff9f;
 }
 .list-rows-items, #site-main-info .list-details-items {

@@ -83,7 +83,8 @@ def check_section_headings(page, selector, size):
       for (const heading of headings) {
         const square = getComputedStyle(heading, '::before');
         const style = getComputedStyle(heading);
-        if (style.fontStyle !== 'normal' || style.textTransform !== 'uppercase' ||
+        if (style.fontSizeAdjust !== 'cap-height 0.7173' || style.alignItems !== 'baseline' ||
+            style.fontStyle !== 'normal' || style.textTransform !== 'uppercase' ||
             heading.innerText !== heading.textContent.toUpperCase() ||
             square.backgroundColor !== 'rgb(130, 255, 159)' ||
             square.width !== square.height || parseFloat(square.width) <= 0 ||
@@ -196,6 +197,7 @@ def home(page, projects, size, radius, touch):
             raise AssertionError(f'{row} column gap: {gap}px')
     check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)', '"IBM Plex Mono", monospace')
     expect(page.locator('.list-projects-header')).to_have_css('text-transform', 'uppercase')
+    expect(page.locator('.list-projects-header')).to_have_css('font-size-adjust', 'cap-height 0.7173')
     check_type(page, '.list-projects-item > :is(h3, span)', size, .08, 'rgb(0, 0, 0)')
     if touch:
         expect(page.locator('widget-cursor')).to_be_hidden()
