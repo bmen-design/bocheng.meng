@@ -2,11 +2,26 @@
 import argparse
 import json
 from pathlib import Path
+from typing import NamedTuple
 from urllib.parse import urljoin
 
 from playwright.sync_api import expect, sync_playwright
 
 CATALOG = Path(__file__).resolve().parents[1] / "content/projects.json"
+
+
+class Spacing(NamedTuple):
+    module: int
+    inset: int
+    paragraph: int
+    work_columns: int
+    start: int
+    footer: int
+
+
+COMPACT = Spacing(10, 20, 14, 46, 160, 216)
+DESKTOP = Spacing(12, 22, 16, 50, 240, 360)
+
 
 TYPE = """(nodes, {size, tracking, color, family}) => {
   for (const node of nodes) {
@@ -87,8 +102,7 @@ def check_section_headings(page, selector, size):
             style.fontStyle !== 'normal' || style.textTransform !== 'uppercase' ||
             heading.innerText !== heading.textContent.toUpperCase() ||
             square.backgroundColor !== 'rgb(130, 255, 159)' ||
-            square.width !== square.height || parseFloat(square.width) <= 0 ||
-            Math.abs(parseFloat(style.columnGap) - 2 * parseFloat(square.width)) > .04)
+            square.width !== '4px' || square.height !== '4px' || style.columnGap !== '8px')
           throw Error(heading.textContent + ': expected uppercase upright type and two square widths of space');
       }
     }""")
@@ -99,7 +113,32 @@ def check_frames(frames, count, radius, ratio, excess=0, cursor=False):
     frames.evaluate_all(FRAMES, dict(ratio=ratio, radius=radius, excess=excess, cursor=cursor))
 
 
-def check_project_layout(page, width, gap):
+def near(label, actual, expected):
+    if abs(actual - expected) > .25:
+        raise AssertionError(f'{label}: {actual:.2f}px, expected {expected:.2f}px')
+
+
+def check_panel_spacing(panel, spacing):
+    measurements = panel.evaluate("""panel => {
+      const style = getComputedStyle(panel), rect = e => e.getBoundingClientRect();
+      const gapBefore = e => rect(e).top - rect(e.previousElementSibling).bottom;
+      return {
+        inset: [style.paddingTop, style.paddingLeft, style.paddingRight].map(parseFloat),
+        bottom: parseFloat(style.paddingBottom),
+        sections: [...panel.children].slice(1).map(gapBefore),
+        paragraphs: [...panel.querySelectorAll('.text-body-content > p + p')].map(gapBefore),
+      };
+    }""")
+    for inset in measurements['inset']:
+        near('panel inset', inset, spacing.inset)
+    near('panel bottom inset', measurements['bottom'], 2 * spacing.inset)
+    for gap in measurements['sections']:
+        near('panel section gap', gap, 2 * spacing.inset)
+    for gap in measurements['paragraphs']:
+        near('gap between paragraph boxes', gap, spacing.paragraph)
+
+
+def check_project_layout(page, width, size, spacing):
     boxes = page.locator('#site-main').evaluate("""main => {
       const nodes = {main, title: main.querySelector('#site-main-header-title'),
         info: main.querySelector('#site-main-info'), back: main.querySelector('a.link-ajax--home'),
@@ -108,10 +147,7 @@ def check_project_layout(page, width, gap):
     }""")
     main, title, info, back, gallery = (boxes[k] for k in ('main', 'title', 'info', 'back', 'gallery'))
 
-    def near(label, actual, expected):
-        if abs(actual - expected) > .25:
-            raise AssertionError(f'{label}: {actual:.2f}px, expected {expected:.2f}px')
-
+    gap = spacing.module
     narrow = width <= 840
     column = main['width'] if narrow else (main['width'] - 3 * gap) / 4
     for name, box in [('title', title), ('info', info), ('back', back)]:
@@ -124,10 +160,10 @@ def check_project_layout(page, width, gap):
         const value = item.querySelector('dd').getBoundingClientRect();
         return {left: value.left, valueTop: value.top, labelBottom: label.bottom};
     })''')
-    stacked = info['width'] - 4 * gap <= 17 * gap
+    stacked = info['width'] - 2 * spacing.inset <= 17 * size
     for row in rows:
         if stacked:
-            near('detail value at left inset', row['left'], info['left'] + 2 * gap)
+            near('detail value at left inset', row['left'], info['left'] + spacing.inset)
             if row['valueTop'] < row['labelBottom'] - .1:
                 raise AssertionError('Detail value overlaps its label in a narrow card')
         else:
@@ -136,20 +172,30 @@ def check_project_layout(page, width, gap):
     near('gallery left', gallery['left'], main['left'])
     near('gallery width', gallery['width'], main['width'] if narrow else 3 * column + 2 * gap)
     near('gallery top', gallery['top'], back['bottom'] + gap if narrow else title['top'])
+    check_panel_spacing(page.locator('#site-main-info'), spacing)
+    media_gaps = page.locator('.grid-project-figure + .grid-project-figure').evaluate_all(
+        'els => els.map(e => e.getBoundingClientRect().top - e.previousElementSibling.getBoundingClientRect().bottom)')
+    for media_gap in media_gaps:
+        near('gallery row gap', media_gap, gap)
     if page.evaluate('document.documentElement.scrollWidth > document.documentElement.clientWidth'):
         raise AssertionError('Project page overflows horizontally')
 
 
-def check_project_menu_clearance(page, width, gap):
+def check_project_menu_clearance(page, width, spacing):
+    gap = spacing.module
     sidebar = page.locator('#site-main-header')
     gallery = page.locator('#site-main-content')
     initial_sidebar = sidebar.bounding_box()
     initial_gallery = gallery.bounding_box()
     for name in ('Work', 'About'):
-        page.get_by_role('button', name=name).click()
+        toggle = page.get_by_role('button', name=name)
+        toggle.click()
         panel = page.locator(f'#{name.lower()}-panel')
         expect(panel).to_be_visible()
         box = panel.bounding_box()
+        button = toggle.bounding_box()
+        near(f'{name} toggle to panel gap', box['y'] - button['y'] - button['height'], gap)
+        check_panel_spacing(panel.locator('.site-menu-item-panel'), spacing)
         expected_top = max(initial_sidebar['y'], box['y'] + box['height'] + gap)
         if abs(sidebar.bounding_box()['y'] - expected_top) > .5:
             raise AssertionError(f'Sidebar should clear {name} and start at {expected_top:.1f}px')
@@ -161,16 +207,22 @@ def check_project_menu_clearance(page, width, gap):
         raise AssertionError('Sidebar or gallery did not return to its closed-menu position')
 
 
-def home(page, projects, size, radius, touch):
+def home(page, projects, size, radius, touch, spacing):
     card = page.locator('.grid-projects-figure').first
     covers = page.locator('.grid-projects-figure-thumbnail')
     title = card.locator('h3')
-    unit = size - 1
-    compact = page.viewport_size['width'] <= 600
-    for selector, units in (('#site-main', 18 if compact else 24), ('#site-footer', 24 if compact else 36)):
-        margin = page.locator(selector).evaluate('e => parseFloat(getComputedStyle(e).marginTop)')
-        if abs(margin - units * unit) > .05:
-            raise AssertionError(f'{selector} outer spacing: {margin}px')
+    layout = page.evaluate('''() => {
+      const rect = id => document.querySelector(id).getBoundingClientRect();
+      const main = rect('#site-main');
+      const grid = getComputedStyle(document.querySelector('.grid-projects-figures'));
+      return {left: main.left, right: document.documentElement.clientWidth - main.right,
+        start: main.top - rect('#site-menu').bottom, footer: rect('#site-footer').top - main.bottom,
+        rows: parseFloat(grid.rowGap), columns: parseFloat(grid.columnGap)};
+    }''')
+    for key in ('left', 'right', 'rows', 'columns'):
+        near(key, layout[key], spacing.module)
+    near('menu to first card', layout['start'], spacing.start)
+    near('last card to footer', layout['footer'], spacing.footer)
     check_catalog_links(page.locator('.grid-projects-figure-link'), projects)
     check_sources(covers.locator('img'), [p['cover'] for p in projects])
     check_type(page, '.grid-projects-figure-caption-title > span', size, .08)
@@ -193,8 +245,7 @@ def home(page, projects, size, radius, touch):
     check_sources(page.locator('widget-cursor img'), [p.get('preview', p['cover']) for p in projects])
     for row in ('.list-projects-header', '.list-projects-item'):
         gap = page.locator(row).first.evaluate('e => parseFloat(getComputedStyle(e).columnGap)')
-        if abs(gap - 5 * unit) > .05:
-            raise AssertionError(f'{row} column gap: {gap}px')
+        near(f'{row} column gap', gap, spacing.work_columns)
     check_type(page, '.list-projects-header > span', size, .08, 'rgba(0, 0, 0, 0.3)', '"IBM Plex Mono", monospace')
     expect(page.locator('.list-projects-header')).to_have_css('text-transform', 'uppercase')
     expect(page.locator('.list-projects-header')).to_have_css('font-size-adjust', 'cap-height 0.7173')
@@ -263,6 +314,7 @@ def check_media_files(request, base, projects):
 
 
 def run(browser, base, projects, width):
+    spacing = COMPACT if width <= 600 else DESKTOP
     touch = width == 390
     size = 1 + (width / 44 if width < 440 else max(10, width / 192))
     cover_radius = width * 80 / (840 if width <= 840 else 1512)
@@ -283,15 +335,15 @@ def run(browser, base, projects, width):
                 for prop in ('background-color', 'backdrop-filter'):
                     value = work.evaluate('(button, prop) => getComputedStyle(button).getPropertyValue(prop)', prop)
                     expect(page.locator('#site-header')).to_have_css(prop, value)
-                home(page, projects, size, cover_radius, touch)
+                home(page, projects, size, cover_radius, touch, spacing)
             else:
                 check_type(page, '#site-main-header-title > span', size, .08)
                 check_section_headings(page, '#site-main-info h2', size)
                 check_type(page, '#site-main-info .text-body-content > p', size, .02)
             if project:
-                check_project_layout(page, width, size)
+                check_project_layout(page, width, size, spacing)
                 if project['slug'] == 'uxtester':
-                    check_project_menu_clearance(page, width, size)
+                    check_project_menu_clearance(page, width, spacing)
                 expect(page.locator('#site-main-header-title')).to_have_text(project['title'])
                 if project['slug'] == 'bull-user-echo':
                     title_link = page.get_by_role('heading', level=1).get_by_role('link', name=project['title'])

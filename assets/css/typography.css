@@ -67,7 +67,7 @@ body {
   line-height: inherit;
   letter-spacing: var(--label-tracking);
 }
-.list-projects-item { min-height: 0; padding-block: 1em; }
+.list-projects-item { min-height: 0; padding-block: 10px; }
 .list-projects-header > span, .list-projects-item > :is(h3, span) { margin-block: var(--type-trim); }
 .list-projects-item-index, .list-projects-item-year { font-variant-numeric: tabular-nums; }
 .list-projects-item:is(:hover, :focus-within) { color: var(--muted-type); }
@@ -85,7 +85,7 @@ body {
   color: var(--muted-type);
 }
 .section-heading {
-  --marker-size: .385em;
+  --marker-size: 4px;
   display: inline-flex;
   align-items: baseline;
   gap: calc(2 * var(--marker-size));
@@ -116,13 +116,24 @@ body {
 #about-panel .text-body-content, #site-main-info .text-body-content,
 .grid-project-figures .text-body-content, .text-body-content {
   display: grid;
-  row-gap: 2em;
+  row-gap: var(--paragraph-gap);
   max-width: none;
   font: inherit;
   letter-spacing: var(--text-tracking);
 }
-.text-body-content > p, .text-body-content > p + p,
-.text-body-content > .text-links { margin-block: var(--type-trim); }
+.text-body-content > :first-child { margin-block-start: -.27em; }
+.text-body-content > :last-child { margin-block-end: -.31em; }
+
+/* Measure the space below a rule from the first line's capitals. */
+@supports (text-box: trim-start cap alphabetic) {
+  .text-body-content > p:first-child,
+  .list-details-item:first-child > :is(dt, dd),
+  .list-rows-item:first-child > p,
+  .list-projects-item > :is(h3, span) {
+    text-box: trim-start cap alphabetic;
+    margin-block-start: 0;
+  }
+}
 
 .grid-project-figure figcaption, #simple-menu details > :not(summary) {
   font: 400 var(--type-size)/1.3 var(--type-family);
