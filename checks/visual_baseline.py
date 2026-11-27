@@ -102,6 +102,10 @@ def check_project_layout(page, width, gap):
         near(f'{name} width', box['width'], column)
     near('title top', title['top'], main['top'])
     near('title to info gap', info['top'] - title['bottom'], gap)
+    value_starts = page.locator('#site-main-info dd').evaluate_all(
+        'values => values.map(value => value.getBoundingClientRect().left)')
+    for left in value_starts:
+        near('detail value at card midpoint', left, info['left'] + info['width'] / 2)
     near('info to back gap', back['top'] - info['bottom'], gap)
     near('gallery left', gallery['left'], main['left'])
     near('gallery width', gallery['width'], main['width'] if narrow else 3 * column + 2 * gap)
@@ -173,7 +177,12 @@ def home(page, projects, size, radius, touch):
         page.mouse.click(1, 120)
     expect(about_panel).to_be_hidden()
     expect(page.get_by_role('button', name='About')).to_have_attribute('aria-expanded', 'false')
+    bars = [page.locator(selector) for selector in ('#site-header', '#site-menu')]
+    bar_positions = [bar.bounding_box()['y'] for bar in bars]
     page.evaluate('window.scrollTo(0, 160)')
+    for bar, initial_top in zip(bars, bar_positions):
+        if abs(bar.bounding_box()['y'] - initial_top) > .25:
+            raise AssertionError('The top navigation moved when the page scrolled')
     for name, offset in [('Work', 80), ('About', 120)]:
         button = page.get_by_role('button', name=name)
         button.click()
