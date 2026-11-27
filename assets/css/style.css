@@ -2,9 +2,9 @@
   --space: var(--type-size);
   --gutter: calc(2 * var(--space));
   --bar: calc(3 * var(--space));
-  --soft: #f4f4f4;
-  --soft-active: #ededed;
-  --mist: rgb(233 233 233 / 50%);
+  --soft: #f7f7f7;
+  --soft-active: #f0f0f0;
+  --mist: rgb(240 240 240 / 50%);
   --card-radius: calc(100vw * 80 / 1512);
   --panel-radius: calc(1.5 * var(--space));
   --cover-ratio: 4 / 5;
